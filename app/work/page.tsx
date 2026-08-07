@@ -51,7 +51,7 @@ function WorkHero() {
 
       {/* "Great Work" title — centered, looping slide animation */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="Great Work" />
+        <AnimatedHeroTitle text="GREAT WORK" />
       </div>
     </div>
   )
