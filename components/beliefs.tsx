@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const OUR_BELIEF_TEXT = "Our Belife"
+const OUR_BELIEF_TEXT = 'Our Belief'
 const BELIEF_DESCRIPTION = `Great brands aren't built by decoration.
 They're built through clear thinking, intentional systems, and decisions that serve the business—not trends.
 That's the standard we hold ourselves to on every project.`
@@ -15,7 +15,7 @@ export default function OurBeliefSection() {
 
       {/* Heading with Dividers */}
       <div className="flex flex-col gap-6 mb-12">
-        <h2 className="text-foreground font-medium tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
+        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
           {OUR_BELIEF_TEXT}
         </h2>
         <div className="w-full h-0.5 bg-foreground" />
