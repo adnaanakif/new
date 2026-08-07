@@ -48,18 +48,11 @@ function ProjectImage({ alt, slug }: { alt: string; slug: string }) {
   )
 }
 
-function AnimatedCaseStudyLabel() {
-  const [isHovered, setIsHovered] = useState(false)
+function AnimatedCaseStudyLabel({ isHovered }: { isHovered: boolean }) {
   const label = 'View Case Study'
 
   return (
-    <span
-      className="relative block h-6 overflow-hidden leading-6"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
-    >
+    <span className="relative block h-6 overflow-hidden leading-6">
       <motion.span
         className="block whitespace-nowrap"
         animate={{ y: isHovered ? -24 : 0 }}
@@ -86,6 +79,24 @@ function AnimatedCaseStudyLabel() {
   )
 }
 
+function CaseStudyButton({ slug }: { slug: string }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <Link
+      href={`/work/${slug}`}
+      aria-label="View Case Study"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      className="flex min-h-14 w-full items-center justify-center bg-foreground px-4 py-3 text-center text-sm text-background transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+    >
+      <AnimatedCaseStudyLabel isHovered={isHovered} />
+    </Link>
+  )
+}
+
 function ProjectContent({
   title,
   description,
@@ -107,13 +118,7 @@ function ProjectContent({
           {description}
         </p>
       </div>
-      <Link
-        href={`/work/${slug}`}
-        aria-label="View Case Study"
-        className="flex min-h-14 w-full items-center justify-center bg-foreground px-4 py-3 text-center text-sm text-background transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-      >
-        <AnimatedCaseStudyLabel />
-      </Link>
+      <CaseStudyButton slug={slug} />
     </motion.div>
   )
 }

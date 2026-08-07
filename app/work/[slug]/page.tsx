@@ -1,12 +1,30 @@
 'use client'
 
-import { use, useState } from 'react'
+import { use } from 'react'
 import { notFound } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import AnimatedHeroTitle from '@/components/animated-hero-title'
 import { getCaseStudy } from '@/lib/case-studies'
+
+const REVEAL_DURATION = 0.9
+const REVEAL_DELAY = 0.15
+const REVEAL_EASE = [0.76, 0, 0.24, 1] as const
+
+// ─── Curtain — solid panel that wipes away on mount to reveal the page ────
+function RevealCurtain() {
+  return (
+    <motion.div
+      initial={{ scaleY: 1 }}
+      animate={{ scaleY: 0 }}
+      transition={{ duration: REVEAL_DURATION, delay: REVEAL_DELAY, ease: REVEAL_EASE }}
+      style={{ transformOrigin: 'top' }}
+      className="fixed inset-0 z-50 bg-background"
+      aria-hidden="true"
+    />
+  )
+}
 
 // ─── Hero — full-device-height image with animated centered title ─────────
 function CaseStudyHero({ name, heroImage }: { name: string; heroImage: string }) {
@@ -15,72 +33,59 @@ function CaseStudyHero({ name, heroImage }: { name: string; heroImage: string })
       className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden"
       style={{ height: '100svh' }}
     >
-      <img
+      <motion.img
         src={heroImage}
         alt={name}
         className="absolute inset-0 h-full w-full object-cover"
         loading="eager"
         decoding="async"
+        initial={{ scale: 1.15 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.6, delay: REVEAL_DELAY, ease: REVEAL_EASE }}
       />
 
       {/* Gradient / scrim — same convention as work page hero */}
       <div className="absolute inset-0 bg-background" />
 
-      <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: REVEAL_DELAY + REVEAL_DURATION - 0.35, ease: 'easeOut' }}
+        className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4"
+      >
         <AnimatedHeroTitle text={name} />
-      </div>
+      </motion.div>
     </div>
   )
 }
 
-// ─── "What We Did" link — slide/underline hover effect ────────────────────
-function WhatWeDidLink({ label, href }: { label: string; href: string }) {
-  const [hovered, setHovered] = useState(false)
-
+// ─── Service pill — static bar, no hover animation ─────────────────────────
+function ServicePill({ label }: { label: string }) {
   return (
-    <a
-      href={href}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group inline-flex w-fit items-center gap-3 border-2 border-foreground px-6 py-3 text-foreground"
-    >
-      <span className="relative block h-6 overflow-hidden leading-6">
-        <motion.span
-          className="block whitespace-nowrap text-[16px] tracking-tight"
-          animate={{ y: hovered ? -24 : 0 }}
-          transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
-        >
-          <span className="flex h-6 items-center whitespace-nowrap">{label}</span>
-          <span className="flex h-6 items-center whitespace-nowrap" aria-hidden="true">
-            {label}
-          </span>
-        </motion.span>
-      </span>
-      <motion.span
-        animate={{ x: hovered ? 4 : 0 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="text-[18px] leading-none"
-        aria-hidden="true"
-      >
-        &rarr;
-      </motion.span>
-    </a>
+    <div className="flex w-full items-center justify-center bg-foreground/60 px-6 py-4 text-center text-[16px] font-medium tracking-tight text-background md:text-[18px]">
+      {label}
+    </div>
   )
 }
 
-// ─── Details — left title/subtitle, right "What We Did" CTA ───────────────
+// ─── Details — left title/subtitle, right static service pills ────────────
 function CaseStudyDetails({
   name,
   subtitle,
-  whatWeDid,
+  services,
 }: {
   name: string
   subtitle: string
-  whatWeDid: { label: string; href: string }
+  services: string[]
 }) {
   return (
-    <section className="border-b-2 border-foreground px-4 py-12 lg:px-9 lg:py-16">
-      <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+    <motion.section
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: REVEAL_DELAY + REVEAL_DURATION - 0.2, ease: 'easeOut' }}
+      className="border-b-2 border-foreground px-4 py-12 lg:px-9 lg:py-16"
+    >
+      <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-4 lg:max-w-2xl">
           <h2 className="text-[40px] font-medium leading-[0.95] tracking-tighter md:text-[56px]">
             {name}
@@ -90,11 +95,13 @@ function CaseStudyDetails({
           </p>
         </div>
 
-        <div className="shrink-0">
-          <WhatWeDidLink label={whatWeDid.label} href={whatWeDid.href} />
+        <div className="flex w-full flex-col gap-1 lg:w-[340px] lg:shrink-0">
+          {services.map((service) => (
+            <ServicePill key={service} label={service} />
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
@@ -134,13 +141,14 @@ export default function CaseStudyPage({
 
   return (
     <>
+      <RevealCurtain />
       <Header preloaderDone={true} />
       <main className="min-h-screen bg-background text-foreground">
         <CaseStudyHero name={project.name} heroImage={project.heroImage} />
         <CaseStudyDetails
           name={project.name}
           subtitle={project.subtitle}
-          whatWeDid={project.whatWeDid}
+          services={project.services}
         />
         <CaseStudyGallery images={project.images} name={project.name} />
       </main>
