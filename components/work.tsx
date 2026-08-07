@@ -90,7 +90,7 @@ function CaseStudyButton({ slug }: { slug: string }) {
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
-      className="flex min-h-14 w-full items-center justify-center bg-foreground px-4 py-3 text-center text-sm text-background transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+      className="flex min-h-14 w-full items-center justify-center bg-foreground px-4 py-3 text-center text-[18px] text-background transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
     >
       <AnimatedCaseStudyLabel isHovered={isHovered} />
     </Link>
@@ -127,7 +127,7 @@ export default function WorkSection() {
   return (
     <section className="w-full bg-background px-4 py-20 text-foreground md:py-28 lg:px-9" aria-labelledby="our-work-heading">
       <div className="mb-12 flex flex-col gap-6">
-        <h2 id="our-work-heading" className="text-[64px] font-medium leading-[0.9] tracking-tighter md:text-[100px] lg:text-[120px]">
+        <h2 id="our-work-heading" className="text-[64px] font-medium uppercase leading-[0.9] tracking-tighter md:text-[100px] lg:text-[120px]">
           Our Work
         </h2>
         <div className="h-0.5 w-full bg-foreground" />

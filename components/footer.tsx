@@ -87,7 +87,7 @@ export default function FooterSection() {
     <footer className="relative w-full bg-background overflow-hidden">
       {/* Heading */}
       <div className="px-4 lg:px-8 pt-10 md:pt-14 lg:py-8">
-        <h2 className="text-foreground font-medium tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
+        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
           Let&rsquo;s start
         </h2>
       </div>
