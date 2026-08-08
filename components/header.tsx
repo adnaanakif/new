@@ -597,7 +597,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             >
               <DesktopNavItem label="Work," onClick={() => router.push('/work')} />
               <DesktopNavItem label="About," onClick={() => router.push('/about')} />
-              <DesktopNavItem label="Insights," onClick={() => router.push('/insights')} />
 <DesktopNavItem label="Contact," onClick={() => window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')} />
             </motion.div>
           </motion.div>
