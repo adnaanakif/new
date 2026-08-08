@@ -596,7 +596,8 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
               <DesktopNavItem label="Work," onClick={() => router.push('/work')} />
-<DesktopNavItem label="Insights," onClick={() => router.push('/insights')} />
+              <DesktopNavItem label="About," onClick={() => router.push('/about')} />
+              <DesktopNavItem label="Insights," onClick={() => router.push('/insights')} />
 <DesktopNavItem label="Contact," onClick={() => window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')} />
             </motion.div>
           </motion.div>
@@ -681,6 +682,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       const isActive =
                         (link === 'Home'     && pathname === '/')         ||
                         (link === 'Work'     && pathname === '/work')     ||
+                        (link === 'About'    && pathname === '/about')     ||
                         (link === 'Design News' && pathname === '/design-news') ||
                         (link === 'Premium Store' && pathname === '/store')
                       return (
