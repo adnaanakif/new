@@ -69,7 +69,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           {/* Middle Column - BEFORE DESIGN (masked slide-up reveal) */}
           <div className="text-center w-full overflow-hidden lg:mt-8 mt-5">
             <motion.h2
-              className="text-foreground text-balance font-semibold tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,7.5rem)]"
+              className="text-foreground text-balance font-semibold uppercase tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,7.5rem)]"
               initial={{ y: '100%', opacity: 0 }}
               animate={
                 triggerAnimation
