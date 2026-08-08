@@ -34,7 +34,7 @@ export default function OurBeliefSection() {
           <div className="w-full aspect-video overflow-hidden bg-foreground">
             <img
               src="#"
-              alt="Our belief"
+              alt="Our Belief"
               className="w-full h-full object-cover"
             />
           </div>
