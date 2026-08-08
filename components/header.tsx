@@ -467,7 +467,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'About', 'Contact']
+  const navLinks = ['Work', 'About', 'Contact', 'Insight']
 
   const rightNavLinks = [
     { name: 'Invoice', path: '/invoice' },
@@ -488,7 +488,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   const handleNavClick = (link: string) => {
     if (link === 'Home') router.push('/')
     else if (link === 'Work') router.push('/work')
-    else if (link === 'Insights') router.push('/insights')
+    else if (link === 'About') router.push('/about')
     else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
   }
 
