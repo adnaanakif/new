@@ -43,12 +43,99 @@ function AboutHero() {
   )
 }
 
+function AboutImage({ label }: { label: string }) {
+  return (
+    <div className="flex aspect-video w-full items-center justify-center overflow-hidden bg-foreground text-background" role="img" aria-label={label}>
+      <span className="text-lg uppercase tracking-tight opacity-70">{label}</span>
+    </div>
+  )
+}
+
+function AboutText({ children }: { children: React.ReactNode }) {
+  return <div className="flex min-h-full w-full items-center bg-accent px-6 py-10 text-accent-foreground md:px-10 md:py-14">{children}</div>
+}
+
+function AboutSection({ title, children, reverse = false }: { title: string; children: React.ReactNode; reverse?: boolean }) {
+  return (
+    <section className="flex flex-col gap-6 border-t-2 border-foreground py-12 md:gap-8 md:py-16" aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
+      <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-4xl font-medium uppercase leading-none tracking-tight md:text-6xl">{title}</h2>
+      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8">
+        {reverse ? children : children}
+      </div>
+    </section>
+  )
+}
+
+function AboutContent() {
+  return (
+    <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
+      <AboutSection title="The Studio">
+        <>
+          <AboutImage label="Studio image" />
+          <AboutText>
+            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+              <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
+              <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
+              <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
+            </div>
+          </AboutText>
+        </>
+      </AboutSection>
+
+      <AboutSection title="How We Work">
+        <>
+          <AboutText>
+            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+              <p>We call it the Lozinr Method — six stages, one direction.</p>
+              <ol className="flex flex-col gap-3 text-lg md:text-xl">
+                <li><strong>Listen</strong> — We start by understanding the business, not the aesthetic preferences.</li>
+                <li><strong>Orient</strong> — We find where the brand actually stands, against competitors and against the truth.</li>
+                <li><strong>Zero In</strong> — We narrow until one clear direction remains.</li>
+                <li><strong>Ignite</strong> — We build the identity system around that direction.</li>
+                <li><strong>Narrate</strong> — We shape how the brand speaks, not just how it looks.</li>
+                <li><strong>Reinforce</strong> — We hand over a system built to stay consistent long after we&apos;re gone.</li>
+              </ol>
+            </div>
+          </AboutText>
+          <AboutImage label="Method image" />
+        </>
+      </AboutSection>
+
+      <AboutSection title="Who We Work With">
+        <>
+          <AboutImage label="Client image" />
+          <AboutText>
+            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+              <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
+              <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
+            </div>
+          </AboutText>
+        </>
+      </AboutSection>
+
+      <section className="flex flex-col gap-6 border-t-2 border-foreground py-12 md:gap-8 md:py-16" aria-labelledby="what-we-stand-for-heading">
+        <h2 id="what-we-stand-for-heading" className="text-4xl font-medium uppercase leading-none tracking-tight md:text-6xl">What We Stand For</h2>
+        <div className="flex min-h-64 w-full items-center justify-center bg-destructive px-6 py-12 text-center text-2xl leading-tight text-destructive-foreground md:min-h-80 md:text-4xl">
+          <div className="flex max-w-3xl flex-col gap-3">
+            <p>Craft over decoration.</p>
+            <p>Clarity before creativity.</p>
+            <p>Built to last, not to trend.</p>
+            <p>Honest over impressive.</p>
+            <p>Founders first.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 export default function AboutPage() {
   return (
     <>
       <Header preloaderDone={true} />
       <main className="min-h-screen bg-background text-foreground">
         <AboutHero />
+        <AboutContent />
       </main>
       <Footer />
     </>
