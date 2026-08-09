@@ -59,8 +59,8 @@ function AboutSection({ title, children, reverse = false, border = true }: { tit
   return (
     <section className={`flex flex-col gap-8 py-12 md:gap-6 md:py-16 ${border ? 'border-t-2 border-foreground' : ''}`} aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
       <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">{title}</h2>
-      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 md:gap-6">
-        {reverse ? children : children}
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
+        {children}
       </div>
     </section>
   )
@@ -71,7 +71,7 @@ function AboutContent() {
     <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
       <AboutSection title="The Studio" border={false}>
         <>
-          <AboutImage label="Studio image" src="/about-studio.png" />
+          <AboutImage label="Studio image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
@@ -97,13 +97,13 @@ function AboutContent() {
               </ol>
             </div>
           </AboutText>
-          <AboutImage label="Method image" src="/about-method.png" />
+          <AboutImage label="Method image" src="#" />
         </>
       </AboutSection>
 
       <AboutSection title="Who We Work With">
         <>
-          <AboutImage label="Client image" src="/about-clients.png" />
+          <AboutImage label="Client image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
