@@ -92,7 +92,10 @@ function AboutSection({ title, children }: { title: string; children: React.Reac
   )
 }
 
-// Each value gets its own full-width bg row — no borders between them, stacked flush like the reference
+// Each value is a full-width row with a thin divider — matches the
+// border-b list pattern used in process.tsx and work.tsx, instead of a
+// solid full-bleed block. Accent color only appears as a hover dot,
+// respecting the "accent never a filled block/background" rule.
 const VALUES = [
   'Craft over decoration.',
   'Clarity before creativity.',
@@ -101,13 +104,27 @@ const VALUES = [
   'Founders first.',
 ]
 
-function ValueRow({ text }: { text: string }) {
+function ValueRow({ text, index }: { text: string; index: number }) {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <motion.div
       {...reveal}
-      className="flex w-full items-center justify-center bg-foreground px-6 py-10 text-center md:py-14"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative flex w-full items-center gap-6 border-b border-foreground py-6 last:border-none md:py-8"
     >
-      <p className="text-2xl leading-tight text-background md:text-4xl">{text}</p>
+      <span
+        className="h-[8px] w-[8px] shrink-0 rounded-full bg-accent transition-opacity duration-300"
+        style={{ opacity: isHovered ? 1 : 0 }}
+        aria-hidden="true"
+      />
+      <span className="text-[20px] font-medium tracking-tight text-muted-foreground/50 md:text-[28px]">
+        0{index + 1}
+      </span>
+      <p className="text-[24px] font-medium leading-tight tracking-tighter text-foreground md:text-[48px] lg:text-[56px]">
+        {text}
+      </p>
     </motion.div>
   )
 }
@@ -164,8 +181,8 @@ function AboutContent() {
           <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
           <div className="w-full h-0.5 bg-foreground" />
         </div>
-        {/* Full-width bleed, flush stacked rows — no gaps, no borders */}
-        <div className="-mx-4 flex w-screen flex-col lg:-mx-9">
+        {/* Full-width bleed, stacked rows with a minimal gap between each */}
+        <div className="-mx-4 flex w-screen flex-col gap-1 lg:-mx-9">
           {VALUES.map((value) => (
             <ValueRow key={value} text={value} />
           ))}
