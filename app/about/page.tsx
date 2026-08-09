@@ -96,7 +96,7 @@ function AboutContent() {
     <div className="flex flex-col px-4 text-foreground lg:px-9">
       <AboutSection title="The Studio" border={false}>
         <>
-          <AboutImage label="Studio image" src="/about-studio.png" />
+          <AboutImage label="Studio image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
@@ -109,7 +109,7 @@ function AboutContent() {
 
       <AboutSection title="How We Work">
         <>
-          <AboutImage label="Method image" src="/about-method.png" />
+          <AboutImage label="Method image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
@@ -128,7 +128,7 @@ function AboutContent() {
 
       <AboutSection title="Who We Work With">
         <>
-          <AboutImage label="Client image" src="/about-clients.png" />
+          <AboutImage label="Client image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
@@ -138,7 +138,7 @@ function AboutContent() {
         </>
       </AboutSection>
 
-      <section className="flex flex-col gap-6 border-t-2 border-foreground py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">
+      <section className="flex flex-col gap-6 py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">
         <div className="flex flex-col gap-6 mb-12">
           <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
           <div className="w-full h-0.5 bg-foreground" />
