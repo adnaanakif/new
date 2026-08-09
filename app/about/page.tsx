@@ -120,7 +120,7 @@ function ValueRow({ text, index }: { text: string; index: number }) {
         aria-hidden="true"
       />
       <span className="text-[20px] font-medium tracking-tight text-muted-foreground/50 md:text-[28px]">
-        0{index + 1}
+        {String(index + 1).padStart(2, '0')}
       </span>
       <p className="text-[24px] font-medium leading-tight tracking-tighter text-foreground md:text-[48px] lg:text-[56px]">
         {text}
@@ -181,10 +181,9 @@ function AboutContent() {
           <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
           <div className="w-full h-0.5 bg-foreground" />
         </div>
-        {/* Full-width bleed, stacked rows with a minimal gap between each */}
-        <div className="-mx-4 flex w-screen flex-col gap-1 lg:-mx-9">
-          {VALUES.map((value) => (
-            <ValueRow key={value} text={value} />
+        <div className="flex w-full flex-col">
+          {VALUES.map((value, index) => (
+            <ValueRow key={value} text={value} index={index} />
           ))}
         </div>
       </section>
