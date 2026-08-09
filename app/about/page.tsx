@@ -43,16 +43,29 @@ function AboutHero() {
   )
 }
 
+const reveal = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-100px' },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+}
+
 function AboutImage({ label, src }: { label: string; src: string }) {
   return (
-    <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
-      <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
-    </a>
+    <motion.div {...reveal} className="w-full">
+      <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
+        <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
+      </a>
+    </motion.div>
   )
 }
 
 function AboutText({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-full w-full items-center px-0 py-2 text-foreground md:px-0 md:py-4">{children}</div>
+  return (
+    <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.1 }} className="w-full flex flex-col gap-6">
+      <div className="flex min-h-full w-full items-center px-0 py-2 text-foreground md:px-0 md:py-4">{children}</div>
+    </motion.div>
+  )
 }
 
 function AboutSection({ title, children, reverse = false, border = true }: { title: string; children: React.ReactNode; reverse?: boolean; border?: boolean }) {
@@ -71,7 +84,7 @@ function AboutContent() {
     <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
       <AboutSection title="The Studio" border={false}>
         <>
-          <AboutImage label="Studio image" src="#" />
+          <AboutImage label="Studio image" src="/about-studio.png" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
@@ -97,13 +110,13 @@ function AboutContent() {
               </ol>
             </div>
           </AboutText>
-          <AboutImage label="Method image" src="#" />
+          <AboutImage label="Method image" src="/about-method.png" />
         </>
       </AboutSection>
 
       <AboutSection title="Who We Work With">
         <>
-          <AboutImage label="Client image" src="#" />
+          <AboutImage label="Client image" src="/about-clients.png" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
