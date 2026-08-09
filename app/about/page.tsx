@@ -43,11 +43,11 @@ function AboutHero() {
   )
 }
 
-function AboutImage({ label }: { label: string }) {
+function AboutImage({ label, src }: { label: string; src: string }) {
   return (
-    <div className="flex aspect-video w-full items-center justify-center overflow-hidden bg-foreground text-background" role="img" aria-label={label}>
-      <span className="text-lg uppercase tracking-tight opacity-70">{label}</span>
-    </div>
+    <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
+      <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
+    </a>
   )
 }
 
@@ -57,9 +57,9 @@ function AboutText({ children }: { children: React.ReactNode }) {
 
 function AboutSection({ title, children, reverse = false }: { title: string; children: React.ReactNode; reverse?: boolean }) {
   return (
-    <section className="flex flex-col gap-6 border-t-2 border-foreground py-12 md:gap-8 md:py-16" aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
-      <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-4xl font-medium uppercase leading-none tracking-tight md:text-6xl">{title}</h2>
-      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-8">
+    <section className="flex flex-col gap-8 py-12 md:gap-6 md:py-16" aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
+      <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">{title}</h2>
+      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 md:gap-6">
         {reverse ? children : children}
       </div>
     </section>
@@ -71,7 +71,7 @@ function AboutContent() {
     <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
       <AboutSection title="The Studio">
         <>
-          <AboutImage label="Studio image" />
+          <AboutImage label="Studio image" src="/about-studio.png" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
@@ -97,13 +97,13 @@ function AboutContent() {
               </ol>
             </div>
           </AboutText>
-          <AboutImage label="Method image" />
+          <AboutImage label="Method image" src="/about-method.png" />
         </>
       </AboutSection>
 
       <AboutSection title="Who We Work With">
         <>
-          <AboutImage label="Client image" />
+          <AboutImage label="Client image" src="/about-clients.png" />
           <AboutText>
             <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
               <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
@@ -113,8 +113,8 @@ function AboutContent() {
         </>
       </AboutSection>
 
-      <section className="flex flex-col gap-6 border-t-2 border-foreground py-12 md:gap-8 md:py-16" aria-labelledby="what-we-stand-for-heading">
-        <h2 id="what-we-stand-for-heading" className="text-4xl font-medium uppercase leading-none tracking-tight md:text-6xl">What We Stand For</h2>
+      <section className="flex flex-col gap-8 py-12 md:gap-6 md:py-16" aria-labelledby="what-we-stand-for-heading">
+        <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
         <div className="flex min-h-64 w-full items-center justify-center bg-destructive px-6 py-12 text-center text-2xl leading-tight text-destructive-foreground md:min-h-80 md:text-4xl">
           <div className="flex max-w-3xl flex-col gap-3">
             <p>Craft over decoration.</p>
