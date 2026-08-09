@@ -52,7 +52,7 @@ function AboutImage({ label, src }: { label: string; src: string }) {
 }
 
 function AboutText({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-full w-full items-center bg-accent px-6 py-10 text-accent-foreground md:px-10 md:py-14">{children}</div>
+  return <div className="flex min-h-full w-full items-center px-0 py-2 text-foreground md:px-0 md:py-4">{children}</div>
 }
 
 function AboutSection({ title, children, reverse = false, border = true }: { title: string; children: React.ReactNode; reverse?: boolean; border?: boolean }) {
