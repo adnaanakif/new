@@ -72,10 +72,11 @@ function AboutText({ children }: { children: React.ReactNode }) {
   )
 }
 
-function AboutSection({ title, children, border = true }: { title: string; children: React.ReactNode; border?: boolean }) {
+// border prop removed entirely — no divider between sections anymore
+function AboutSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section
-      className={`flex flex-col gap-6 py-20 md:py-28 ${border ? 'border-t-2 border-foreground' : ''}`}
+      className="flex flex-col gap-6 py-20 md:py-28"
       aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}
     >
       <div className="flex flex-col gap-6 mb-12">
@@ -91,10 +92,30 @@ function AboutSection({ title, children, border = true }: { title: string; child
   )
 }
 
+// Each value gets its own full-width bg row — no borders between them, stacked flush like the reference
+const VALUES = [
+  'Craft over decoration.',
+  'Clarity before creativity.',
+  'Built to last, not to trend.',
+  'Honest over impressive.',
+  'Founders first.',
+]
+
+function ValueRow({ text }: { text: string }) {
+  return (
+    <motion.div
+      {...reveal}
+      className="flex w-full items-center justify-center bg-foreground px-6 py-10 text-center md:py-14"
+    >
+      <p className="text-2xl leading-tight text-background md:text-4xl">{text}</p>
+    </motion.div>
+  )
+}
+
 function AboutContent() {
   return (
     <div className="flex flex-col px-4 text-foreground lg:px-9">
-      <AboutSection title="The Studio" border={false}>
+      <AboutSection title="The Studio">
         <>
           <AboutImage label="Studio image" src="#" />
           <AboutText>
@@ -143,14 +164,11 @@ function AboutContent() {
           <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
           <div className="w-full h-0.5 bg-foreground" />
         </div>
-        <div className="flex min-h-64 w-full items-center justify-center bg-destructive px-6 py-12 text-center text-2xl leading-tight text-destructive-foreground md:min-h-80 md:text-4xl">
-          <div className="flex max-w-3xl flex-col gap-3">
-            <p>Craft over decoration.</p>
-            <p>Clarity before creativity.</p>
-            <p>Built to last, not to trend.</p>
-            <p>Honest over impressive.</p>
-            <p>Founders first.</p>
-          </div>
+        {/* Full-width bleed, flush stacked rows — no gaps, no borders */}
+        <div className="-mx-4 flex w-screen flex-col lg:-mx-9">
+          {VALUES.map((value) => (
+            <ValueRow key={value} text={value} />
+          ))}
         </div>
       </section>
     </div>
