@@ -55,9 +55,9 @@ function AboutText({ children }: { children: React.ReactNode }) {
   return <div className="flex min-h-full w-full items-center bg-accent px-6 py-10 text-accent-foreground md:px-10 md:py-14">{children}</div>
 }
 
-function AboutSection({ title, children, reverse = false }: { title: string; children: React.ReactNode; reverse?: boolean }) {
+function AboutSection({ title, children, reverse = false, border = true }: { title: string; children: React.ReactNode; reverse?: boolean; border?: boolean }) {
   return (
-    <section className="flex flex-col gap-8 py-12 md:gap-6 md:py-16" aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
+    <section className={`flex flex-col gap-8 py-12 md:gap-6 md:py-16 ${border ? 'border-t-2 border-foreground' : ''}`} aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
       <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">{title}</h2>
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 md:gap-6">
         {reverse ? children : children}
@@ -69,7 +69,7 @@ function AboutSection({ title, children, reverse = false }: { title: string; chi
 function AboutContent() {
   return (
     <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
-      <AboutSection title="The Studio">
+      <AboutSection title="The Studio" border={false}>
         <>
           <AboutImage label="Studio image" src="/about-studio.png" />
           <AboutText>
