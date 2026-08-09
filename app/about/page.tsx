@@ -62,16 +62,28 @@ function AboutImage({ label, src }: { label: string; src: string }) {
 
 function AboutText({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.1 }} className="w-full flex flex-col gap-6">
-      <div className="flex min-h-full w-full items-center px-0 py-2 text-foreground md:px-0 md:py-4">{children}</div>
+    <motion.div
+      {...reveal}
+      transition={{ ...reveal.transition, delay: 0.1 }}
+      className="w-full flex flex-col gap-6"
+    >
+      {children}
     </motion.div>
   )
 }
 
-function AboutSection({ title, children, reverse = false, border = true }: { title: string; children: React.ReactNode; reverse?: boolean; border?: boolean }) {
+function AboutSection({ title, children, border = true }: { title: string; children: React.ReactNode; border?: boolean }) {
   return (
-    <section className={`flex flex-col gap-8 py-12 md:gap-6 md:py-16 ${border ? 'border-t-2 border-foreground' : ''}`} aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}>
-      <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">{title}</h2>
+    <section
+      className={`flex flex-col gap-6 py-20 md:py-28 ${border ? 'border-t-2 border-foreground' : ''}`}
+      aria-labelledby={`${title.toLowerCase().replaceAll(' ', '-')}-heading`}
+    >
+      <div className="flex flex-col gap-6 mb-12">
+        <h2 id={`${title.toLowerCase().replaceAll(' ', '-')}-heading`} className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
+          {title}
+        </h2>
+        <div className="w-full h-0.5 bg-foreground" />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
         {children}
       </div>
@@ -81,12 +93,12 @@ function AboutSection({ title, children, reverse = false, border = true }: { tit
 
 function AboutContent() {
   return (
-    <div className="flex flex-col px-4 pb-20 pt-12 md:px-8 md:pb-28 md:pt-20 lg:px-10">
+    <div className="flex flex-col px-4 text-foreground lg:px-9">
       <AboutSection title="The Studio" border={false}>
         <>
           <AboutImage label="Studio image" src="/about-studio.png" />
           <AboutText>
-            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
               <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
               <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
@@ -97,10 +109,11 @@ function AboutContent() {
 
       <AboutSection title="How We Work">
         <>
+          <AboutImage label="Method image" src="/about-method.png" />
           <AboutText>
-            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
-              <ol className="flex flex-col gap-3 text-lg md:text-xl">
+              <ol className="flex flex-col gap-3">
                 <li><strong>Listen</strong> — We start by understanding the business, not the aesthetic preferences.</li>
                 <li><strong>Orient</strong> — We find where the brand actually stands, against competitors and against the truth.</li>
                 <li><strong>Zero In</strong> — We narrow until one clear direction remains.</li>
@@ -110,7 +123,6 @@ function AboutContent() {
               </ol>
             </div>
           </AboutText>
-          <AboutImage label="Method image" src="/about-method.png" />
         </>
       </AboutSection>
 
@@ -118,7 +130,7 @@ function AboutContent() {
         <>
           <AboutImage label="Client image" src="/about-clients.png" />
           <AboutText>
-            <div className="flex flex-col gap-5 text-xl leading-relaxed md:text-2xl">
+            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
               <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
             </div>
@@ -126,8 +138,11 @@ function AboutContent() {
         </>
       </AboutSection>
 
-      <section className="flex flex-col gap-8 py-12 md:gap-6 md:py-16" aria-labelledby="what-we-stand-for-heading">
-        <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
+      <section className="flex flex-col gap-6 border-t-2 border-foreground py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">
+        <div className="flex flex-col gap-6 mb-12">
+          <h2 id="what-we-stand-for-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">What We Stand For</h2>
+          <div className="w-full h-0.5 bg-foreground" />
+        </div>
         <div className="flex min-h-64 w-full items-center justify-center bg-destructive px-6 py-12 text-center text-2xl leading-tight text-destructive-foreground md:min-h-80 md:text-4xl">
           <div className="flex max-w-3xl flex-col gap-3">
             <p>Craft over decoration.</p>
