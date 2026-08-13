@@ -12,11 +12,11 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'baked-1',
-    name: 'Bekary',
+    name: 'BAKED',
     subtitle:
-      "Great brands aren't built by decoration. They're built through clear thinking, intentional systems, and decisions that serve the business.",
+      'BAKED on Earsham Street had earned real community trust in just four months — daily queues, a loyal following, genuine word-of-mouth. But their identity had not caught up. We built a complete brand system: a distinctive mark, a warm and confident visual language, and full application across packaging, signage, and social — so the shop finally looks like what it already is.',
     heroImage: '#',
-    services: ['Strategy & Positioning', 'Branding', 'Packaging', 'Tone of Voice'],
+    services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Signage', 'Social Templates'],
     images: Array.from({ length: 10 }, () => '#'),
   },
   {

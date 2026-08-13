@@ -6,11 +6,11 @@ import Link from 'next/link'
 
 const PROJECTS = [
   {
-    title: 'Bekary',
+    title: 'BAKED',
     slug: 'baked-1',
-    description: `Great brands aren't built by decoration.
-They're built through clear thinking, intentional systems, and decisions that serve the business.`,
-    imageAlt: 'Bekary brand project preview',
+    description: `A bakery brand built on real community trust.
+An identity made to match the warmth of the shop.`,
+    imageAlt: 'BAKED brand project preview',
     imageFirst: true,
   },
   {
