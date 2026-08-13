@@ -11,6 +11,7 @@ const PROJECTS = [
     description: `A bakery brand built on real community trust.
 An identity made to match the warmth of the shop.`,
     imageAlt: 'BAKED brand project preview',
+    imageSrc: '/baked-thumbnail.jpg',
     imageFirst: true,
   },
   {
@@ -38,11 +39,11 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 }
 
-function ProjectImage({ alt, slug }: { alt: string; slug: string }) {
+function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
   return (
     <motion.div {...reveal} className="block w-full overflow-hidden bg-foreground aspect-video">
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
-        <img src="#" alt={alt} className="h-full w-full object-cover" />
+        <img src={src} alt={alt} className="h-full w-full object-cover" />
       </Link>
     </motion.div>
   )
@@ -138,13 +139,13 @@ export default function WorkSection() {
           <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
             {project.imageFirst ? (
               <>
-                <ProjectImage alt={project.imageAlt} slug={project.slug} />
+                <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
                 <ProjectContent title={project.title} description={project.description} slug={project.slug} />
               </>
             ) : (
               <>
                 <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-                <ProjectImage alt={project.imageAlt} slug={project.slug} />
+                <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
               </>
             )}
             {index < PROJECTS.length - 1 && <div className="h-0.5 w-full bg-foreground lg:col-span-2" />}
