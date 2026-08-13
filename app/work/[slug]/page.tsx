@@ -53,7 +53,9 @@ function CaseStudyHero({ name, heroImage }: { name: string; heroImage: string })
         transition={{ duration: 0.8, delay: REVEAL_DELAY + REVEAL_DURATION - 0.35, ease: 'easeOut' }}
         className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4"
       >
-        <AnimatedHeroTitle text={name.toUpperCase()} />
+        <div className="text-background [&_h1]:text-background">
+          <AnimatedHeroTitle text={name.toUpperCase()} />
+        </div>
       </motion.div>
     </div>
   )
