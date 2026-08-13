@@ -45,7 +45,7 @@ function CaseStudyHero({ name, heroImage }: { name: string; heroImage: string })
       />
 
       {/* Gradient / scrim — same convention as work page hero */}
-      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-background/30" />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
