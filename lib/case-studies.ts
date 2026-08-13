@@ -18,7 +18,13 @@ export const caseStudies: CaseStudy[] = [
       'BAKED on Earsham Street had earned real community trust in just four months — daily queues, a loyal following, genuine word-of-mouth. But their identity had not caught up. We built a complete brand system: a distinctive mark, a warm and confident visual language, and full application across packaging, signage, and social — so the shop finally looks like what it already is.',
     heroImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HERO%20IMAGE-1GbIK5ztXd1jx0vUuqodLBU9jVWwaM.jpg',
     services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Signage', 'Social Templates'],
-    images: ['/baked-problem.jpg', ...Array.from({ length: 9 }, () => '#')],
+    images: [
+      '/baked-problem.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MOODBOARD-q7n5x1faBvY7opAlutHFyxqqaZSln3.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SKETCHING-Nwu2nDfcvXKj54kC9w1rty8xAO35Ar.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGOSHOT-TLfus6xuZqjxssvNcLEPVNtK5YoFU9.jpg',
+      ...Array.from({ length: 6 }, () => '#'),
+    ],
     processCaptions: [
       { title: 'Problem', description: 'BAKED. on Earsham Street had built genuine community trust in four months, but its identity had not caught up. The website used an elegant serif wordmark while Instagram used a separate illustrated storefront, leaving the brand fragmented and difficult to own as the business grew.' },
       { title: 'Research', description: 'We studied the independent bakery category and found two familiar lanes: whimsical illustration or refined restraint. We also looked at BAKED.’s own products, using warm crust, chocolate, and roasted tones already present in the bread as the most honest starting point.' },
