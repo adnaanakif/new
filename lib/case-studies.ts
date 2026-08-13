@@ -22,7 +22,7 @@ export const caseStudies: CaseStudy[] = [
       '/baked-problem.jpg',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MOODBOARD-q7n5x1faBvY7opAlutHFyxqqaZSln3.jpg',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SKETCHING-Nwu2nDfcvXKj54kC9w1rty8xAO35Ar.jpg',
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGOSHOT-TLfus6xuZqjxssvNcLEPVNtK5YoFU9.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGOSHOT-vFkcSKBA9bbpkOTSqln2XlfAu9kuAs.jpg',
       ...Array.from({ length: 6 }, () => '#'),
     ],
     processCaptions: [
