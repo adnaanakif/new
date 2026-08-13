@@ -2,6 +2,7 @@
 
 import { use } from 'react'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -33,16 +34,22 @@ function CaseStudyHero({ name, heroImage }: { name: string; heroImage: string })
       className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden"
       style={{ height: '100svh' }}
     >
-      <motion.img
-        src={heroImage}
-        alt={name}
-        className="absolute inset-0 h-full w-full object-cover"
-        loading="eager"
-        decoding="async"
-        initial={{ scale: 1.15 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.6, delay: REVEAL_DELAY, ease: REVEAL_EASE }}
-      />
+          <motion.div
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.6, delay: REVEAL_DELAY, ease: REVEAL_EASE }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={heroImage}
+              alt={name}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+
 
       {/* Gradient / scrim — same convention as work page hero */}
       <div className="absolute inset-0 bg-background/30" />
@@ -126,12 +133,16 @@ function CaseStudyGallery({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full overflow-hidden bg-foreground/10"
+            className="relative aspect-video w-full overflow-hidden bg-foreground/10"
           >
-            <img
+            <Image
               src={src}
               alt={`${name} — image ${index + 1}`}
-              className="h-full w-full object-cover"
+              fill
+              loading={index === 0 ? 'eager' : 'lazy'}
+              priority={index === 0}
+              sizes="(max-width: 1024px) calc(100vw - 2rem), calc(100vw - 4.5rem)"
+              className="object-cover"
             />
           </motion.div>
           {index < 4 && processCaptions[index] ? (
