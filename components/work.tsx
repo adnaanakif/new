@@ -7,7 +7,7 @@ import Link from 'next/link'
 const PROJECTS = [
   {
     title: 'BAKED',
-    slug: 'baked-1',
+    slug: 'BAKED',
     description: `A bakery brand built on real community trust.
 An identity made to match the warmth of the shop.`,
     imageAlt: 'BAKED brand project preview',
