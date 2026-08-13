@@ -23,7 +23,11 @@ export const caseStudies: CaseStudy[] = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/MOODBOARD-q7n5x1faBvY7opAlutHFyxqqaZSln3.jpg',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SKETCHING-Nwu2nDfcvXKj54kC9w1rty8xAO35Ar.jpg',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGOSHOT-vFkcSKBA9bbpkOTSqln2XlfAu9kuAs.jpg',
-      ...Array.from({ length: 6 }, () => '#'),
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/COLORS-fIryHgI0aB4t9K0pjAAWFybnz00D6Y.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TYPOGRAPHY-yvzHvUG0MPFCV1LbnyLpMggkAyNjv0.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PATTERN-rRj4RDnQEH8VKBhhRqT5vGHrLv9PN6.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FAVICON-aNp9SvzxKmwHsBkeu2CDj1VOPc1UNy.jpg',
+      ...Array.from({ length: 2 }, () => '#'),
     ],
     processCaptions: [
       { title: 'Problem', description: 'BAKED. on Earsham Street had built genuine community trust in four months, but its identity had not caught up. The website used an elegant serif wordmark while Instagram used a separate illustrated storefront, leaving the brand fragmented and difficult to own as the business grew.' },
