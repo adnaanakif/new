@@ -18,12 +18,12 @@ export const caseStudies: CaseStudy[] = [
       'BAKED on Earsham Street had earned real community trust in just four months — daily queues, a loyal following, genuine word-of-mouth. But their identity had not caught up. We built a complete brand system: a distinctive mark, a warm and confident visual language, and full application across packaging, signage, and social — so the shop finally looks like what it already is.',
     heroImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HERO%20IMAGE-1GbIK5ztXd1jx0vUuqodLBU9jVWwaM.jpg',
     services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Signage', 'Social Templates'],
-    images: Array.from({ length: 10 }, () => '#'),
+    images: ['/baked-problem.jpg', ...Array.from({ length: 9 }, () => '#')],
     processCaptions: [
-      { title: 'Problem', description: 'Demo description: the brand needed a clearer identity that matched the strength of its existing community.' },
-      { title: 'Research', description: 'Demo description: we studied the shop, its customers, its daily rituals, and the local context around Earsham Street.' },
-      { title: 'Exploration', description: 'Demo description: we explored marks, colour, type, and a visual language with warmth and confidence.' },
-      { title: 'Decision', description: 'Demo description: we selected a distinctive brand system designed to work across every customer touchpoint.' },
+      { title: 'Problem', description: 'BAKED. on Earsham Street had built genuine community trust in four months, but its identity had not caught up. The website used an elegant serif wordmark while Instagram used a separate illustrated storefront, leaving the brand fragmented and difficult to own as the business grew.' },
+      { title: 'Research', description: 'We studied the independent bakery category and found two familiar lanes: whimsical illustration or refined restraint. We also looked at BAKED.’s own products, using warm crust, chocolate, and roasted tones already present in the bread as the most honest starting point.' },
+      { title: 'Exploration', description: 'We generated more than 50 concepts by hand, exploring monograms, crumb shapes, doorway motifs, and score-cut marks. Three routes reached the shortlist before the team chose to move from refined minimalism toward a bolder, warmer, more playful wordmark-led direction.' },
+      { title: 'Decision', description: 'The final identity pairs a bold, wavy-baseline BAKED wordmark with a rounded B mark and soft internal swirl. It is confident, handmade in spirit, and flexible across seals, favicons, packaging details, and the wider bakery experience.' },
     ],
   },
   {
