@@ -108,24 +108,49 @@ function CaseStudyDetails({
 }
 
 // ─── Gallery — 10 full-bleed images, single column, no rounding ───────────
-function CaseStudyGallery({ images, name }: { images: string[]; name: string }) {
+function CaseStudyGallery({
+  images,
+  name,
+  processCaptions,
+}: {
+  images: string[]
+  name: string
+  processCaptions: Array<{ title: string; description: string }>
+}) {
   return (
-    <section className="flex flex-col gap-1 px-4 py-12 lg:px-9">
+    <section className="flex flex-col gap-8 px-4 py-12 lg:px-9">
       {images.map((src, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full overflow-hidden bg-foreground/10"
-        >
-          <img
-            src={src}
-            alt={`${name} — image ${index + 1}`}
-            className="h-full w-full object-cover"
-          />
-        </motion.div>
+        <div key={index} className="flex flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full overflow-hidden bg-foreground/10"
+          >
+            <img
+              src={src}
+              alt={`${name} — image ${index + 1}`}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+          {index < 4 && processCaptions[index] ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full flex flex-col gap-6"
+            >
+              <h3 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[40px] md:text-[56px]">
+                {processCaptions[index].title}
+              </h3>
+              <p className="text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+                {processCaptions[index].description}
+              </p>
+            </motion.div>
+          ) : null}
+        </div>
       ))}
     </section>
   )
@@ -152,7 +177,11 @@ export default function CaseStudyPage({
           subtitle={project.subtitle}
           services={project.services}
         />
-        <CaseStudyGallery images={project.images} name={project.name} />
+        <CaseStudyGallery
+          images={project.images}
+          name={project.name}
+          processCaptions={project.processCaptions}
+        />
       </main>
       <Footer />
     </>
