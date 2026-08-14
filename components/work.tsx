@@ -126,14 +126,7 @@ function ProjectContent({
 
 export default function WorkSection() {
   return (
-    <section className="w-full bg-background px-4 py-20 text-foreground md:py-28 lg:px-9" aria-labelledby="our-work-heading">
-      <div className="mb-12 flex flex-col gap-6">
-        <h2 id="our-work-heading" className="text-[64px] font-medium uppercase leading-[0.9] tracking-tighter md:text-[100px] lg:text-[120px]">
-          Our Work
-        </h2>
-        <div className="h-0.5 w-full bg-foreground" />
-      </div>
-
+    <section className="w-full bg-background px-4 py-20 text-foreground md:py-28 lg:px-9">
       <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
           <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
