@@ -125,15 +125,15 @@ function CaseStudyGallery({
   processCaptions: Array<{ title: string; description: string }>
 }) {
   return (
-    <section className="flex flex-col gap-0 py-12">
+    <section className="flex flex-col gap-8 px-4 py-12 lg:px-9">
       {images.map((src, index) => (
-        <div key={index} className="flex flex-col gap-0">
+        <div key={index} className="flex flex-col gap-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-video w-full overflow-hidden"
+            className="relative aspect-video w-full overflow-hidden bg-foreground/10"
           >
             <Image
               src={src}
