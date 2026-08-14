@@ -129,7 +129,7 @@ export default function WorkSection() {
     <section className="w-full bg-background px-4 py-20 text-foreground md:py-28 lg:px-9">
       <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
-          <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
+          <div key={`${project.title}-${index}`} className="flex flex-col gap-0 py-0 lg:grid lg:grid-cols-2 lg:gap-0">
             {project.imageFirst ? (
               <>
                 <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
