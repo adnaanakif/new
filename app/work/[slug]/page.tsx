@@ -142,7 +142,7 @@ function CaseStudyGallery({
               loading={index === 0 ? 'eager' : 'lazy'}
               priority={index === 0}
               sizes="(max-width: 1024px) calc(100vw - 2rem), calc(100vw - 4.5rem)"
-              className={index === 4 || index === 5 ? 'object-contain' : 'object-cover'}
+              className="object-contain"
             />
           </motion.div>
           {index < 4 && processCaptions[index] ? (
