@@ -65,7 +65,7 @@ export default function WorkPage() {
         {/* Hero */}
         <WorkHero />
 
-        <WorkSection />
+        <WorkSection showHeader={false} />
 
       </main>
       <Footer />
