@@ -558,7 +558,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
       {/* Translucent background layer keeps the page subtly visible beneath the header. */}
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-md shadow-sm" />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-md" />
 
         <div className="relative z-10 flex items-center justify-between gap-4 py-3 px-3 lg:px-6 lg:py-4 w-full">
 
@@ -753,7 +753,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       transition={{ duration: 0.5, delay: 0.3 }}
                       className="min-w-0 flex-shrink-0"
                     >
-                      <div className={`border-1 flex items-center justify-between gap-4 px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
+                      <div className={`border-1 flex items-center justify-between gap-4 rounded-full px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
                         <input
                           type="password"
                           placeholder="PASSWORD"
@@ -874,7 +874,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       transition={{ duration: 0.5, delay: 0.3 }}
                       className="min-w-0 flex-shrink-0"
                     >
-                      <div className={`border-1 flex items-center justify-between gap-4 px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
+                      <div className={`border-1 flex items-center justify-between gap-4 rounded-full px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
                         <input
                           type="password"
                           placeholder="PASSWORD"
