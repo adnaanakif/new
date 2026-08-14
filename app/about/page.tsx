@@ -94,8 +94,8 @@ function AboutSection({ title, children }: { title: string; children: React.Reac
 
 // Each value is a full-width row with a thin divider — matches the
 // border-b list pattern used in process.tsx and work.tsx, instead of a
-// solid full-bleed block. Accent color only appears as a hover dot,
-// respecting the "accent never a filled block/background" rule.
+// solid full-bleed block. The hover dot uses the foreground color for a
+// stronger, more direct interaction cue.
 const VALUES = [
   'Craft over decoration.',
   'Clarity before creativity.',
@@ -115,7 +115,7 @@ function ValueRow({ text, index }: { text: string; index: number }) {
       className="relative flex w-full items-center gap-6 border-b border-foreground py-6 last:border-none md:py-8"
     >
       <span
-        className="h-[8px] w-[8px] shrink-0 rounded-full bg-accent transition-opacity duration-300"
+        className="h-[40px] w-[40px] shrink-0 rounded-full bg-foreground transition-opacity duration-300"
         style={{ opacity: isHovered ? 1 : 0 }}
         aria-hidden="true"
       />
