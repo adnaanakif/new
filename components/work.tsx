@@ -149,8 +149,14 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
               </>
             ) : (
               <>
-                <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-                <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
+                <ProjectImage
+                  alt={project.imageAlt}
+                  slug={project.slug}
+                  src={project.imageSrc}
+                />
+                <div className="lg:order-first">
+                  <ProjectContent title={project.title} description={project.description} slug={project.slug} />
+                </div>
               </>
             )}
           </div>
