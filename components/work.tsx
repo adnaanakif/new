@@ -141,7 +141,6 @@ export default function WorkSection() {
                 <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
               </>
             )}
-            {index < PROJECTS.length - 1 && <div className="h-0.5 w-full bg-foreground lg:col-span-2" />}
           </div>
         ))}
       </div>
