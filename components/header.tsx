@@ -557,8 +557,8 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
-        {/* Background layer */}
-        <div className="absolute inset-0 bg-background" />
+      {/* Translucent background layer keeps the page subtly visible beneath the header. */}
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-md shadow-sm" />
 
         <div className="relative z-10 flex items-center justify-between gap-4 py-3 px-3 lg:px-6 lg:py-4 w-full">
 
