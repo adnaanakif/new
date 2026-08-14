@@ -86,7 +86,7 @@ export default function FooterSection() {
   return (
     <footer className="relative w-full bg-background overflow-hidden">
       {/* Heading */}
-      <div className="px-4 lg:px-8 pt-10 md:pt-14 lg:py-8">
+      <div className="hidden md:block px-4 lg:px-8 pt-10 md:pt-14 lg:py-8">
         <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
           Let&rsquo;s start
         </h2>
@@ -96,7 +96,7 @@ export default function FooterSection() {
       <div className="px-4 lg:px-8 pt-6 md:pt-10 lg:py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {/* Left: Nav / Social / Address / Newsletter with top & bottom dividers */}
-          <div className="flex flex-col border-t-2 border-b-2 border-solid border-foreground min-h-[420px] md:min-h-[560px]">
+          <div className="hidden md:flex flex-col border-t-2 border-b-2 border-solid border-foreground min-h-[420px] md:min-h-[560px]">
             <div className="flex-1 flex items-center border-b-2 border-solid border-foreground px-1">
               <span className="font-medium text-[14px] md:text-[16px] lg:text-[20px] text-foreground">Nav</span>
             </div>
