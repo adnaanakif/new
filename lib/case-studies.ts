@@ -19,10 +19,10 @@ export const caseStudies: CaseStudy[] = [
     heroImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HERO%20IMAGE-1GbIK5ztXd1jx0vUuqodLBU9jVWwaM.jpg',
     services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Signage', 'Social Templates'],
     images: [
+      '/baked-problem-newer.jpg',
+      '/baked-research-new.jpg',
       '/baked-explorations-new.jpg',
       '/baked-decision-new.jpg',
-      '/baked-research-new.jpg',
-      '/baked-problem-newer.jpg',
       '/baked-01.jpg',
       '/baked-02.jpg',
       '/baked-03.jpg',
