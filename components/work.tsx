@@ -11,7 +11,7 @@ const PROJECTS = [
     description: `A bakery brand built on real community trust.
 An identity made to match the warmth of the shop.`,
     imageAlt: 'BAKED brand project preview',
-    imageSrc: '/baked-thumbnail.jpg',
+    imageSrc: '/baked-thumbnail-new.jpg',
     imageFirst: true,
   },
   {
