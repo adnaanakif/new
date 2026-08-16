@@ -114,12 +114,10 @@ export default function FooterSection() {
           {/* Right: single tall image with all overlay content stacked */}
           <div className="relative min-h-[420px] md:min-h-[560px] overflow-hidden bg-neutral-800">
             <img
-              src="#"
-              alt="Working"
+              src="/footer-working.jpg"
+              alt="Editorial sketchbook and lettering study on a dark tabletop"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black" />
-
             {/* Overlay content — stacked to align with the 4 left rows */}
             <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-background">
               <div className="flex flex-col gap-1">
