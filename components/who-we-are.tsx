@@ -33,8 +33,8 @@ export default function WhoWeAreSection() {
         >
           <div className="w-full aspect-video overflow-hidden bg-foreground">
             <img
-              src="#"
-              alt="Who we are"
+              src="/who-we-are.jpg"
+              alt="Editorial still life with foliage, lettering, and sketchbook"
               className="w-full h-full object-cover"
             />
           </div>

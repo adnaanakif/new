@@ -33,8 +33,8 @@ export default function OurBeliefSection() {
         >
           <div className="w-full aspect-video overflow-hidden bg-foreground">
             <img
-              src="#"
-              alt="Our belief"
+              src="/footer-working.jpg"
+              alt="Editorial sketchbook and lettering study representing our belief"
               className="w-full h-full object-cover"
             />
           </div>
