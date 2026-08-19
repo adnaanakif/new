@@ -42,6 +42,10 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-background/20" aria-hidden="true" />
+      <div
+        className="absolute inset-x-0 bottom-0 z-0 h-40 bg-gradient-to-b from-transparent to-background"
+        aria-hidden="true"
+      />
       <div className="relative z-10 w-full px-4 lg:px-6">
         <div className="flex flex-col items-center justify-center gap-0">
 
