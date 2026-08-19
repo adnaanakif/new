@@ -41,7 +41,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
         aria-hidden="true"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-background/75" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-foreground/75" aria-hidden="true" />
       <div className="relative z-10 w-full px-4 lg:px-6">
         <div className="flex flex-col items-center justify-center gap-0">
 
