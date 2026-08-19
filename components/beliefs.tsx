@@ -21,26 +21,9 @@ export default function OurBeliefSection() {
         <div className="w-full h-0.5 bg-foreground" />
       </div>
 
-      {/* Grid Layout: Left Image, Right Content */}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
-        {/* Left Column: Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="w-full"
-        >
-          <div className="w-full aspect-video overflow-hidden bg-foreground">
-            <img
-              src="/footer-working.jpg"
-              alt="Editorial sketchbook and lettering study representing our belief"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
-
-        {/* Right Column: Description */}
+      {/* Full-width content */}
+      <div className="w-full">
+        {/* Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +31,7 @@ export default function OurBeliefSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="w-full flex flex-col gap-6"
         >
-          <p className="text-[18px] lg:text-[22px] leading-tight tracking-tight text-foreground font-regular">
+          <p className="text-[18px] lg:text-[36px] leading-tight tracking-tight text-foreground font-regular">
             {BELIEF_DESCRIPTION}
           </p>
         </motion.div>
