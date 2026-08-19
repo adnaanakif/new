@@ -21,12 +21,9 @@ export default function OurBeliefSection() {
         <div className="w-full h-0.5 bg-foreground" />
       </div>
 
-      {/* Grid Layout: Left Image, Right Content */}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
-        {/* Empty left column reserved for the removed image */}
-        <div aria-hidden="true" className="min-h-0 lg:min-h-[240px]" />
-
-        {/* Right Column: Description */}
+      {/* Full-width content */}
+      <div className="w-full">
+        {/* Description */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
