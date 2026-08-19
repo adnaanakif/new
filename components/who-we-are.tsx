@@ -31,7 +31,7 @@ export default function WhoWeAreSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="w-full flex flex-col gap-6"
         >
-          <p className="text-[18px] lg:text-[22px] leading-tight tracking-tight text-foreground font-regular whitespace-pre-line">
+          <p className="text-[18px] lg:text-[36px] leading-tight tracking-tight text-foreground font-regular whitespace-pre-line">
             {WHO_WE_ARE_DESCRIPTION}
           </p>
         </motion.div>
