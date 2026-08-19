@@ -97,7 +97,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           <div className="text-center w-full lg:mt-6 mt-4">
 
             {/* Desktop — two lines, each masked and sliding up independently */}
-            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-foreground/80 max-w-lg mx-auto xl:text-xl">
+            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-foreground max-w-lg mx-auto xl:text-xl">
               <div className="overflow-hidden">
                 <motion.p
                   initial={{ y: '100%', opacity: 0 }}
@@ -136,7 +136,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
 
             {/* Mobile / Tablet — single wrapped paragraph, simple fade */}
             <motion.p
-              className="lg:hidden text-pretty text-base font-normal text-foreground/80 max-w-md mx-auto leading-tight sm:text-lg"
+              className="lg:hidden text-pretty text-base font-normal text-foreground max-w-md mx-auto leading-tight sm:text-lg"
               initial={{ y: 20, opacity: 0, filter: 'blur(4px)' }}
               animate={
                 triggerAnimation
