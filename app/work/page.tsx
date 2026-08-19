@@ -45,7 +45,7 @@ function WorkHero() {
       )}
 
       {/* Gradient — same as about page */}
-      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0" />
 
       {/* "Great Work" title — centered, looping slide animation */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
@@ -60,7 +60,7 @@ export default function WorkPage() {
   return (
     <>
       <Header preloaderDone={true} />
-      <main className="min-h-screen bg-background text-white">
+      <main className="min-h-screen text-white">
 
         {/* Hero */}
         <WorkHero />
