@@ -231,12 +231,13 @@ function AboutContent() {
       </AboutSection>
 
       <AboutSection title="Who We Work With" fullWidth>
-        <AboutText>
-          <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-            <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
-            <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
-          </div>
-        </AboutText>
+        <StickyWordReveal
+          className="flex flex-col gap-6 text-[22px] leading-snug tracking-tight text-foreground md:text-[30px] lg:text-[38px]"
+          paragraphs={[
+            'We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.',
+            `We're not the studio for a first logo. We're the studio for when "good enough" stops being good enough.`,
+          ]}
+        />
       </AboutSection>
 
       <section className="flex flex-col gap-6 py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">
