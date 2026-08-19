@@ -23,22 +23,8 @@ export default function WhoWeAreSection() {
 
       {/* Grid Layout: Left Image, Right Content */}
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
-        {/* Left Column: Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="w-full"
-        >
-          <div className="w-full aspect-video overflow-hidden bg-foreground">
-            <img
-              src="/who-we-are.jpg"
-              alt="Editorial still life with foliage, lettering, and sketchbook"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+        {/* Empty left column reserved for the removed image */}
+        <div aria-hidden="true" className="min-h-0 lg:min-h-[240px]" />
 
         {/* Right Column: Description */}
         <motion.div
