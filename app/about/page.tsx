@@ -37,7 +37,7 @@ function AboutHero() {
       </motion.div>
       <div className="absolute inset-0" />
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="ABOUT" />
+        <AnimatedHeroTitle text="ABOUT" color="text-background" />
       </div>
     </div>
   )
