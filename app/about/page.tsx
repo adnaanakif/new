@@ -35,7 +35,7 @@ function AboutHero() {
           decoding="async"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0" />
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
         <AnimatedHeroTitle text="ABOUT" />
       </div>
@@ -53,7 +53,7 @@ const reveal = {
 function AboutImage({ label, src }: { label: string; src: string }) {
   return (
     <motion.div {...reveal} className="w-full">
-      <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
+      <a href="/work-hero.svg" aria-label={label} className="block aspect-video w-full overflow-hidden">
         <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
       </a>
     </motion.div>
