@@ -10,7 +10,7 @@ That's the standard we hold ourselves to on every project.`
 
 export default function OurBeliefSection() {
   return (
-    <div className="w-full bg-background text-foreground pt-20 pb-48 md:pt-28 md:pb-64 px-4 lg:px-9">
+    <div className="w-full bg-background text-foreground pt-20 pb-48 md:pt-40 md:pb-80 px-4 lg:px-9">
       
 
       {/* Heading with Dividers */}
