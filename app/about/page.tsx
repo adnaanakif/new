@@ -73,7 +73,7 @@ function AboutText({ children }: { children: React.ReactNode }) {
 }
 
 // border prop removed entirely — no divider between sections anymore
-function AboutSection({ title, children }: { title: string; children: React.ReactNode }) {
+function AboutSection({ title, children, fullWidth = false }: { title: string; children: React.ReactNode; fullWidth?: boolean }) {
   return (
     <section
       className="flex flex-col gap-6 py-20 md:py-28"
@@ -85,7 +85,7 @@ function AboutSection({ title, children }: { title: string; children: React.Reac
         </h2>
         <div className="w-full h-0.5 bg-foreground" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
+      <div className={fullWidth ? 'w-full' : 'grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start'}>
         {children}
       </div>
     </section>
@@ -132,17 +132,14 @@ function ValueRow({ text, index }: { text: string; index: number }) {
 function AboutContent() {
   return (
     <div className="flex flex-col px-4 text-foreground lg:px-9">
-      <AboutSection title="The Studio">
-        <>
-          <AboutImage label="Studio image" src="#" />
-          <AboutText>
-            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-              <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
-              <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
-              <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
-            </div>
-          </AboutText>
-        </>
+      <AboutSection title="The Studio" fullWidth>
+        <AboutText>
+          <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+            <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
+            <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
+            <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
+          </div>
+        </AboutText>
       </AboutSection>
 
       <AboutSection title="How We Work">
@@ -164,16 +161,13 @@ function AboutContent() {
         </>
       </AboutSection>
 
-      <AboutSection title="Who We Work With">
-        <>
-          <AboutImage label="Client image" src="#" />
-          <AboutText>
-            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-              <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
-              <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
-            </div>
-          </AboutText>
-        </>
+      <AboutSection title="Who We Work With" fullWidth>
+        <AboutText>
+          <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+            <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
+            <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
+          </div>
+        </AboutText>
       </AboutSection>
 
       <section className="flex flex-col gap-6 py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">
