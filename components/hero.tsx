@@ -41,7 +41,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
         aria-hidden="true"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-foreground/75" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10" aria-hidden="true" />
       <div className="relative z-10 w-full px-4 lg:px-6">
         <div className="flex flex-col items-center justify-center gap-0">
 
@@ -59,7 +59,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
             <svg
   viewBox="0 0 857.41 179"
   xmlns="http://www.w3.org/2000/svg"
-  className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-foreground"
+  className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-background"
   style={{
     maxWidth: 'clamp(280px, 90vw, 1400px)',
   }}
@@ -76,7 +76,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           {/* Middle Column - BEFORE DESIGN (masked slide-up reveal) */}
           <div className="text-center w-full overflow-hidden lg:mt-8 mt-5">
             <motion.h2
-              className="text-foreground text-balance font-semibold uppercase tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,7.5rem)]"
+              className="text-background text-balance font-semibold uppercase tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,7.5rem)]"
               initial={{ y: '100%', opacity: 0 }}
               animate={
                 triggerAnimation
@@ -97,7 +97,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           <div className="text-center w-full lg:mt-6 mt-4">
 
             {/* Desktop — two lines, each masked and sliding up independently */}
-            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-foreground max-w-lg mx-auto xl:text-xl">
+            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-background max-w-lg mx-auto xl:text-xl">
               <div className="overflow-hidden">
                 <motion.p
                   initial={{ y: '100%', opacity: 0 }}
@@ -136,7 +136,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
 
             {/* Mobile / Tablet — single wrapped paragraph, simple fade */}
             <motion.p
-              className="lg:hidden text-pretty text-base font-normal text-foreground max-w-md mx-auto leading-tight sm:text-lg"
+              className="lg:hidden text-pretty text-base font-normal text-background max-w-md mx-auto leading-tight sm:text-lg"
               initial={{ y: 20, opacity: 0, filter: 'blur(4px)' }}
               animate={
                 triggerAnimation
