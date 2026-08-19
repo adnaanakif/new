@@ -552,7 +552,9 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
 
   // Mobile logo and hamburger colors — background-colored over the hero
   // (transparent header), foreground-colored once we've scrolled past it.
-  const hamburgerColor = isPastHero ? 'bg-foreground' : 'bg-background'
+  // When the menu is open, the hamburger (now an X) sits on the solid
+  // full-screen menu bg, so it stays foreground-colored regardless of scroll.
+  const hamburgerColor = isMenuOpen || isPastHero ? 'bg-foreground' : 'bg-background'
 
   return (
     <>
