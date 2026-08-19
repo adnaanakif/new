@@ -35,7 +35,6 @@ function AboutHero() {
           decoding="async"
         />
       </motion.div>
-      <div className="absolute inset-0" />
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
         <AnimatedHeroTitle text="ABOUT" color="text-background" />
       </div>
@@ -53,7 +52,7 @@ const reveal = {
 function AboutImage({ label, src }: { label: string; src: string }) {
   return (
     <motion.div {...reveal} className="w-full">
-      <a href="/work-hero.svg" aria-label={label} className="block aspect-video w-full overflow-hidden">
+      <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
         <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
       </a>
     </motion.div>
@@ -213,7 +212,7 @@ function AboutContent() {
 
       <AboutSection title="How We Work">
         <>
-          <AboutImage label="Method image" src="work-hero.svg" />
+          <AboutImage label="Method image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
