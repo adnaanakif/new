@@ -76,7 +76,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           {/* Middle Column - BEFORE DESIGN (masked slide-up reveal) */}
           <div className="text-center w-full overflow-hidden lg:mt-8 mt-5">
             <motion.h2
-              className="text-background text-balance font-semibold uppercase tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,7.5rem)]"
+              className="text-background text-balance font-semibold uppercase tracking-tighter leading-[0.92] text-[clamp(2.75rem,10vw,5.5rem)]"
               initial={{ y: '100%', opacity: 0 }}
               animate={
                 triggerAnimation
@@ -97,7 +97,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           <div className="text-center w-full lg:mt-6 mt-4">
 
             {/* Desktop — two lines, each masked and sliding up independently */}
-            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-background max-w-lg mx-auto xl:text-xl">
+            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-background max-w-lg mx-auto text-[18px]">
               <div className="overflow-hidden">
                 <motion.p
                   initial={{ y: '100%', opacity: 0 }}
