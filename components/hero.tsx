@@ -34,8 +34,15 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
   const taglineLine2 = 'earn trust, and stand the test of time.'
 
   return (
-    <section className="h-screen bg-background flex items-center justify-center">
-      <div className="w-full px-4 lg:px-6">
+    <section className="relative isolate flex h-screen items-center justify-center overflow-hidden bg-background">
+      <img
+        src="/footer-working.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 -z-10 bg-background/75" aria-hidden="true" />
+      <div className="relative z-10 w-full px-4 lg:px-6">
         <div className="flex flex-col items-center justify-center gap-0">
 
           {/* Top Column - DIRECTION (SVG) */}
