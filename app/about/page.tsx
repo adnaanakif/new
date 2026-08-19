@@ -131,10 +131,10 @@ function ValueRow({ text, index }: { text: string; index: number }) {
 
 function AboutContent() {
   return (
-    <div className="flex flex-col px-4 text-foreground lg:px-9">
+    <div className="flex flex-col text-foreground pt-20 pb-48 md:pt-40 md:pb-80 px-4 lg:px-9">
       <AboutSection title="The Studio" fullWidth>
         <AboutText>
-          <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+          <div className="flex flex-col gap-5 text-[18px] leading-tighter tracking-tight text-foreground lg:text-[36px]">
             <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
             <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
             <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
