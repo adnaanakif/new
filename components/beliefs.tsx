@@ -10,7 +10,7 @@ That's the standard we hold ourselves to on every project.`
 
 export default function OurBeliefSection() {
   return (
-    <div className="w-full bg-background text-foreground py-20 md:py-28 px-4 lg:px-9">
+    <div className="w-full bg-background text-foreground pt-20 pb-48 md:pt-40 md:pb-80 px-4 lg:px-9">
       
 
       {/* Heading with Dividers */}
@@ -31,7 +31,7 @@ export default function OurBeliefSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="w-full flex flex-col gap-6"
         >
-          <p className="text-[18px] lg:text-[36px] leading-tight tracking-tight text-foreground font-regular">
+          <p className="text-[18px] lg:text-[36px] leading-tight tracking-tight text-foreground font-regular whitespace-pre-line">
             {BELIEF_DESCRIPTION}
           </p>
         </motion.div>

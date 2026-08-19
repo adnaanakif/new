@@ -427,6 +427,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   const [errorMessage, setErrorMessage] = useState('')
   const [isLocked, setIsLocked] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isPastHero, setIsPastHero] = useState(false)
   const lastScrollYRef = useRef(0)
 
   useEffect(() => {
@@ -451,6 +452,12 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
         setIsHeaderVisible(true)
       }
       lastScrollYRef.current = currentScrollY
+
+      // Hero section is (roughly) one viewport tall — once scrolled past it,
+      // the header gets its background and content flips from
+      // background-colored (visible over the hero image) to foreground-colored.
+      const heroThreshold = window.innerHeight * 0.9
+      setIsPastHero(currentScrollY > heroThreshold)
     }
 
     handleScroll() // run once on mount
@@ -543,8 +550,11 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     }
   }
 
-  // Mobile logo and hamburger colors
-  const hamburgerColor = 'bg-foreground'
+  // Mobile logo and hamburger colors — background-colored over the hero
+  // (transparent header), foreground-colored once we've scrolled past it.
+  // When the menu is open, the hamburger (now an X) sits on the solid
+  // full-screen menu bg, so it stays foreground-colored regardless of scroll.
+  const hamburgerColor = isMenuOpen || isPastHero ? 'bg-foreground' : 'bg-background'
 
   return (
     <>
@@ -552,13 +562,19 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           content (logo/nav/store icon) fades out smoothly; the hamburger
           stays put and simply morphs into an X. */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-[100] w-full"
+        className={`fixed top-0 left-0 right-0 z-[100] w-full transition-colors duration-300 ${isPastHero ? 'text-foreground' : 'text-background'}`}
         initial={{ y: -80, opacity: 0, filter: 'blur(6px)' }}
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
-      {/* Translucent background layer keeps the page subtly visible beneath the header. */}
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-md" />
+      {/* Translucent background layer — transparent over the hero, fades in
+          once we've scrolled past it so the page stays subtly visible beneath. */}
+      <motion.div
+        className="absolute inset-0 bg-background/80 backdrop-blur-md pointer-events-none"
+        initial={false}
+        animate={{ opacity: isPastHero ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      />
 
         <div className="relative z-10 flex items-center justify-between gap-4 py-3 px-3 lg:px-6 lg:py-4 w-full">
 
@@ -615,7 +631,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 515.07 507.4"
-              className="h-10 w-auto text-foreground"
+              className={`h-10 w-auto transition-colors duration-300 ${isPastHero ? 'text-foreground' : 'text-background'}`}
               aria-label="Adnan Akif"
               role="img"
             >

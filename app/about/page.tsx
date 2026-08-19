@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import AnimatedHeroTitle from '@/components/animated-hero-title'
@@ -72,8 +72,76 @@ function AboutText({ children }: { children: React.ReactNode }) {
   )
 }
 
+// Each word's opacity is tied directly to scroll progress — not a one-time
+// triggered animation.
+function ScrollWord({
+  word,
+  progress,
+  range,
+  isLast,
+}: {
+  word: string
+  progress: MotionValue<number>
+  range: [number, number]
+  isLast: boolean
+}) {
+  const opacity = useTransform(progress, range, [0, 1])
+  return (
+    <motion.span style={{ opacity }} className="inline-block">
+      {word}
+      {isLast ? '' : '\u00A0'}
+    </motion.span>
+  )
+}
+
+// Pins the section in place (sticky) while the user scrolls through it —
+// words across all paragraphs light up one by one, in sequence, tied to
+// scroll position. The page won't move past this block until every word
+// has been revealed; once fully revealed, normal scrolling continues and
+// the section unpins.
+function StickyWordReveal({ paragraphs, className = '' }: { paragraphs: string[]; className?: string }) {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: wrapperRef,
+    offset: ['start start', 'end end'],
+  })
+
+  const paragraphWords = paragraphs.map((p) => p.split(' '))
+  const totalWords = paragraphWords.reduce((sum, w) => sum + w.length, 0)
+  let wordCounter = 0
+
+  return (
+    // Extra scroll height = the "runway" that gets consumed while pinned.
+    // More words → a bit more runway so the reveal doesn't feel rushed.
+    <div ref={wrapperRef} className="relative" style={{ height: `${Math.min(420, 220 + totalWords * 2.5)}vh` }}>
+      <div className="sticky top-0 flex min-h-screen items-center">
+        <div className={className}>
+          {paragraphWords.map((words, pIdx) => (
+            <p key={pIdx}>
+              {words.map((word, wIdx) => {
+                const globalIndex = wordCounter++
+                const start = globalIndex / totalWords
+                const end = (globalIndex + 1) / totalWords
+                return (
+                  <ScrollWord
+                    key={wIdx}
+                    word={word}
+                    progress={scrollYProgress}
+                    range={[start, end]}
+                    isLast={wIdx === words.length - 1}
+                  />
+                )
+              })}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // border prop removed entirely — no divider between sections anymore
-function AboutSection({ title, children }: { title: string; children: React.ReactNode }) {
+function AboutSection({ title, children, fullWidth = false }: { title: string; children: React.ReactNode; fullWidth?: boolean }) {
   return (
     <section
       className="flex flex-col gap-6 py-20 md:py-28"
@@ -85,7 +153,7 @@ function AboutSection({ title, children }: { title: string; children: React.Reac
         </h2>
         <div className="w-full h-0.5 bg-foreground" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start">
+      <div className={fullWidth ? 'w-full' : 'grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-6 items-start'}>
         {children}
       </div>
     </section>
@@ -132,22 +200,20 @@ function ValueRow({ text, index }: { text: string; index: number }) {
 function AboutContent() {
   return (
     <div className="flex flex-col px-4 text-foreground lg:px-9">
-      <AboutSection title="The Studio">
-        <>
-          <AboutImage label="Studio image" src="#" />
-          <AboutText>
-            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-              <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
-              <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
-              <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
-            </div>
-          </AboutText>
-        </>
+      <AboutSection title="The Studio" fullWidth>
+        <StickyWordReveal
+          className="flex flex-col gap-6 text-[22px] leading-snug tracking-tight text-foreground md:text-[30px] lg:text-[38px]"
+          paragraphs={[
+            "Lozinr started with one belief: most brands don't fail because they look bad. They fail because they were never given direction in the first place.",
+            `We're a branding studio built for founders who are past the "let's just make a logo" stage — people building companies meant to last, not just launch.`,
+            'Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?',
+          ]}
+        />
       </AboutSection>
 
       <AboutSection title="How We Work">
         <>
-          <AboutImage label="Method image" src="#" />
+          <AboutImage label="Method image" src="work-hero.svg" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
@@ -164,16 +230,14 @@ function AboutContent() {
         </>
       </AboutSection>
 
-      <AboutSection title="Who We Work With">
-        <>
-          <AboutImage label="Client image" src="#" />
-          <AboutText>
-            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-              <p>We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.</p>
-              <p>We&apos;re not the studio for a first logo. We&apos;re the studio for when &quot;good enough&quot; stops being good enough.</p>
-            </div>
-          </AboutText>
-        </>
+      <AboutSection title="Who We Work With" fullWidth>
+        <StickyWordReveal
+          className="flex flex-col gap-6 text-[22px] leading-snug tracking-tight text-foreground md:text-[30px] lg:text-[38px]"
+          paragraphs={[
+            'We work with founders building something worth remembering — companies with real traction, real teams, or real ambition behind them.',
+            `We're not the studio for a first logo. We're the studio for when "good enough" stops being good enough.`,
+          ]}
+        />
       </AboutSection>
 
       <section className="flex flex-col gap-6 py-20 md:py-28" aria-labelledby="what-we-stand-for-heading">

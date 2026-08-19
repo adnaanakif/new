@@ -11,7 +11,7 @@ consistency.`
 
 export default function WhoWeAreSection() {
   return (
-    <div className="w-full bg-background text-foreground py-20 md:py-40 px-4 lg:px-9">
+    <div className="w-full bg-background text-foreground pt-20 pb-48 md:pt-40 md:pb-80 px-4 lg:px-9">
       
       {/* Heading with Dividers */}
       <div className="flex flex-col gap-6 mb-12">
