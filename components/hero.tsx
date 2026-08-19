@@ -97,7 +97,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           <div className="text-center w-full lg:mt-6 mt-4">
 
             {/* Desktop — two lines, each masked and sliding up independently */}
-            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-normal text-background max-w-lg mx-auto text-[18px]">
+            <div className="hidden lg:flex lg:flex-col lg:items-center text-pretty text-lg leading-tight font-medium text-background max-w-lg mx-auto text-[20px]">
               <div className="overflow-hidden">
                 <motion.p
                   initial={{ y: '100%', opacity: 0 }}
