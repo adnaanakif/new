@@ -72,6 +72,34 @@ function AboutText({ children }: { children: React.ReactNode }) {
   )
 }
 
+// Splits a paragraph into words and reveals them one by one as the
+// paragraph scrolls into view — each word fades/slides/unblurs in with a
+// small stagger, giving a "typing in" feel rather than a single block fade.
+function WordRevealParagraph({ text, className = '' }: { text: string; className?: string }) {
+  const words = text.split(' ')
+  return (
+    <p className={className}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{
+            duration: 0.5,
+            ease: [0.16, 1, 0.3, 1],
+            delay: i * 0.03,
+          }}
+          className="inline-block will-change-transform"
+        >
+          {word}
+          {i < words.length - 1 ? '\u00A0' : ''}
+        </motion.span>
+      ))}
+    </p>
+  )
+}
+
 // border prop removed entirely — no divider between sections anymore
 function AboutSection({ title, children, fullWidth = false }: { title: string; children: React.ReactNode; fullWidth?: boolean }) {
   return (
@@ -131,13 +159,13 @@ function ValueRow({ text, index }: { text: string; index: number }) {
 
 function AboutContent() {
   return (
-    <div className="flex flex-col text-foreground pt-20 pb-48 md:pt-40 md:pb-80 px-4 lg:px-9">
+    <div className="flex flex-col px-4 text-foreground lg:px-9">
       <AboutSection title="The Studio" fullWidth>
         <AboutText>
-          <div className="flex flex-col gap-5 text-[18px] leading-tighter tracking-tight text-foreground lg:text-[36px]">
-            <p>Lozinr started with one belief: most brands don&apos;t fail because they look bad. They fail because they were never given direction in the first place.</p>
-            <p>We&apos;re a branding studio built for founders who are past the &quot;let&apos;s just make a logo&quot; stage — people building companies meant to last, not just launch.</p>
-            <p>Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?</p>
+          <div className="flex flex-col gap-6 text-[22px] leading-snug tracking-tight text-foreground md:text-[30px] lg:text-[38px]">
+            <WordRevealParagraph text="Lozinr started with one belief: most brands don't fail because they look bad. They fail because they were never given direction in the first place." />
+            <WordRevealParagraph text={`We're a branding studio built for founders who are past the "let's just make a logo" stage — people building companies meant to last, not just launch.`} />
+            <WordRevealParagraph text="Every project runs through one framework. Every decision is judged against one question: does this serve the business, or just decorate it?" />
           </div>
         </AboutText>
       </AboutSection>
