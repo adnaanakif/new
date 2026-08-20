@@ -553,31 +553,29 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           </a>
 
           {/* Center: Logo SVG (Desktop/LG Only) */}
-          <motion.div
+          <div
             className="hidden lg:block absolute left-1/2 -translate-x-1/2 flex-shrink-0 cursor-pointer z-[80]"
             onClick={() => router.push('/')}
-            variants={contentItemVariants}
-            initial="visible"
-            animate={isMenuOpen ? 'hidden' : 'visible'}
-            style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
           >
             <img
               src="/artboard-1.svg"
               alt="Adnan Akif"
               className="h-5 w-28 object-contain"
             />
-          </motion.div>
+          </div>
 
-          {/* Mobile Template control opens the full-screen menu */}
+          {/* Mobile hamburger opens the full-screen menu */}
           <div className="flex items-center flex-shrink-0 ml-auto z-[80]">
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-template-menu"
-              className="lg:hidden text-[16px] font-medium uppercase tracking-tight"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              className="lg:hidden flex flex-col items-end justify-center gap-1.5 p-1"
             >
-              Template
+              <span className="block h-px w-6 bg-foreground" />
+              <span className="block h-px w-4 bg-foreground" />
             </button>
           </div>
         </div>
