@@ -493,12 +493,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
   }
 
-  // Mobile logo and hamburger colors — background-colored over the hero
-  // (transparent header), foreground-colored once we've scrolled past it.
-  // When the menu is open, the hamburger (now an X) sits on the solid
-  // full-screen menu bg, so it stays foreground-colored regardless of scroll.
-  const hamburgerColor = 'bg-foreground'
-
   return (
     <>
       {/* Fixed Navbar — the bar itself never moves anymore. Only its inner
@@ -528,24 +522,14 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             initial="visible"
             animate={isMenuOpen ? 'hidden' : 'visible'}
           >
-            {/* Logo SVG */}
+            {/* Mobile brand wordmark */}
             <motion.div
               variants={contentItemVariants}
-              className="lg:hidden flex-shrink-0 cursor-pointer h-6 w-auto"
+              className="lg:hidden flex-shrink-0 cursor-pointer h-4 w-24"
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
-              <svg
-  viewBox="0 0 515.07 507.4"
-  xmlns="http://www.w3.org/2000/svg"
-  className="h-full w-auto"
->
-  <rect width="515.07" height="507.4" fill="#fff" />
-  <g fill="#111">
-    <path d="M515.07.06v257.75h-.15l-.05,133.57c-7.87,1.72-15.55,1.84-23.11,1.14-15.29-1.43-29.61-3.43-44.96-5.75-41.62-6.31-82.58-11.38-124.58-14.76-14.37-1.17-27.61-1.07-41.71-.5-13.21,1.22-25.89,3.1-38.31,7.64-13.65,4.42-24.27,12.5-35.17,22.3l64.05-143.63h-.1l92.02-215.87-35.71,25.74c-17.6,10.48-35.27,18.28-54.59,24.17-47.05,14.16-94.07,8.99-141.76-.47l-56.85-11.25c-15.96-2.97-31.25-5.41-47.38-7.15-9.18-.5-17.8-.75-26.74.83V0l515.07.06Z" />
-    <path d="M515.07,433.58v73.82L.02,507.35l-.02-257.76h.15l.07-133.58c7.87-1.71,15.54-1.82,23.1-1.12,15.29,1.41,29.63,3.41,44.96,5.74,41.62,6.32,82.58,11.39,124.59,14.77,14.35,1.15,27.6,1.06,41.69.49,13.21-1.2,25.89-3.09,38.31-7.62,13.65-4.42,24.28-12.51,35.17-22.32l-64.05,143.64h.11l-92.02,215.87,35.69-25.76c17.62-10.48,35.27-18.27,54.59-24.15,47.05-14.16,94.07-9,141.76.46l56.85,11.26c15.96,2.96,31.25,5.4,47.38,7.14,9.18.5,17.8.76,26.74-.83Z" />
-  </g>
-</svg>
+              <img src="/artboard-1.svg" alt="Adnan Akif" className="h-full w-full object-contain object-left brightness-0" />
             </motion.div>
 
             {/* Desktop Left Nav (LG and above only) */}
@@ -563,7 +547,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           {/* Right-side template link and mobile menu control */}
           <a
             href="#"
-            className="hidden lg:block ml-auto text-[16px] font-medium uppercase tracking-tight"
+            className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 text-[16px] font-medium uppercase tracking-tight"
           >
             Template
           </a>
@@ -577,40 +561,23 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             animate={isMenuOpen ? 'hidden' : 'visible'}
             style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 515.07 507.4"
-              className={`h-10 w-auto transition-colors duration-300 ${isPastHero ? 'text-foreground' : 'text-background'}`}
-              aria-label="Adnan Akif"
-              role="img"
-            >
-              <path
-                fill="currentColor"
-                d="M515.07,257.82v175.76c-8.94,1.59-17.55,1.33-26.73.83-16.13-1.74-31.42-4.18-47.38-7.13l-56.85-11.27c-47.69-9.46-94.71-14.61-141.76-.45-19.33,5.88-36.98,13.67-54.6,24.15l-35.69,25.76,92.03-215.87h-.12l64.06-143.64c-10.89,9.8-21.52,17.89-35.18,22.31-12.41,4.53-25.09,6.42-38.3,7.62-14.09.57-27.34.67-41.69-.48-42.02-3.39-82.97-8.46-124.6-14.78-15.32-2.32-29.66-4.32-44.95-5.74-7.56-.69-15.23-.58-23.1,1.13l-.06,133.58H0V73.82c8.94-1.57,17.55-1.33,26.74-.83,16.12,1.74,31.41,4.18,47.37,7.16l56.86,11.24c47.68,9.46,94.7,14.63,141.75.47,19.33-5.88,37-13.68,54.6-24.16l35.71-25.75-92.03,215.87h.1l-64.05,143.63c10.9-9.8,21.52-17.88,35.17-22.3,12.42-4.53,25.09-6.42,38.31-7.64,14.09-.57,27.33-.66,41.7.51,42,3.38,82.96,8.45,124.58,14.75,15.34,2.33,29.66,4.33,44.96,5.76,7.55.7,15.24.58,23.11-1.14l.05-133.57h.14Z"
-              />
-            </svg>
+            <img
+              src="/artboard-1.svg"
+              alt="Adnan Akif"
+              className="h-5 w-28 object-contain"
+            />
           </motion.div>
 
-          {/* Right: Template link and hamburger on mobile */}
-          <div className="flex items-center gap-3 flex-shrink-0 ml-auto z-[80]">
-            <a href="#" className="lg:hidden text-[16px] font-medium uppercase tracking-tight">
-              Template
-            </a>
-            {/* Hamburger — mobile only, always clickable, just morphs to X */}
+          {/* Mobile Template control opens the full-screen menu */}
+          <div className="flex items-center flex-shrink-0 ml-auto z-[80]">
             <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden flex flex-col gap-1 cursor-pointer w-8 h-8 justify-center items-center flex-shrink-0 z-[100]"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-template-menu"
+              className="lg:hidden text-[16px] font-medium uppercase tracking-tight"
             >
-              <motion.span
-                className={`w-9 h-0.5 ${hamburgerColor} rounded-full origin-center transition-colors duration-300`}
-                animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
-              />
-              <motion.span
-                className={`w-9 h-0.5 ${hamburgerColor} rounded-full origin-center transition-colors duration-300`}
-                animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
-              />
+              Template
             </button>
           </div>
         </div>
@@ -631,6 +598,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
 
             {/* Content layer — 3 Column Grid Layout */}
             <motion.div
+              id="mobile-template-menu"
               className="fixed inset-0 z-[61] flex items-stretch"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
