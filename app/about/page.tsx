@@ -49,11 +49,18 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 }
 
-function AboutImage({ label, src }: { label: string; src: string }) {
+function AboutImage({ label, src, priority = false }: { label: string; src: string; priority?: boolean }) {
   return (
     <motion.div {...reveal} className="w-full">
       <a href="#" aria-label={label} className="block aspect-video w-full overflow-hidden bg-foreground">
-        <img src={src} alt={label} className="h-full w-full object-cover" loading="lazy" />
+        <img
+          src={src}
+          alt={label}
+          className="h-full w-full object-cover"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          decoding="async"
+        />
       </a>
     </motion.div>
   )
@@ -196,6 +203,48 @@ function ValueRow({ text, index }: { text: string; index: number }) {
   )
 }
 
+// Text-only link with the footer's hover animation: current text slides up
+// and out while a letter-by-letter staggered duplicate slides up underneath.
+function AnimatedTextLink({ label, href }: { label: string; href: string }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="font-medium text-[18px] md:text-[20px] lg:text-[22px] leading-tight overflow-hidden h-[22px] md:h-[24px] lg:h-[26px] relative block w-fit"
+    >
+      <motion.div
+        animate={{ y: isHovered ? '-50%' : '0%' }}
+        transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
+      >
+        {/* Primary text */}
+        <div className="h-[22px] md:h-[24px] lg:h-[26px] flex items-center whitespace-nowrap">
+          {label}
+        </div>
+
+        {/* Secondary text — letters stagger in on hover */}
+        <div className="h-[22px] md:h-[24px] lg:h-[26px] flex items-center whitespace-nowrap">
+          {label.split('').map((char, i) => (
+            <motion.span
+              key={i}
+              className="inline-block"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ delay: isHovered ? i * 0.025 : 0, duration: 0.4, ease: 'easeOut' }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </motion.span>
+          ))}
+        </div>
+      </motion.div>
+    </a>
+  )
+}
+
 function AboutContent() {
   return (
     <div className="flex flex-col px-4 text-foreground lg:px-9">
@@ -253,21 +302,30 @@ function AboutContent() {
 
       <AboutSection title="The Founder">
         <>
-          <AboutImage label="Adnan Akif, founder of Lozinr" src="#" />
+          <AboutImage
+            label="Adnan Akif, founder of Lozinr"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Founder%20Image-aukHDIOz6lkRqfW8D3IxYrhI4Umd8C.png"
+            priority
+          />
           <AboutText>
-            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
-              <p>Lozinr is run by one person — Adnan Akif. Designer, developer, and the entire studio behind every brand system we ship.</p>
-              <p>Based in Chittagong, Bangladesh, he builds the identity systems, the websites, and the tools that hold them together. No hand-offs, no diluted execution — one person accountable for the outcome, start to finish.</p>
-              <p>
-                <a
-                  href="https://instagram.com/adnaanakif"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
-                >
-                  @adnaanakif
-                </a>
+            <div className="flex flex-col gap-1">
+              <h3 className="text-[28px] md:text-[34px] lg:text-[40px] font-medium tracking-tight leading-[0.95] text-foreground">
+                Adnan Akif
+              </h3>
+              <p className="text-[16px] md:text-[18px] lg:text-[20px] tracking-tight text-muted-foreground/70">
+                Founder &amp; Designer
               </p>
+            </div>
+
+            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+              <p>Lozinr is run by one person — Adnan Akif. Designer, strategist, and the entire studio behind every brand system we ship.</p>
+              <p>Based in Chittagong, Bangladesh, working with founders worldwide. He builds the strategy, the identity systems, and the tools that hold them together. No hand-offs, no diluted execution — one person accountable for the outcome, start to finish.</p>
+            </div>
+
+            <div className="flex items-center gap-8">
+              <AnimatedTextLink label="Instagram" href="https://instagram.com/adnaanakif" />
+              <AnimatedTextLink label="LinkedIn" href="https://linkedin.com/in/adnaanakif" />
+              <AnimatedTextLink label="YouTube" href="https://youtube.com/@adnaanakif" />
             </div>
           </AboutText>
         </>

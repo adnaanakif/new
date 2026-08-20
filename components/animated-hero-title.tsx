@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 // ─── Animated Hero Title ─────────────────────────────────────────
 // Looping slide/scale title animation. Extracted from the /work page
 // hero so it can be reused identically on case study detail pages.
-export default function AnimatedHeroTitle({ text }: { text: string }) {
+export default function AnimatedHeroTitle({ text, color = 'text-foreground' }: { text: string; color?: string }) {
   return (
     <div className="overflow-hidden h-[58px] md:h-[126px] lg:h-[187px]">
       <motion.div
@@ -21,11 +21,11 @@ export default function AnimatedHeroTitle({ text }: { text: string }) {
         <motion.h1
           animate={{ scale: [1, 1, 0.985, 1, 1] }}
           transition={{ duration: 5.5, times: [0, 0.4, 0.5, 0.6, 1], repeat: Infinity, ease: 'easeInOut' }}
-          className="text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] text-foreground text-center"
+          className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] !text-white text-center`}
         >
           {text}
         </motion.h1>
-        <h1 className="text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] text-foreground text-center">
+        <h1 className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] !text-white text-center`}>
           {text}
         </h1>
       </motion.div>
