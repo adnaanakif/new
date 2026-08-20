@@ -151,9 +151,9 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
     >
       {/* Background — always visible, translucent + blurred, no scroll-trigger */}
-      <div className="absolute inset-0 bg-background/90 backdrop-blur-md border-b border-foreground/10" />
+      <div className="absolute inset-0 bg-background" />
 
-      <div className="relative z-10 flex items-center justify-between h-12 lg:h-14 px-3 lg:px-6 w-full">
+      <div className="relative z-10 flex items-center justify-between h-12 lg:h-8 px-3 lg:px-6 w-full">
 
         {/* Mobile: logo left */}
         <div
