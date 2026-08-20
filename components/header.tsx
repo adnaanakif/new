@@ -572,11 +572,19 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
               aria-expanded={isMenuOpen}
               aria-controls="mobile-template-menu"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              className="lg:hidden flex flex-col items-end justify-center gap-1.5 p-1"
-            >
-              <span className="block h-px w-6 bg-foreground" />
-              <span className="block h-px w-4 bg-foreground" />
-            </button>
+  className="lg:hidden relative flex size-8 items-center justify-center p-1"
+  >
+  <motion.span
+  className="absolute block h-px w-6 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -3 }}
+  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+  />
+  <motion.span
+  className="absolute block h-px w-6 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 3 }}
+  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+  />
+  </button>
           </div>
         </div>
       </motion.header>
