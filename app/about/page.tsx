@@ -35,9 +35,8 @@ function AboutHero() {
           decoding="async"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-background" />
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="ABOUT" />
+        <AnimatedHeroTitle text="ABOUT" color="text-background" />
       </div>
     </div>
   )
@@ -213,7 +212,7 @@ function AboutContent() {
 
       <AboutSection title="How We Work">
         <>
-          <AboutImage label="Method image" src="work-hero.svg" />
+          <AboutImage label="Method image" src="#" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
@@ -251,6 +250,28 @@ function AboutContent() {
           ))}
         </div>
       </section>
+
+      <AboutSection title="The Founder">
+        <>
+          <AboutImage label="Adnan Akif, founder of Lozinr" src="#" />
+          <AboutText>
+            <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
+              <p>Lozinr is run by one person — Adnan Akif. Designer, developer, and the entire studio behind every brand system we ship.</p>
+              <p>Based in Chittagong, Bangladesh, he builds the identity systems, the websites, and the tools that hold them together. No hand-offs, no diluted execution — one person accountable for the outcome, start to finish.</p>
+              <p>
+                <a
+                  href="https://instagram.com/adnaanakif"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
+                >
+                  @adnaanakif
+                </a>
+              </p>
+            </div>
+          </AboutText>
+        </>
+      </AboutSection>
     </div>
   )
 }
