@@ -261,7 +261,7 @@ function AboutContent() {
 
       <AboutSection title="How We Work">
         <>
-          <AboutImage label="Method image" src="#" />
+          <AboutImage label="Method image" src="who-we-are.jpg" />
           <AboutText>
             <div className="flex flex-col gap-5 text-[18px] leading-tight tracking-tight text-foreground lg:text-[22px]">
               <p>We call it the Lozinr Method — six stages, one direction.</p>
