@@ -25,8 +25,8 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #111111;
+  --background: #000000;
+  --foreground: #ffffff;
   --card: #FFFFFF;
   --card-foreground: #111111;
   --process: #dd491b;
