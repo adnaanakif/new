@@ -84,7 +84,7 @@ function DesktopNavItem({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="text-[18px] font-medium uppercase tracking-tight h-full px-2 flex items-center overflow-hidden"
+      className="text-[16px] font-medium uppercase tracking-tight h-full px-2 flex items-center overflow-hidden"
     >
       <div className="overflow-hidden h-6 relative">
         <motion.div
@@ -497,7 +497,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   // (transparent header), foreground-colored once we've scrolled past it.
   // When the menu is open, the hamburger (now an X) sits on the solid
   // full-screen menu bg, so it stays foreground-colored regardless of scroll.
-  const hamburgerColor = isMenuOpen || isPastHero ? 'bg-foreground' : 'bg-background'
+  const hamburgerColor = 'bg-foreground'
 
   return (
     <>
@@ -505,7 +505,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           content (logo/nav/store icon) fades out smoothly; the hamburger
           stays put and simply morphs into an X. */}
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-[100] w-full transition-colors duration-300 ${isPastHero ? 'text-foreground' : 'text-background'}`}
+        className="fixed top-0 left-0 right-0 z-[100] w-full text-foreground"
         initial={{ y: -80, opacity: 0, filter: 'blur(6px)' }}
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
@@ -513,13 +513,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
       {/* Translucent background layer — transparent over the hero, fades in
           once we've scrolled past it so the page stays subtly visible beneath. */}
       <motion.div
-        className="absolute inset-0 bg-background/80 backdrop-blur-md pointer-events-none"
+        className="absolute inset-0 bg-background text-foreground border-b border-foreground/10 pointer-events-none"
         initial={false}
-        animate={{ opacity: isPastHero ? 1 : 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       />
 
-        <div className="relative z-10 flex items-center justify-between gap-4 py-3 px-3 lg:px-6 lg:py-4 w-full">
+        <div className="relative z-10 flex items-center justify-between gap-4 h-10 px-3 lg:px-6 w-full">
 
           {/* Content that fades/hides together as a staggered group */}
           <motion.div
@@ -560,7 +560,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             </motion.div>
           </motion.div>
 
-          {/* Right: Cart Icon + Hamburger (moved to right side with hamburger) */}
+          {/* Right-side template link and mobile menu control */}
+          <a
+            href="#"
+            className="hidden lg:block ml-auto text-[16px] font-medium uppercase tracking-tight"
+          >
+            Template
+          </a>
 
           {/* Center: Logo SVG (Desktop/LG Only) */}
           <motion.div
@@ -585,12 +591,15 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             </svg>
           </motion.div>
 
-          {/* Right: Hamburger */}
-          <div className="flex items-center gap-4 flex-shrink-0 ml-auto z-[80]">
-            {/* Hamburger — stays in place, always clickable, just morphs to X */}
+          {/* Right: Template link and hamburger on mobile */}
+          <div className="flex items-center gap-3 flex-shrink-0 ml-auto z-[80]">
+            <a href="#" className="lg:hidden text-[16px] font-medium uppercase tracking-tight">
+              Template
+            </a>
+            {/* Hamburger — mobile only, always clickable, just morphs to X */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex flex-col gap-1 cursor-pointer w-10 h-10 justify-center items-center flex-shrink-0 z-[100]"
+              className="lg:hidden flex flex-col gap-1 cursor-pointer w-8 h-8 justify-center items-center flex-shrink-0 z-[100]"
             >
               <motion.span
                 className={`w-9 h-0.5 ${hamburgerColor} rounded-full origin-center transition-colors duration-300`}
