@@ -25,6 +25,20 @@ const SCROLL_THRESHOLD = 800
 // Separate, larger threshold for mobile logo + hamburger color flip.
 const SCROLL_THRESHOLD_MOBILE = 1200
 
+function useHoverCapability() {
+  const [canHover, setCanHover] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const updateHoverCapability = () => setCanHover(mediaQuery.matches)
+    updateHoverCapability()
+    mediaQuery.addEventListener('change', updateHoverCapability)
+    return () => mediaQuery.removeEventListener('change', updateHoverCapability)
+  }, [])
+
+  return canHover
+}
+
 // ─── Content fade/hide variants (used for everything in the header EXCEPT
 // the hamburger button) — replaces the old whole-header slide-up. ─────────────
 const contentGroupVariants = {
@@ -231,19 +245,20 @@ function MobileNavItem({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
+  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && !isHovered
-  const secondaryVisible = isHovered
+  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
+  const secondaryVisible = canHover && isHovered
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => canHover && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="lg:text-[79px] text-[48px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[96px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
@@ -251,7 +266,7 @@ function MobileNavItem({
       <div className="overflow-hidden h-[96px]">
         {/* Hover swap wrapper */}
         <motion.div
-          animate={{ y: isHovered ? -96 : 0 }}
+          animate={{ y: canHover && isHovered ? -96 : 0 }}
           transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
         >
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
@@ -332,19 +347,20 @@ function RightNavItem({
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
+  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && !isHovered
-  const secondaryVisible = isHovered
+  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
+  const secondaryVisible = canHover && isHovered
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => canHover && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="lg:text-[32px] text-[22px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[52px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
@@ -352,7 +368,7 @@ function RightNavItem({
       <div className="overflow-hidden h-[52px]">
         {/* Hover swap wrapper */}
         <motion.div
-          animate={{ y: isHovered ? -52 : 0 }}
+          animate={{ y: canHover && isHovered ? -52 : 0 }}
           transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
         >
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
