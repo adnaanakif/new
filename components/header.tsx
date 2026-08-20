@@ -437,23 +437,11 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const [isHeaderVisible, setIsHeaderVisible] = useState(true)
-  const [passwordInput, setPasswordInput] = useState('')
-  const [isPasswordCorrect, setIsPasswordCorrect] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
-  const [isLocked, setIsLocked] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isPastHero, setIsPastHero] = useState(false)
   const lastScrollYRef = useRef(0)
 
   useEffect(() => {
     setIsMounted(true)
-    fetch('/api/client-auth')
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.authenticated) setIsPasswordCorrect(true)
-      })
-      .catch(() => {})
   }, [])
 
   useEffect(() => {
@@ -492,16 +480,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
 
   const navLinks = ['Work', 'About', 'Contact', 'Insight']
 
-  const rightNavLinks = [
-    { name: 'Invoice', path: '/invoice' },
-    { name: 'Contract', path: '/contract' },
-    { name: 'Brand Strategy', path: '/brand-strategy' },
-    { name: 'Brand Questionnaire', path: '/brand-questionnaire' },
-    { name: 'Brand Guidelines', path: '/brand-guidelines' },
-    { name: 'Proposal', path: '/proposal' },
-    { name: 'Client Portal', path: '/client-portal' },
-  ]
-
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
     { name: 'Twitter', link: 'https://x.com/adnaanakif' },
@@ -513,57 +491,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     else if (link === 'Work') router.push('/work')
     else if (link === 'About') router.push('/about')
     else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
-  }
-
-  const handleRightNavClick = (path: string) => {
-    router.push(path)
-  }
-
-  const handlePasswordSubmit = async () => {
-    if (isLocked || isSubmitting) return
-
-    setIsSubmitting(true)
-    try {
-      const res = await fetch('/api/client-auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: passwordInput }),
-      })
-      const data = await res.json()
-      console.log("[v0] Password response:", { status: res.status, data })
-
-      setPasswordInput('')
-
-      if (data.success) {
-        setIsPasswordCorrect(true)
-        setPasswordError(false)
-        setErrorMessage('')
-        return
-      }
-
-      setPasswordError(true)
-      setErrorMessage(data.message || 'Incorrect password.')
-
-      if (data.locked) {
-        setIsLocked(true)
-      } else {
-        setTimeout(() => setPasswordError(false), 2000)
-      }
-    } catch (error) {
-      console.error("[v0] Password error:", error)
-      setPasswordInput('')
-      setPasswordError(true)
-      setErrorMessage('Connection error. Try again.')
-      setTimeout(() => setPasswordError(false), 2000)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handlePasswordKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !isLocked) {
-      handlePasswordSubmit()
-    }
   }
 
   // Mobile logo and hamburger colors — background-colored over the hero
@@ -749,89 +676,21 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                   </div>
                 </div>
 
-                {/* Bottom — Password Protected Right Navigation Links */}
-                <div className="flex-1 flex flex-col justify-start pt-8 px-4">
-                  {isPasswordCorrect ? (
-                    // Right Navigation Links (shown after password)
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="flex flex-col items-start justify-start -space-y-13"
-                    >
-                      {rightNavLinks.map((link, index) => {
-                        const isActive = pathname === link.path
-                        return (
-                          <RightNavItem
-                            key={link.name}
-                            label={link.name}
-                            isActive={isActive}
-                            enterDelay={0.28 + (navLinks.length + socialLinks.length) * 0.09 + index * 0.09}
-                            exitDelay={(rightNavLinks.length - 1 - index) * 0.09}
-                            isMenuOpen={isMenuOpen}
-                            onClick={() => {
-                              setIsMenuOpen(false)
-                              handleRightNavClick(link.path)
-                            }}
-                          />
-                        )
-                      })}
-                    </motion.div>
-                  ) : (
-                    // Password Input
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="min-w-0 flex-shrink-0"
-                    >
-                      <div className={`border-1 flex items-center justify-between gap-4 px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
-                        <input
-                          type="password"
-                          placeholder="PASSWORD"
-                          value={passwordInput}
-                          onChange={(e) => setPasswordInput(e.target.value)}
-                          onKeyDown={handlePasswordKeyDown}
-                          disabled={isLocked}
-                          className={`bg-transparent outline-none min-w-0 text-sm uppercase tracking-tight placeholder-foreground placeholder-opacity-50 disabled:opacity-50 ${passwordError ? 'text-red-500' : ''}`}
-                        />
-                        <button
-                          onClick={handlePasswordSubmit}
-                          disabled={isLocked}
-                          className={`text-xs uppercase tracking-wide font-medium flex-shrink-0 transition-all ${isLocked ? 'opacity-30 cursor-not-allowed' : 'text-foreground opacity-60 hover:opacity-100'} ${passwordError ? 'text-red-500' : ''}`}
-                        >
-                          {isLocked ? 'Locked' : 'ENTER'}
-                        </button>
-                      </div>
-                      {(isLocked || (passwordError && errorMessage)) && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-xs text-red-500 mt-2 uppercase tracking-wide"
-                        >
-                          {errorMessage}
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  )}
-                </div>
               </div>
 
-              {/* Desktop 2-Column Layout (LG and above) */}
+              {/* Desktop Menu — one full-width container with left-aligned navigation and social links */}
               <div className="hidden lg:flex inset-0 w-full items-stretch">
-                {/* Left Column — Navigation */}
-                <div className="flex-1 flex flex-col justify-between pt-16 pb-8 px-6">
-                  {/* Navigation Items — Top, Left-Aligned */}
-                  <div className="flex flex-col items-start justify-start -space-y-6">
+                <div className="flex w-full flex-col justify-between pt-16 pb-8 px-6">
+                  <div className="flex flex-col items-start justify-start -space-y-6 lg:scale-110 lg:origin-top-left">
                     {navLinks.map((link, index) => {
                       const isActive =
-                        (link === 'Home'     && pathname === '/')         ||
-                        (link === 'Work'     && pathname === '/work')     ||
+                        (link === 'Home' && pathname === '/') ||
+                        (link === 'Work' && pathname === '/work') ||
                         (link === 'Design News' && pathname === '/design-news') ||
                         (link === 'Features' && pathname === '/features') ||
-                        (link === 'Job'      && pathname === '/job')      ||
+                        (link === 'Job' && pathname === '/job') ||
                         (link === 'Premium Store' && pathname === '/store') ||
-                        (link === 'About'    && pathname === '/about')
+                        (link === 'About' && pathname === '/about')
                       return (
                         <MobileNavItem
                           key={link}
@@ -849,7 +708,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                     })}
                   </div>
 
-                  {/* Social Links — Bottom, Single Row */}
                   <div className="flex flex-row items-center gap-3 flex-nowrap">
                     {socialLinks.map((social, index) => (
                       <SocialLinkWithAnimation
@@ -863,78 +721,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       />
                     ))}
                   </div>
-                </div>
-
-                {/* Right Column — Password Protected Right Navigation */}
-                <div className="flex-1 flex flex-col justify-between pt-16 pb-8 px-6">
-                  {isPasswordCorrect ? (
-                    // Right Navigation Items (shown after password)
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="flex flex-col items-start justify-start -space-y-6"
-                    >
-                      {rightNavLinks.map((link, index) => {
-                        const isActive = pathname === link.path
-                        return (
-                          <RightNavItem
-                            key={link.name}
-                            label={link.name}
-                            isActive={isActive}
-                            enterDelay={0.28 + index * 0.09}
-                            exitDelay={(rightNavLinks.length - 1 - index) * 0.09}
-                            isMenuOpen={isMenuOpen}
-                            onClick={() => {
-                              setIsMenuOpen(false)
-                              handleRightNavClick(link.path)
-                            }}
-                          />
-                        )
-                      })}
-                    </motion.div>
-                  ) : (
-                    // Empty Space
-                    <div />
-                  )}
-
-                  {/* Password Input for Desktop — At Bottom */}
-                  {!isPasswordCorrect && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="min-w-0 flex-shrink-0"
-                    >
-                      <div className={`border-1 flex items-center justify-between gap-4 px-4 py-3 transition-all ${passwordError ? 'border-red-500 bg-red-500 bg-opacity-5' : 'border-foreground'}`}>
-                        <input
-                          type="password"
-                          placeholder="PASSWORD"
-                          value={passwordInput}
-                          onChange={(e) => setPasswordInput(e.target.value)}
-                          onKeyDown={handlePasswordKeyDown}
-                          disabled={isLocked}
-                          className={`bg-transparent outline-none min-w-0 text-sm uppercase tracking-tight placeholder-foreground placeholder-opacity-50 disabled:opacity-50 ${passwordError ? 'text-red-500' : ''}`}
-                        />
-                        <button
-                          onClick={handlePasswordSubmit}
-                          disabled={isLocked}
-                          className={`text-xs uppercase tracking-wide font-medium flex-shrink-0 transition-all ${isLocked ? 'opacity-30 cursor-not-allowed' : 'text-foreground opacity-60 hover:opacity-100'} ${passwordError ? 'text-red-500' : ''}`}
-                        >
-                          {isLocked ? 'Locked' : 'ENTER'}
-                        </button>
-                      </div>
-                      {(isLocked || (passwordError && errorMessage)) && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-xs text-red-500 mt-2 uppercase tracking-wide"
-                        >
-                          {errorMessage}
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  )}
                 </div>
               </div>
             </motion.div>
