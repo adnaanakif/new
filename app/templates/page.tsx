@@ -37,10 +37,12 @@ const TEMPLATES = [
   },
   {
     title: 'BRAND PROPOSAL TEMPLATE',
-    price: '$59',
+    price: '$35',
     imageSrc: '#',
-    imageAlt: 'Bekary Identity Pack template preview',
-    href: '#',
+    bgMediaSrc:
+      'https://46teei92stvdjhl8.private.blob.vercel-storage.com/Proposal%20Template.gif?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfNDZ0RUVJOTJTVHZkSmhsOCIsIm93bmVySWQiOiJ0ZWFtX2VmTGg2OVQ2R3dTbVB6eXJRekZVckhmYSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg3MzUxMzIzODcxLCJpYXQiOjE3ODczMDgxMjQwNTR9.nJDmBvrDcOSOJ4ZqzzwOII8rmbafYcxWOUpuhRHi7lU&vercel-blob-signature=qE7cZLzqNFFAd1MOSj4jVt9lYwmlgUiqRLQzmbuEuP8',
+    imageAlt: 'Brand Proposal',
+    href: 'https://adnaanakif.gumroad.com/l/brandproposal',
   },
   {
     title: 'INVOICE TEMPLATE',
@@ -70,12 +72,14 @@ function TemplateThumbnail({
   title,
   price,
   imageSrc,
+  bgMediaSrc,
   imageAlt,
   href,
 }: {
   title: string
   price: string
   imageSrc: string
+  bgMediaSrc?: string
   imageAlt: string
   href: string
 }) {
@@ -85,7 +89,18 @@ function TemplateThumbnail({
         href={href}
         aria-label={`View ${title}`}
         className="group relative block aspect-square w-full overflow-hidden bg-[#232121]"
-      />
+      >
+        {bgMediaSrc && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={bgMediaSrc}
+              alt={imageAlt}
+              className="h-2/3 w-2/3 object-contain"
+            />
+          </div>
+        )}
+      </Link>
 
       <div className="flex flex-col items-start gap-0.5">
         <h3 className="text-[18px] font-medium tracking-tight text-foreground lg:text-[20px]">
