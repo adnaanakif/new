@@ -539,7 +539,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'About', 'Contact', 'Insight']
+  const navLinks = ['Work', 'Template', 'About', 'Contact', 'Insight']
 
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
@@ -550,6 +550,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   const handleNavClick = (link: string) => {
     if (link === 'Home') router.push('/')
     else if (link === 'Work') router.push('/work')
+    else if (link === 'Template') router.push('/templates')
     else if (link === 'About') router.push('/about')
     else if (link === 'Contact') window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')
   }
@@ -606,7 +607,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           </motion.div>
 
           {/* Right-side template link and mobile menu control */}
-          <TemplateNavItem label="Template" href="#" />
+          <TemplateNavItem label="Template" href="/templates" />
 
           {/* Center: Logo SVG (Desktop/LG Only) */}
           <div
@@ -675,6 +676,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       const isActive =
                         (link === 'Home'     && pathname === '/')         ||
                         (link === 'Work'     && pathname === '/work')     ||
+                        (link === 'Template' && pathname === '/templates') ||
                         (link === 'About'    && pathname === '/about')     ||
                         (link === 'Design News' && pathname === '/design-news') ||
                         (link === 'Premium Store' && pathname === '/store')
@@ -721,6 +723,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                       const isActive =
                         (link === 'Home' && pathname === '/') ||
                         (link === 'Work' && pathname === '/work') ||
+                        (link === 'Template' && pathname === '/templates') ||
                         (link === 'Design News' && pathname === '/design-news') ||
                         (link === 'Features' && pathname === '/features') ||
                         (link === 'Job' && pathname === '/job') ||
