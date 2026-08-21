@@ -91,7 +91,7 @@ function TemplateThumbnail({
         <h3 className="text-[18px] font-medium tracking-tight text-foreground lg:text-[20px]">
           {title}
         </h3>
-        <span className="text-[16px] tracking-tight text-foreground/70 lg:text-[18px]">
+        <span className="text-[16px] tracking-tight text-foreground lg:text-[18px]">
           {price}
         </span>
       </div>
