@@ -39,11 +39,12 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 }
 
-function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
+function ProjectImage({ alt, slug, src = '#', index }: { alt: string; slug: string; src?: string; index: number }) {
   return (
     <motion.div
       {...reveal}
-      className="relative z-10 block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-20 lg:self-start"
+      style={{ zIndex: index + 10 }}
+      className="relative block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-[30px] lg:self-start"
     >
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
         <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -144,8 +145,11 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
 
       <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
-          <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
-            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
+          <div
+            key={`${project.title}-${index}`}
+            className="relative flex min-h-[calc(100vh-30px)] flex-col gap-10 border-t border-foreground/20 py-10 first:border-t-0 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6"
+          >
+            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} index={index} />
             <ProjectContent title={project.title} description={project.description} slug={project.slug} />
           </div>
         ))}
