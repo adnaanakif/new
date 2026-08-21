@@ -10,7 +10,7 @@ function FooterNavItem({ label, href = '#', external = false }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <a
+    
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
@@ -111,13 +111,8 @@ export default function FooterSection() {
             </div>
           </div>
 
-          {/* Right: single tall image with all overlay content stacked */}
-          <div className="relative min-h-[420px] md:min-h-[560px] overflow-hidden bg-neutral-800">
-            <img
-              src="/footer-working.jpg"
-              alt="Editorial sketchbook and lettering study on a dark tabletop"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          {/* Right: overlay content stacked, no image */}
+          <div className="relative min-h-[420px] md:min-h-[560px] overflow-hidden bg-background">
             {/* Overlay content — stacked to align with the 4 left rows */}
             <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-foreground">
               <div className="flex flex-col gap-1">
