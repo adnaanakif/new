@@ -15,7 +15,7 @@ export default function WhoWeAreSection() {
       
       {/* Heading with Dividers */}
       <div className="flex flex-col gap-6 mb-12">
-        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[40px]">
+        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
           {WHO_WE_ARE_TEXT}
         </h2>
         <div className="w-full h-0.5 bg-foreground" />
