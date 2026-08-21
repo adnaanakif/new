@@ -41,7 +41,10 @@ const reveal = {
 
 function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
   return (
-    <motion.div {...reveal} className="block w-full overflow-hidden bg-foreground aspect-video">
+    <motion.div
+      {...reveal}
+      className="relative z-10 block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-10 lg:self-start"
+    >
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
         <img src={src} alt={alt} className="h-full w-full object-cover" />
       </Link>
@@ -131,7 +134,7 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       aria-labelledby={showHeader ? 'our-work-heading' : undefined}
     >
       {showHeader && (
-        <div className="mb-12 flex flex-col gap-6">
+        <div className="sticky top-2 z-30 mb-12 flex flex-col gap-6 bg-background py-2">
           <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
             Featured Work
           </h2>
