@@ -525,7 +525,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             {/* Mobile brand wordmark */}
             <motion.div
               variants={contentItemVariants}
-              className="lg:hidden flex-shrink-0 cursor-pointer h-5 w-28"
+              className="lg:hidden flex-shrink-0 cursor-pointer h-4 w-20"
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
@@ -560,13 +560,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             <img
               src="/artboard-1.svg"
               alt="Adnan Akif"
-              className="h-5 w-28 object-contain"
+              className="h-4 w-20 object-contain"
             />
           </div>
 
           {/* Mobile hamburger opens the full-screen menu */}
           <div className="flex items-center flex-shrink-0 ml-auto z-[80]">
-            <button
+                        <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-expanded={isMenuOpen}
@@ -575,13 +575,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   className="lg:hidden relative flex size-8 items-center justify-center p-1"
   >
   <motion.span
-  className="absolute block h-px w-6 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -3 }}
+  className="absolute block h-px w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -2 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   <motion.span
-  className="absolute block h-px w-6 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 3 }}
+  className="absolute block h-px w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 2 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   </button>
