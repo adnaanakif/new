@@ -17,7 +17,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
     <section className="sticky top-0 z-0 flex h-screen items-end justify-center overflow-hidden bg-background">
             {/* Top Right - Eyebrow text + description */}
       <motion.div
-        className="absolute top-24 right-4 z-20 max-w-[240px] text-left lg:top-32 lg:right-9 lg:max-w-[500px]"
+        className="absolute top-24 right-4 z-20 max-w-[240px] text-left lg:top-2 lg:right-9 lg:max-w-[600px]"
         initial={{ opacity: 0, y: -20 }}
         animate={triggerAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{
