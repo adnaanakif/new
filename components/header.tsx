@@ -539,7 +539,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     return () => { document.body.style.overflow = '' }
   }, [isMenuOpen])
 
-  const navLinks = ['Work', 'Template', 'About', 'Contact', 'Insight']
+  const navLinks = ['Work','About',  'Contact', 'Template', ]
 
   const socialLinks = [
     { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
