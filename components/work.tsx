@@ -39,15 +39,6 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 }
 
-// Nav bar's own sticky offset (matches "Featured Work" heading's top-10)
-const HEADER_STICKY_TOP = 40
-
-// Extra gap you want between the "Featured Work" heading and the thumbnails
-const THUMBNAIL_GAP = 100
-
-// Thumbnails stick this far from the top of viewport
-const STICKY_TOP = HEADER_STICKY_TOP + THUMBNAIL_GAP
-
 function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
   return (
     <motion.div
@@ -143,10 +134,7 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       aria-labelledby={showHeader ? 'our-work-heading' : undefined}
     >
       {showHeader && (
-        <div
-          className="sticky z-20 mb-12 flex flex-col gap-6 bg-background py-2"
-          style={{ top: HEADER_STICKY_TOP }}
-        >
+        <div className="sticky top-[20px] z-20 mb-12 flex flex-col gap-6 bg-background py-2 lg:top-[40px]">
           <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
             Featured Work
           </h2>
@@ -158,8 +146,8 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
         {PROJECTS.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
-            className="sticky flex min-h-[calc(100vh-10px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background pb-10 pt-2 first:border-t-0 last:pb-0 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
-            style={{ top: STICKY_TOP, zIndex: index + 10 }}
+            className="sticky top-[64px] flex min-h-[calc(100vh-10px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background pb-10 pt-2 first:border-t-0 last:pb-0 lg:top-[140px] lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
+            style={{ zIndex: index + 10 }}
           >
             <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
             <ProjectContent title={project.title} description={project.description} slug={project.slug} />
