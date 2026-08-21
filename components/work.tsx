@@ -134,7 +134,7 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       aria-labelledby={showHeader ? 'our-work-heading' : undefined}
     >
       {showHeader && (
-        <div className="sticky top-[20px] z-20 mb-12 flex flex-col gap-6 bg-background py-2 lg:top-[40px]">
+        <div className="sticky top-[70px] z-20 mb-12 flex flex-col gap-6 bg-background py-2 lg:top-[40px]">
           <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
             Featured Work
           </h2>
@@ -146,7 +146,7 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
         {PROJECTS.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
-            className="sticky top-[64px] flex min-h-[calc(100vh-10px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background pb-10 pt-2 first:border-t-0 last:pb-0 lg:top-[140px] lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
+            className="sticky top-[190px] flex flex-col justify-start gap-6 border-t border-foreground/20 bg-background pb-10 pt-6 first:border-t-0 last:pb-0 lg:top-[140px] lg:min-h-[calc(100vh-10px)] lg:justify-center lg:gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:pt-2"
             style={{ zIndex: index + 10 }}
           >
             <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
