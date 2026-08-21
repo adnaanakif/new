@@ -122,7 +122,7 @@ function TemplateNavItem({ label, href }: { label: string; href: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    
+    <a
       href={href}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
