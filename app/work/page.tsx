@@ -27,17 +27,17 @@ function WorkHero() {
     <div
       ref={heroRef}
       className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden"
-      style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
+      style={{ aspectRatio: '3 / 2' }}
     >
       {heroImage && (
         <motion.div
-          className="w-full h-full"
+          className="absolute inset-0 h-full w-full min-w-full"
           style={{ y: heroImageY, scale: heroImageScale }}
         >
           <img
             src={heroImage}
             alt="Work"
-            className="w-full h-full object-cover"
+            className="block h-full w-full min-w-full max-w-none object-cover"
             loading="eager"
             decoding="async"
           />

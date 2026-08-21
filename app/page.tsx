@@ -39,9 +39,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero triggerAnimation={true} />
-        <WhoWeAre />
-        <Beliefs />
-        <Work />
+        <div className="relative z-10 bg-background">
+          <WhoWeAre />
+          <Beliefs />
+          <Work />
+        </div>
       </main>
       <Footer />
     </>
