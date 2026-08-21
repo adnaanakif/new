@@ -10,7 +10,7 @@ function FooterNavItem({ label, href = '#', external = false }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    
+    <a
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
