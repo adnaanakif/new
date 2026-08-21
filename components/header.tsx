@@ -525,7 +525,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             {/* Mobile brand wordmark */}
             <motion.div
               variants={contentItemVariants}
-              className="lg:hidden flex-shrink-0 cursor-pointer h-4 w-24"
+              className="lg:hidden flex-shrink-0 cursor-pointer h-5 w-28"
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
