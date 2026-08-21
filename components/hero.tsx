@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface HeroSectionProps {
   triggerAnimation?: boolean
@@ -24,15 +24,18 @@ const letterVariants = {
 export default function HeroSection({ triggerAnimation = false }: HeroSectionProps) {
   const directionStart = 0.1
   const directionEnd = directionStart + 0.85
+  const { scrollY } = useScroll()
+  const heroArtworkY = useTransform(scrollY, [0, 700], [0, -220])
 
   return (
     <section className="sticky top-0 z-0 flex h-screen items-end justify-center overflow-hidden bg-background">
-      <div className="relative z-10 w-full">
+      <div className="relative z-10 flex h-full w-full items-end">
         <div className="flex w-full flex-col items-center justify-end gap-0">
 
           {/* Top Column - DIRECTION (SVG) */}
           <motion.div
-            className="relative w-full translate-y-[40%] text-center"
+            className="relative w-full text-center"
+            style={{ y: heroArtworkY }}
             initial={{ opacity: 0, y: 20 }}
             animate={triggerAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{
