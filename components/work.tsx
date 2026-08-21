@@ -136,8 +136,8 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       className="w-full bg-background px-4 py-20 text-foreground md:py-28 lg:px-9"
       aria-labelledby={showHeader ? 'our-work-heading' : undefined}
     >
-      {showHeader && (
-        <div className="sticky top-2 z-30 mb-12 flex flex-col gap-6 bg-background py-2">
+            {showHeader && (
+        <div className="sticky top-10 z-20 mb-12 flex flex-col gap-6 bg-background py-2">
           <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
             Featured Work
           </h2>
