@@ -42,7 +42,7 @@ const TEMPLATES = [
     bgMediaSrc:
       'https://46teei92stvdjhl8.private.blob.vercel-storage.com/Proposal%20Template.gif?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfNDZ0RUVJOTJTVHZkSmhsOCIsIm93bmVySWQiOiJ0ZWFtX2VmTGg2OVQ2R3dTbVB6eXJRekZVckhmYSIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg3MzUxMzIzODcxLCJpYXQiOjE3ODczMDgxMjQwNTR9.nJDmBvrDcOSOJ4ZqzzwOII8rmbafYcxWOUpuhRHi7lU&vercel-blob-signature=qE7cZLzqNFFAd1MOSj4jVt9lYwmlgUiqRLQzmbuEuP8',
     imageAlt: 'Brand Proposal',
-    href: 'https://adnaanakif.gumroad.com/l/brandproposal',
+    href: 'https://template.lozinr.com/l/brandproposal?layout=profile',
   },
   {
     title: 'INVOICE TEMPLATE',
