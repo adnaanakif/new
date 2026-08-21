@@ -43,7 +43,7 @@ function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src
   return (
     <motion.div
       {...reveal}
-      className="relative z-10 block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-10 lg:self-start"
+      className="relative z-10 block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-20 lg:self-start"
     >
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
         <img src={src} alt={alt} className="h-full w-full object-cover" />
