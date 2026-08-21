@@ -18,6 +18,25 @@ import { useRouter, usePathname } from 'next/navigation'
 
 const CONTACT_LINK = 'https://cal.com/adnanakif/30-min-meeting'
 
+function LogoMark({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      aria-label="Adnan Akif"
+      className={className}
+      viewBox="0 0 857.41 179"
+      fill="none"
+      role="img"
+    >
+      <path fill="currentColor" d="M41.8 1.84v142.91h85.45v32.41H3.25V1.84H41.8Z" />
+      <path fill="currentColor" d="M135.8 55.78c3.74-10.67 9.11-19.98 16.12-27.92 7.01-7.95 15.62-14.17 25.82-18.69 10.2-4.52 21.69-6.78 34.47-6.78s24.46 2.26 34.58 6.78c10.12 4.52 18.69 10.75 25.7 18.69 7.01 7.94 12.38 17.25 16.12 27.92 3.74 10.67 5.61 22.24 5.61 34.7s-1.87 23.48-5.61 34c-3.74 10.52-9.11 19.67-16.12 27.46-7.01 7.79-15.58 13.9-25.7 18.34-10.13 4.44-21.65 6.66-34.58 6.66s-24.27-2.22-34.47-6.66c-10.2-4.44-18.81-10.55-25.82-18.34-7.01-7.79-12.38-16.94-16.12-27.46-3.74-10.52-5.61-21.85-5.61-34s1.87-24.03 5.61-34.7Zm33.53 55.15c1.64 6.62 4.24 12.58 7.83 17.88 3.58 5.3 8.26 9.54 14.02 12.73 5.76 3.19 12.77 4.79 21.03 4.79s15.27-1.6 21.03-4.79c5.76-3.19 10.43-7.44 14.02-12.73 3.58-5.29 6.19-11.25 7.83-17.88 1.64-6.62 2.45-13.44 2.45-20.45s-.82-14.41-2.45-21.26c-1.64-6.85-4.25-12.97-7.83-18.34-3.59-5.37-8.26-9.66-14.02-12.85-5.77-3.19-12.78-4.79-21.03-4.79s-15.27 1.6-21.03 4.79c-5.77 3.19-10.44 7.48-14.02 12.85-3.59 5.37-6.19 11.49-7.83 18.34-1.64 6.86-2.45 13.94-2.45 21.26s.82 13.83 2.45 20.45Z" />
+      <path fill="currentColor" d="M392.2 34.25h-86.68V1.84h138v30.45l-94.05 112.46h96.5v32.41h-147.82v-30.45L392.2 34.25Z" />
+      <path fill="currentColor" d="M508.63 1.84v175.32h-38.55V1.84h38.55Z" />
+      <path fill="currentColor" d="m571.05 1.84 73.17 117.62h.49V1.84h36.1v175.32h-38.55L569.33 59.79h-.49v117.37h-36.1V1.84h38.31Z" />
+      <path fill="currentColor" d="M799.46 1.84c7.86 0 14.94 1.27 21.24 3.81 6.3 2.54 11.7 6.02 16.21 10.44 4.5 4.42 7.94 9.54 10.31 15.35 2.37 5.81 3.56 12.07 3.56 18.78 0 10.31-2.17 19.24-6.51 26.76-4.34 7.53-11.42 13.26-21.24 17.19v.49c4.75 1.31 8.67 3.31 11.79 6.02 3.11 2.7 5.65 5.89 7.61 9.58 1.96 3.68 3.4 7.73 4.3 12.15.9 4.42 1.51 8.84 1.84 13.26.16 2.79.33 6.06.49 9.82.16 3.77.45 7.61.86 11.54.41 3.93 1.06 7.65 1.96 11.17.9 3.52 2.25 6.51 4.05 8.96h-38.55c-2.13-5.56-3.44-12.19-3.93-19.89-.49-7.69-1.23-15.06-2.21-22.1-1.31-9.17-4.09-15.88-8.35-20.13-4.26-4.26-11.22-6.38-20.87-6.38h-38.55v68.51h-38.55V1.84h94.54Zm-13.75 79.31c8.84 0 15.47-1.96 19.89-5.89 4.42-3.93 6.63-10.31 6.63-19.15s-2.21-14.69-6.63-18.54c-4.42-3.84-11.05-5.77-19.89-5.77h-42.23v49.36h42.23Z" />
+    </svg>
+  )
+}
+
 // Distance (px) from top before header bg / dark text kicks in,
 // and distance (px) from bottom before header bg hides again — desktop nav + bg.
 const SCROLL_THRESHOLD = 800
@@ -122,7 +141,7 @@ function TemplateNavItem({ label, href }: { label: string; href: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    
+    <a
       href={href}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -571,7 +590,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
-              <img src="/artboard-1.svg" alt="Adnan Akif" className="h-full w-full object-contain object-left brightness-100" />
+              <LogoMark className="h-full w-full text-foreground" />
             </motion.div>
 
             {/* Desktop Left Nav (LG and above only) */}
@@ -594,11 +613,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             className="hidden lg:block absolute left-1/2 -translate-x-1/2 flex-shrink-0 cursor-pointer z-[80]"
             onClick={() => router.push('/')}
           >
-            <img
-              src="/artboard-1.svg"
-              alt="Adnan Akif"
-              className="h-4 w-20 object-contain"
-            />
+            <LogoMark className="h-4 w-20 text-foreground" />
           </div>
 
           {/* Mobile hamburger opens the full-screen menu */}

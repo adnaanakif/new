@@ -15,7 +15,7 @@ export default function OurBeliefSection() {
 
       {/* Heading with Dividers */}
       <div className="flex flex-col gap-6 mb-12">
-        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[64px] md:text-[100px] lg:text-[120px]">
+        <h2 className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
           {OUR_BELIEF_TEXT}
         </h2>
         <div className="w-full h-0.5 bg-foreground" />
@@ -31,7 +31,7 @@ export default function OurBeliefSection() {
           viewport={{ once: true, margin: '-100px' }}
           className="w-full flex flex-col gap-6"
         >
-          <p className="text-[18px] lg:text-[36px] leading-tight tracking-tight text-foreground font-regular whitespace-pre-line">
+          <p className="text-[18px] lg:text-[26px] leading-tight tracking-tight text-foreground font-regular whitespace-pre-line">
             {BELIEF_DESCRIPTION}
           </p>
         </motion.div>

@@ -7,14 +7,7 @@ import Footer from '@/components/footer'
 import AnimatedHeroTitle from '@/components/animated-hero-title'
 
 function AboutHero() {
-  const heroRef = useRef<HTMLDivElement>(null)
   const [, setIsMounted] = useState(false)
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start end', 'end start'],
-  })
-  const heroImageY = useTransform(scrollYProgress, [0, 1], ['-24%', '24%'])
-  const heroImageScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.0])
 
   useEffect(() => {
     setIsMounted(true)
@@ -22,21 +15,11 @@ function AboutHero() {
 
   return (
     <div
-      ref={heroRef}
-      className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden"
+      className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden bg-background"
       style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
     >
-      <motion.div className="h-full w-full" style={{ y: heroImageY, scale: heroImageScale }}>
-        <img
-          src="/work-hero.svg"
-          alt="About Lozinr"
-          className="h-full w-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
-      </motion.div>
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="ABOUT" color="text-background" />
+        <AnimatedHeroTitle text="ABOUT" color="text-foreground" />
       </div>
     </div>
   )
@@ -209,14 +192,14 @@ function AnimatedTextLink({ label, href }: { label: string; href: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="font-medium text-[18px] md:text-[20px] lg:text-[22px] leading-tight overflow-hidden h-[22px] md:h-[24px] lg:h-[26px] relative block w-fit"
-    >
+  
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
+    className="font-medium text-[18px] md:text-[20px] lg:text-[22px] leading-tight overflow-hidden h-[22px] md:h-[24px] lg:h-[26px] relative block w-fit"
+  >
       <motion.div
         animate={{ y: isHovered ? '-50%' : '0%' }}
         transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}

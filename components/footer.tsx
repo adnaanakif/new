@@ -10,7 +10,7 @@ function FooterNavItem({ label, href = '#', external = false }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <a
+    
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
@@ -111,68 +111,60 @@ export default function FooterSection() {
             </div>
           </div>
 
-          {/* Right: single tall image with all overlay content stacked */}
-          <div className="relative min-h-[420px] md:min-h-[560px] overflow-hidden bg-neutral-800">
-            <img
-              src="/footer-working.jpg"
-              alt="Editorial sketchbook and lettering study on a dark tabletop"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Overlay content — stacked to align with the 4 left rows */}
-            <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-background">
-              <div className="flex flex-col gap-1">
-                <FooterNavItem label="Work" href="/work" />
-                <FooterNavItem label="Contact" href="https://cal.com/adnanakif/30-min-meeting" />
-              </div>
+          {/* Right: same 4-row divider structure as left, content instead of labels */}
+          <div className="flex flex-col border-t-2 border-b-2 border-solid border-foreground min-h-[420px] md:min-h-[560px]">
+            <div className="flex-1 flex flex-col justify-center gap-1 border-b-2 border-solid border-foreground px-1 py-2">
+              <FooterNavItem label="Work" href="/work" />
+              <FooterNavItem label="Contact" href="https://cal.com/adnanakif/30-min-meeting" />
+            </div>
 
-              <div className="flex flex-col gap-1">
-                <FooterNavItem label="Linkedin" href="#" external />
-                <FooterNavItem label="Instagram" href="https://www.instagram.com/adnaanakif/" external />
-              </div>
+            <div className="flex-1 flex flex-col justify-center gap-1 border-b-2 border-solid border-foreground px-1 py-2">
+              <FooterNavItem label="Linkedin" href="#" external />
+              <FooterNavItem label="Instagram" href="https://www.instagram.com/adnaanakif/" external />
+            </div>
 
-              <div className="flex flex-col">
-                <span className="font-medium text-[14px] md:text-[16px] lg:text-[20px] leading-tight">Based in Bangladesh</span>
-                <span className="font-medium text-[14px] md:text-[16px] lg:text-[20px] leading-tight">Working World-Wide</span>
-              </div>
+            <div className="flex-1 flex flex-col justify-center border-b-2 border-solid border-foreground px-1 py-2">
+              <span className="font-medium text-[14px] md:text-[16px] lg:text-[20px] leading-tight text-foreground">Based in Bangladesh</span>
+              <span className="font-medium text-[14px] md:text-[16px] lg:text-[20px] leading-tight text-foreground">Working World-Wide</span>
+            </div>
 
-              <div className="flex flex-col gap-1">
-                {!submitted ? (
-                  <form onSubmit={handleSubmit}>
-                    <div className="flex items-center justify-between border border-background px-4 md:px-5 py-3 md:py-3">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
-                        disabled={loading}
-                        className="bg-transparent text-background placeholder-background font-medium text-[14px] md:text-[16px] lg:text-[20px] outline-none flex-1 disabled:opacity-60"
-                      />
-                      <button
-                        type="submit"
-                        disabled={!isValidEmail || loading}
-                        className={`font-medium text-[14px] md:text-[16px] lg:text-[20px] transition-opacity ${
-                          isValidEmail && !loading
-                            ? 'text-background hover:opacity-70 cursor-pointer'
-                            : 'text-background/40 cursor-not-allowed'
-                        }`}
-                      >
-                        {loading ? '...' : 'enter'}
-                      </button>
-                    </div>
-                    {error && (
-                      <span className="text-background/70 text-[12px] md:text-[13px] mt-1 block">
-                        Something went wrong. Please try again.
-                      </span>
-                    )}
-                  </form>
-                ) : (
-                  <div className="border border-background px-4 md:px-5 py-3 md:py-3">
-                    <span className="text-accent font-medium text-[14px] md:text-[16px] lg:text-[20px]">
-                      Thanks — you're subscribed.
-                    </span>
+            <div className="flex-1 flex flex-col justify-center px-1 py-2">
+              {!submitted ? (
+                <form onSubmit={handleSubmit}>
+                  <div className="flex items-center justify-between border border-foreground px-4 md:px-5 py-3 md:py-3">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Email"
+                      disabled={loading}
+                      className="bg-transparent text-foreground placeholder-foreground font-medium text-[14px] md:text-[16px] lg:text-[20px] outline-none flex-1 disabled:opacity-60"
+                    />
+                    <button
+                      type="submit"
+                      disabled={!isValidEmail || loading}
+                      className={`font-medium text-[14px] md:text-[16px] lg:text-[20px] transition-opacity ${
+                        isValidEmail && !loading
+                          ? 'text-foreground hover:opacity-70 cursor-pointer'
+                          : 'text-foreground/40 cursor-not-allowed'
+                      }`}
+                    >
+                      {loading ? '...' : 'enter'}
+                    </button>
                   </div>
-                )}
-              </div>
+                  {error && (
+                    <span className="text-foreground/70 text-[12px] md:text-[13px] mt-1 block">
+                      Something went wrong. Please try again.
+                    </span>
+                  )}
+                </form>
+              ) : (
+                <div className="border border-foreground px-4 md:px-5 py-3 md:py-3">
+                  <span className="text-accent font-medium text-[14px] md:text-[16px] lg:text-[20px]">
+                    Thanks — you're subscribed.
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>

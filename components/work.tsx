@@ -41,7 +41,10 @@ const reveal = {
 
 function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
   return (
-    <motion.div {...reveal} className="block w-full overflow-hidden bg-foreground aspect-video">
+    <motion.div
+      {...reveal}
+      className="relative block aspect-video w-full overflow-hidden bg-[#232121]"
+    >
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
         <img src={src} alt={alt} className="h-full w-full object-cover" />
       </Link>
@@ -91,7 +94,7 @@ function CaseStudyButton({ slug }: { slug: string }) {
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
-      className="flex min-h-14 w-full items-center justify-center bg-foreground px-4 py-3 text-center text-[18px] text-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+      className="flex min-h-14 w-full items-center justify-center bg-[#232121] px-4 py-3 text-center text-[18px] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
     >
       <AnimatedCaseStudyLabel isHovered={isHovered} />
     </Link>
@@ -111,7 +114,7 @@ function ProjectContent({
     <motion.div
       {...reveal}
       transition={{ ...reveal.transition, delay: 0.1 }}
-      className="flex w-full flex-col items-start gap-5"
+      className="flex w-full flex-col items-start justify-start gap-5"
     >
       <div className="flex flex-col gap-3">
         <h3 className="text-2xl font-medium tracking-tight text-foreground">{title}</h3>
@@ -131,9 +134,9 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       aria-labelledby={showHeader ? 'our-work-heading' : undefined}
     >
       {showHeader && (
-        <div className="mb-12 flex flex-col gap-6">
-          <h2 id="our-work-heading" className="text-[64px] font-medium uppercase leading-[0.9] tracking-tighter md:text-[100px] lg:text-[120px]">
-            Our Work
+        <div className="sticky top-[70px] z-20 mb-12 flex flex-col gap-6 bg-background py-2 lg:top-[40px]">
+          <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
+            Featured Work
           </h2>
           <div className="h-0.5 w-full bg-foreground" />
         </div>
@@ -141,24 +144,13 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
 
       <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
-          <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
-            {project.imageFirst ? (
-              <>
-                <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
-                <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-              </>
-            ) : (
-              <>
-                <ProjectImage
-                  alt={project.imageAlt}
-                  slug={project.slug}
-                  src={project.imageSrc}
-                />
-                <div className="lg:order-first">
-                  <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-                </div>
-              </>
-            )}
+          <div
+            key={`${project.title}-${index}`}
+            className="sticky top-[190px] flex flex-col justify-start gap-6 border-t border-foreground/20 bg-background pb-10 pt-6 first:border-t-0 last:pb-0 lg:top-[140px] lg:min-h-[calc(100vh-10px)] lg:justify-center lg:gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:pt-2"
+            style={{ zIndex: index + 10 }}
+          >
+            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
+            <ProjectContent title={project.title} description={project.description} slug={project.slug} />
           </div>
         ))}
       </div>
