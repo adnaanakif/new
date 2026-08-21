@@ -27,7 +27,7 @@ function WorkHero() {
     <div
       ref={heroRef}
       className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden"
-      style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
+      style={{ aspectRatio: '3 / 2' }}
     >
       {heroImage && (
         <motion.div
