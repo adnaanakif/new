@@ -19,7 +19,7 @@ function AboutHero() {
       style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
     >
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="About" color="text-foreground" />
+        <AnimatedHeroTitle text="ABOUT US" color="text-foreground" />
       </div>
     </div>
   )
