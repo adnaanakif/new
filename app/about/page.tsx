@@ -19,7 +19,7 @@ function AboutHero() {
       style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
     >
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
-        <AnimatedHeroTitle text="ABOUT" color="text-foreground" />
+        <AnimatedHeroTitle text="ABOUT US" color="text-foreground" />
       </div>
     </div>
   )
@@ -192,9 +192,9 @@ function AnimatedTextLink({ label, href }: { label: string; href: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-  
-    href={href}
-    target="_blank"
+    <a
+      href={href}
+      target="_blank"
     rel="noopener noreferrer"
     onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}

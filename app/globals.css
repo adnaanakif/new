@@ -6,81 +6,81 @@
 /* Monochrome brand system: primary black, secondary white. */
 :root {
   --color-bg: #000000;
-  --color-text: #d6d6d6;
-  --color-card: #d6d6d6;
+  --color-text: #dfdfdf;
+  --color-card: #dfdfdf;
   --color-accent: #000000;
-  --color-border: #d6d6d6;
+  --color-border: #dfdfdf;
 
   --background: #000000;
-  --foreground: #d6d6d6;
-  --card: #d6d6d6;
+  --foreground: #dfdfdf;
+  --card: #dfdfdf;
   --card-foreground: #000000;
   --process: #000000;
-  --popover: #d6d6d6;
+  --popover: #dfdfdf;
   --popover-foreground: #000000;
   --primary: #000000;
-  --primary-foreground: #d6d6d6;
-  --secondary: #d6d6d6;
+  --primary-foreground: #dfdfdf;
+  --secondary: #dfdfdf;
   --secondary-foreground: #000000;
-  --muted: #d6d6d6;
+  --muted: #dfdfdf;
   --muted-foreground: #000000;
   --accent: #000000;
-  --accent-foreground: #d6d6d6;
+  --accent-foreground: #dfdfdf;
   --destructive: #000000;
-  --destructive-foreground: #d6d6d6;
+  --destructive-foreground: #dfdfdf;
   --border: #000000;
-  --input: #d6d6d6;
+  --input: #dfdfdf;
   --ring: #000000;
   --chart-1: #000000;
-  --chart-2: #d6d6d6;
+  --chart-2: #dfdfdf;
   --chart-3: #000000;
-  --chart-4: #d6d6d6;
+  --chart-4: #dfdfdf;
   --chart-5: #000000;
   --radius: 0.625rem;
-  --sidebar: #d6d6d6;
+  --sidebar: #dfdfdf;
   --sidebar-foreground: #000000;
   --sidebar-primary: #000000;
-  --sidebar-primary-foreground: #d6d6d6;
+  --sidebar-primary-foreground: #dfdfdf;
   --sidebar-accent: #000000;
-  --sidebar-accent-foreground: #d6d6d6;
+  --sidebar-accent-foreground: #dfdfdf;
   --sidebar-border: #000000;
   --sidebar-ring: #000000;
 }
 
 .dark {
   --background: #000000;
-  --foreground: #d6d6d6;
+  --foreground: #dfdfdf;
   --card: #000000;
-  --card-foreground: #d6d6d6;
-  --process: #d6d6d6;
+  --card-foreground: #dfdfdf;
+  --process: #dfdfdf;
   --popover: #000000;
-  --popover-foreground: #d6d6d6;
-  --primary: #d6d6d6;
+  --popover-foreground: #dfdfdf;
+  --primary: #dfdfdf;
   --primary-foreground: #000000;
   --secondary: #000000;
-  --secondary-foreground: #d6d6d6;
+  --secondary-foreground: #dfdfdf;
   --muted: #000000;
-  --muted-foreground: #d6d6d6;
-  --accent: #d6d6d6;
+  --muted-foreground: #dfdfdf;
+  --accent: #dfdfdf;
   --accent-foreground: #000000;
-  --destructive: #d6d6d6;
+  --destructive: #dfdfdf;
   --destructive-foreground: #000000;
-  --border: #d6d6d6;
+  --border: #dfdfdf;
   --input: #000000;
-  --ring: #d6d6d6;
-  --chart-1: #d6d6d6;
+  --ring: #dfdfdf;
+  --chart-1: #dfdfdf;
   --chart-2: #000000;
-  --chart-3: #d6d6d6;
+  --chart-3: #dfdfdf;
   --chart-4: #000000;
-  --chart-5: #d6d6d6;
+  --chart-5: #dfdfdf;
   --sidebar: #000000;
-  --sidebar-foreground: #d6d6d6;
-  --sidebar-primary: #d6d6d6;
+  --sidebar-foreground: #dfdfdf;
+  --sidebar-primary: #dfdfdf;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #d6d6d6;
+  --sidebar-accent: #dfdfdf;
   --sidebar-accent-foreground: #000000;
-  --sidebar-border: #d6d6d6;
-  --sidebar-ring: #d6d6d6;
+  --sidebar-border: #dfdfdf;
+  --sidebar-ring: #dfdfdf;
 }
 
 @theme inline {
@@ -287,23 +287,23 @@
 }
 
 body, h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Text highlight styling */
 mark {
-  background-color: #000000;
+  background-color: #dd491b;
   color: white;
   padding: 0 0.25em;
 }
 
 /* Text selection styling */
 ::selection {
-  background-color: #000000;
+  background-color: #dd491b;
   color: white;
 }
 
 ::-moz-selection {
-  background-color: #000000;
+  background-color: #dd491b;
   color: white;
 }
