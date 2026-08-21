@@ -295,7 +295,7 @@ function AboutContent() {
               <h3 className="text-[28px] md:text-[34px] lg:text-[40px] font-medium tracking-tight leading-[0.95] text-foreground">
                 Adnan Akif
               </h3>
-              <p className="text-[16px] md:text-[18px] lg:text-[20px] tracking-tight text-muted-foreground/70">
+              <p className="text-[16px] md:text-[18px] lg:text-[20px] tracking-tight text-foreground">
                 Founder &amp; Designer
               </p>
             </div>
