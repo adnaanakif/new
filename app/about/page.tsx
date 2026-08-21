@@ -192,9 +192,9 @@ function AnimatedTextLink({ label, href }: { label: string; href: string }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-  
-    href={href}
-    target="_blank"
+    <a
+      href={href}
+      target="_blank"
     rel="noopener noreferrer"
     onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
