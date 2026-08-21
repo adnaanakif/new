@@ -145,11 +145,11 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
         </div>
       )}
 
-            <div className="flex flex-col">
+                  <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
-            className="lg:sticky flex min-h-[calc(100vh-40px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background pb-10 pt-2 first:border-t-0 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
+            className="lg:sticky flex min-h-[calc(100vh-40px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background pb-10 pt-2 first:border-t-0 last:pb-0 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6"
             style={{ top: STICKY_TOP, zIndex: index + 10 }}
           >
             <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
