@@ -15,9 +15,9 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
 
   return (
     <section className="sticky top-0 z-0 flex h-screen items-end justify-center overflow-hidden bg-background">
-      {/* Top Right - Eyebrow text + description */}
+            {/* Top Right - Eyebrow text + description */}
       <motion.div
-        className="absolute top-8 right-4 z-20 max-w-[240px] text-right lg:top-12 lg:right-9 lg:max-w-[280px]"
+        className="absolute top-24 right-4 z-20 max-w-[240px] text-left lg:top-32 lg:right-9 lg:max-w-[280px]"
         initial={{ opacity: 0, y: -20 }}
         animate={triggerAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
         transition={{
@@ -26,10 +26,10 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           ease: SMOOTH_EASE,
         }}
       >
-        <p className="text-[13px] font-medium uppercase tracking-widest text-foreground lg:text-[14px]">
+        <p className="text-[22px] font-medium uppercase tracking-tight text-foreground">
           Direction before design
         </p>
-        <p className="mt-3 text-[13px] leading-snug text-foreground/70 lg:text-[14px]">
+        <p className="mt-3 text-[18px] leading-tight text-foreground">
           Lozinr is a brand identity studio helping funded startups and ambitious founders
         </p>
       </motion.div>
