@@ -29,28 +29,28 @@ function TemplatesHero() {
 // Update `href` on each item to point at the real product / checkout link.
 const TEMPLATES = [
   {
-    title: 'Bakery Brand Kit',
+    title: 'BRAND GUIDELINES TEMPLATE',
     price: '$49',
     imageSrc: '#',
     imageAlt: 'Bakery Brand Kit template preview',
     href: '#',
   },
   {
-    title: 'Bekary Identity Pack',
+    title: 'BRAND PROPOSAL TEMPLATE',
     price: '$59',
     imageSrc: '#',
     imageAlt: 'Bekary Identity Pack template preview',
     href: '#',
   },
   {
-    title: 'Studio Brand System',
+    title: 'INVOICE TEMPLATE',
     price: '$79',
     imageSrc: '#',
     imageAlt: 'Studio Brand System template preview',
     href: '#',
   },
   {
-    title: 'Minimal Logo Suite',
+    title: 'CONTRACT TEMPLATE',
     price: '$39',
     imageSrc: '#',
     imageAlt: 'Minimal Logo Suite template preview',
