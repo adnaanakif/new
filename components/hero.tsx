@@ -27,8 +27,8 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
 
   return (
     <section className="relative isolate flex h-screen items-center justify-center overflow-hidden bg-background">
-      <div className="relative z-10 w-full px-4 lg:px-6">
-        <div className="flex flex-col items-center justify-center gap-0">
+      <div className="relative z-10 w-full">
+        <div className="flex w-full flex-col items-center justify-center gap-0">
 
           {/* Top Column - DIRECTION (SVG) */}
           <motion.div
@@ -44,10 +44,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
             <svg
   viewBox="0 0 857.41 179"
   xmlns="http://www.w3.org/2000/svg"
-  className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-foreground"
-  style={{
-    maxWidth: 'clamp(280px, 90vw, 1800px)',
-  }}
+  className="block h-auto w-full max-w-none text-foreground"
 >
   <path fill="currentColor" d="M41.8,1.84v142.91h85.45v32.41H3.25V1.84h38.55Z"/>
   <path fill="currentColor" d="M135.8,55.78c3.74-10.67,9.11-19.98,16.12-27.92,7.01-7.95,15.62-14.17,25.82-18.69,10.2-4.52,21.69-6.78,34.47-6.78s24.46,2.26,34.58,6.78c10.12,4.52,18.69,10.75,25.7,18.69,7.01,7.94,12.38,17.25,16.12,27.92,3.74,10.67,5.61,22.24,5.61,34.7s-1.87,23.48-5.61,34c-3.74,10.52-9.11,19.67-16.12,27.46-7.01,7.79-15.58,13.9-25.7,18.34-10.13,4.44-21.65,6.66-34.58,6.66s-24.27-2.22-34.47-6.66c-10.2-4.44-18.81-10.55-25.82-18.34-7.01-7.79-12.38-16.94-16.12-27.46-3.74-10.52-5.61-21.85-5.61-34s1.87-24.03,5.61-34.7ZM169.33,110.93c1.64,6.62,4.24,12.58,7.83,17.88,3.58,5.3,8.26,9.54,14.02,12.73,5.76,3.19,12.77,4.79,21.03,4.79s15.27-1.6,21.03-4.79c5.76-3.19,10.43-7.44,14.02-12.73,3.58-5.29,6.19-11.25,7.83-17.88,1.64-6.62,2.45-13.44,2.45-20.45s-.82-14.41-2.45-21.26c-1.64-6.85-4.25-12.97-7.83-18.34-3.59-5.37-8.26-9.66-14.02-12.85-5.77-3.19-12.78-4.79-21.03-4.79s-15.27,1.6-21.03,4.79c-5.77,3.19-10.44,7.48-14.02,12.85-3.59,5.37-6.19,11.49-7.83,18.34-1.64,6.86-2.45,13.94-2.45,21.26s.82,13.83,2.45,20.45Z"/>
