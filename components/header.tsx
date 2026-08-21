@@ -529,7 +529,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
-              <img src="/artboard-1.svg" alt="Adnan Akif" className="h-full w-full object-contain object-left brightness-0" />
+              <img src="/artboard-1.svg" alt="Adnan Akif" className="h-full w-full object-contain object-left brightness-100" />
             </motion.div>
 
             {/* Desktop Left Nav (LG and above only) */}
