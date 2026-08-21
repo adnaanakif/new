@@ -21,11 +21,11 @@ export default function AnimatedHeroTitle({ text, color = 'text-foreground' }: {
         <motion.h1
           animate={{ scale: [1, 1, 0.985, 1, 1] }}
           transition={{ duration: 5.5, times: [0, 0.4, 0.5, 0.6, 1], repeat: Infinity, ease: 'easeInOut' }}
-          className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] !text-white text-center`}
+          className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] ${color} text-center`}
         >
           {text}
         </motion.h1>
-        <h1 className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] !text-white text-center`}>
+        <h1 className={`text-[64px] md:text-[140px] lg:text-[208px] font-medium tracking-tighter leading-[0.9] ${color} text-center`}>
           {text}
         </h1>
       </motion.div>
