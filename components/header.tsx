@@ -241,7 +241,7 @@ function SocialLinkWithAnimation({
       {/* Text pill — border only, filled layer rises up from the bottom on hover (and once on menu open) */}
       <div className="relative rounded-full border border-foreground/40 overflow-hidden">
         {/* Invisible sizer — gives the pill its width/height from content */}
-        <span className="invisible flex items-center px-6 py-3 md:px-4 md:py-2 text-[22px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap">
+        <span className="invisible flex items-center px-4 py-2 md:px-4 md:py-2 text-[16px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap">
           {social.name}
         </span>
 
@@ -264,7 +264,7 @@ function SocialLinkWithAnimation({
       </div>
 
       {/* Arrow circle — separate element, own border-only + bottom-up fill reveal. Visible on mobile too, slightly smaller there. */}
-      <div className="flex relative w-12 h-12 md:w-7 md:h-7 rounded-full border border-foreground/40 overflow-hidden flex-shrink-0">
+      <div className="flex relative w-9 h-9 md:w-7 md:h-7 rounded-full border border-foreground/40 overflow-hidden flex-shrink-0">
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           animate={{ y: active ? '-100%' : '0%' }}
@@ -321,7 +321,7 @@ function MobileNavItem({
       onClick={onClick}
       onMouseEnter={() => canHover && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="lg:text-[79px] text-[96px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[192px] lg:h-[96px] relative block text-foreground"
+      className="lg:text-[79px] text-[60px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[192px] lg:h-[96px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
       <div className="overflow-hidden h-[192px] lg:h-[96px]">
