@@ -44,7 +44,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
             <svg
   viewBox="0 0 857.41 179"
   xmlns="http://www.w3.org/2000/svg"
-  className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-background"
+  className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-foreground"
   style={{
     maxWidth: 'clamp(280px, 90vw, 1400px)',
   }}
