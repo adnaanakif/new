@@ -16,7 +16,7 @@ function TemplatesHero() {
   return (
     <div
       className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden bg-background"
-      style={{ aspectRatio: '3 / 2' }}
+      style={{ height: 'min(100vh, calc(100vw * 16 / 9))' }}
     >
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-2 lg:px-4">
         <AnimatedHeroTitle text="TEMPLATES" color="text-foreground" />
@@ -103,7 +103,7 @@ function TemplateThumbnail({
 function TemplatesGrid() {
   return (
     <section className="w-full bg-background px-4 py-16 text-foreground md:py-20 lg:px-9">
-      <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:gap-x-9 lg:gap-y-20">
+      <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:gap-x-4 lg:gap-y-10">
         {TEMPLATES.map((template) => (
           <TemplateThumbnail key={template.title} {...template} />
         ))}
