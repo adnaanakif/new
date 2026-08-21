@@ -142,23 +142,8 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
       <div className="flex flex-col">
         {PROJECTS.map((project, index) => (
           <div key={`${project.title}-${index}`} className="flex flex-col gap-10 py-10 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6">
-            {project.imageFirst ? (
-              <>
-                <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
-                <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-              </>
-            ) : (
-              <>
-                <ProjectImage
-                  alt={project.imageAlt}
-                  slug={project.slug}
-                  src={project.imageSrc}
-                />
-                <div className="lg:order-first">
-                  <ProjectContent title={project.title} description={project.description} slug={project.slug} />
-                </div>
-              </>
-            )}
+            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
+            <ProjectContent title={project.title} description={project.description} slug={project.slug} />
           </div>
         ))}
       </div>
