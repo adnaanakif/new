@@ -39,12 +39,14 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 }
 
-function ProjectImage({ alt, slug, src = '#', index }: { alt: string; slug: string; src?: string; index: number }) {
+// Sticky offset — should match your fixed header's height (currently h-10 = 40px)
+const STICKY_TOP = 40
+
+function ProjectImage({ alt, slug, src = '#' }: { alt: string; slug: string; src?: string }) {
   return (
     <motion.div
       {...reveal}
-      style={{ zIndex: index + 10 }}
-      className="relative block aspect-video w-full overflow-hidden bg-foreground lg:sticky lg:top-[30px] lg:self-start"
+      className="relative block aspect-video w-full overflow-hidden bg-foreground"
     >
       <Link href={`/work/${slug}`} aria-label={`View ${alt}`} className="block h-full w-full">
         <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -115,7 +117,7 @@ function ProjectContent({
     <motion.div
       {...reveal}
       transition={{ ...reveal.transition, delay: 0.1 }}
-      className="flex w-full flex-col items-start gap-5"
+      className="flex w-full flex-col items-start justify-center gap-5"
     >
       <div className="flex flex-col gap-3">
         <h3 className="text-2xl font-medium tracking-tight text-foreground">{title}</h3>
@@ -147,9 +149,10 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
         {PROJECTS.map((project, index) => (
           <div
             key={`${project.title}-${index}`}
-            className="relative flex min-h-[calc(100vh-30px)] flex-col gap-10 border-t border-foreground/20 py-10 first:border-t-0 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:gap-6"
+            className="lg:sticky flex min-h-[calc(100vh-40px)] flex-col justify-center gap-10 border-t border-foreground/20 bg-background py-10 first:border-t-0 first:pt-0 last:pb-0 lg:grid lg:grid-cols-2 lg:items-center lg:gap-6"
+            style={{ top: STICKY_TOP, zIndex: index + 10 }}
           >
-            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} index={index} />
+            <ProjectImage alt={project.imageAlt} slug={project.slug} src={project.imageSrc} />
             <ProjectContent title={project.title} description={project.description} slug={project.slug} />
           </div>
         ))}
