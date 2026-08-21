@@ -31,28 +31,28 @@ const TEMPLATES = [
   {
     title: 'Bakery Brand Kit',
     price: '$49',
-    imageSrc: '/baked-01.jpg',
+    imageSrc: '#',
     imageAlt: 'Bakery Brand Kit template preview',
     href: '#',
   },
   {
     title: 'Bekary Identity Pack',
     price: '$59',
-    imageSrc: '/baked-02.jpg',
+    imageSrc: '#',
     imageAlt: 'Bekary Identity Pack template preview',
     href: '#',
   },
   {
     title: 'Studio Brand System',
     price: '$79',
-    imageSrc: '/baked-03.jpg',
+    imageSrc: '#',
     imageAlt: 'Studio Brand System template preview',
     href: '#',
   },
   {
     title: 'Minimal Logo Suite',
     price: '$39',
-    imageSrc: '/baked-04.jpg',
+    imageSrc: '#',
     imageAlt: 'Minimal Logo Suite template preview',
     href: '#',
   },
@@ -80,24 +80,18 @@ function TemplateThumbnail({
   href: string
 }) {
   return (
-    <motion.div {...reveal} className="flex flex-col gap-3">
+    <motion.div {...reveal} className="flex flex-col gap-2">
       <Link
         href={href}
         aria-label={`View ${title}`}
         className="group relative block aspect-square w-full overflow-hidden bg-[#232121]"
-      >
-        <img
-          src={imageSrc}
-          alt={imageAlt}
-          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-        />
-      </Link>
+      />
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-col items-start gap-0.5">
         <h3 className="text-[18px] font-medium tracking-tight text-foreground lg:text-[20px]">
           {title}
         </h3>
-        <span className="shrink-0 text-[18px] tracking-tight text-foreground lg:text-[20px]">
+        <span className="text-[16px] tracking-tight text-foreground/70 lg:text-[18px]">
           {price}
         </span>
       </div>
@@ -109,7 +103,7 @@ function TemplateThumbnail({
 function TemplatesGrid() {
   return (
     <section className="w-full bg-background px-4 py-16 text-foreground md:py-20 lg:px-9">
-      <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-9 lg:gap-y-14">
+      <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:gap-x-9 lg:gap-y-20">
         {TEMPLATES.map((template) => (
           <TemplateThumbnail key={template.title} {...template} />
         ))}
