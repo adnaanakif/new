@@ -30,7 +30,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           Direction before design
         </p>
         <p className="mt-1 text-[26px] leading-tight text-foreground">
-          Lozinr is a brand identity studio helping funded startups and ambitious founders
+          Lozinr is a brand identity studio helping funded startups and ambitious founders build distinctive brands through strategy, identity systems, and timeless design.
         </p>
       </motion.div>
 
