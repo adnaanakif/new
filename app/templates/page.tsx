@@ -88,7 +88,7 @@ function TemplateThumbnail({
       <Link
         href={href}
         aria-label={`View ${title}`}
-        className="group relative block aspect-square w-full overflow-hidden bg-[#232121]"
+        className="group relative block aspect-square w-full overflow-hidden bg-foreground"
       >
         {bgMediaSrc && (
           <div className="absolute inset-0 flex items-center justify-center">
