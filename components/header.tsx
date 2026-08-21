@@ -179,7 +179,7 @@ function TemplateNavItem({ label, href }: { label: string; href: string }) {
 
 function ArrowGlyph({ color }: { color: string }) {
   return (
-    <svg className="w-6 h-6 md:w-3.5 md:h-3.5 flex-shrink-0" style={{ color }} viewBox="0 0 10 10" fill="none">
+    <svg className="w-3 h-3 md:w-3.5 md:h-3.5 flex-shrink-0" style={{ color }} viewBox="0 0 10 10" fill="none">
       <path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
@@ -241,12 +241,12 @@ function SocialLinkWithAnimation({
       {/* Text pill — border only, filled layer rises up from the bottom on hover (and once on menu open) */}
       <div className="relative rounded-full border border-foreground/40 overflow-hidden">
         {/* Invisible sizer — gives the pill its width/height from content */}
-        <span className="invisible flex items-center px-4 py-2 md:px-4 md:py-2 text-[16px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap">
+        <span className="invisible flex items-center px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap">
           {social.name}
         </span>
 
         <motion.div
-          className="absolute inset-0 flex items-center justify-center px-6 py-3 md:px-4 md:py-2 text-[22px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap text-foreground"
+          className="absolute inset-0 flex items-center justify-center px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap text-foreground"
           animate={{ y: active ? '-100%' : '0%' }}
           transition={slideTransition}
         >
@@ -254,7 +254,7 @@ function SocialLinkWithAnimation({
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 flex items-center justify-center px-6 py-3 md:px-4 md:py-2 text-[22px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap bg-foreground text-background"
+          className="absolute inset-0 flex items-center justify-center px-3 py-1.5 md:px-4 md:py-2 text-[11px] md:text-[16px] font-normal tracking-wide uppercase whitespace-nowrap bg-foreground text-background"
           initial={{ y: '100%' }}
           animate={{ y: active ? '0%' : '100%' }}
           transition={slideTransition}
@@ -264,7 +264,7 @@ function SocialLinkWithAnimation({
       </div>
 
       {/* Arrow circle — separate element, own border-only + bottom-up fill reveal. Visible on mobile too, slightly smaller there. */}
-      <div className="flex relative w-9 h-9 md:w-7 md:h-7 rounded-full border border-foreground/40 overflow-hidden flex-shrink-0">
+      <div className="flex relative w-6 h-6 md:w-7 md:h-7 rounded-full border border-foreground/40 overflow-hidden flex-shrink-0">
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           animate={{ y: active ? '-100%' : '0%' }}
@@ -321,17 +321,17 @@ function MobileNavItem({
       onClick={onClick}
       onMouseEnter={() => canHover && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="lg:text-[79px] text-[60px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[192px] lg:h-[96px] relative block text-foreground"
+      className="lg:text-[79px] text-[48px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[96px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
-      <div className="overflow-hidden h-[192px] lg:h-[96px]">
+      <div className="overflow-hidden h-[96px]">
         {/* Hover swap wrapper */}
         <motion.div
           animate={{ y: canHover && isHovered ? -96 : 0 }}
           transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
         >
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
-          <div className="flex h-[192px] lg:h-[96px] items-center">
+          <div className="flex h-[96px] items-center">
             {label.split('').map((char, index) => (
               <motion.span
                 key={index}
@@ -363,7 +363,7 @@ function MobileNavItem({
           </div>
 
           {/* Secondary Text — hover only */}
-          <div className="flex h-[192px] lg:h-[96px] items-center">
+          <div className="flex h-[96px] items-center">
             {label.split('').map((char, index) => (
               <motion.span
                 key={index}
