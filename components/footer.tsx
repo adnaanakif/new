@@ -119,7 +119,7 @@ export default function FooterSection() {
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Overlay content — stacked to align with the 4 left rows */}
-            <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-background">
+            <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-6 text-foreground">
               <div className="flex flex-col gap-1">
                 <FooterNavItem label="Work" href="/work" />
                 <FooterNavItem label="Contact" href="https://cal.com/adnanakif/30-min-meeting" />
@@ -138,35 +138,35 @@ export default function FooterSection() {
               <div className="flex flex-col gap-1">
                 {!submitted ? (
                   <form onSubmit={handleSubmit}>
-                    <div className="flex items-center justify-between border border-background px-4 md:px-5 py-3 md:py-3">
+                    <div className="flex items-center justify-between border border-foreground px-4 md:px-5 py-3 md:py-3">
                       <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Email"
                         disabled={loading}
-                        className="bg-transparent text-background placeholder-background font-medium text-[14px] md:text-[16px] lg:text-[20px] outline-none flex-1 disabled:opacity-60"
+                        className="bg-transparent text-foreground placeholder-foreground font-medium text-[14px] md:text-[16px] lg:text-[20px] outline-none flex-1 disabled:opacity-60"
                       />
                       <button
                         type="submit"
                         disabled={!isValidEmail || loading}
                         className={`font-medium text-[14px] md:text-[16px] lg:text-[20px] transition-opacity ${
                           isValidEmail && !loading
-                            ? 'text-background hover:opacity-70 cursor-pointer'
-                            : 'text-background/40 cursor-not-allowed'
+                            ? 'text-foreground hover:opacity-70 cursor-pointer'
+                            : 'text-foreground/40 cursor-not-allowed'
                         }`}
                       >
                         {loading ? '...' : 'enter'}
                       </button>
                     </div>
                     {error && (
-                      <span className="text-background/70 text-[12px] md:text-[13px] mt-1 block">
+                      <span className="text-foreground/70 text-[12px] md:text-[13px] mt-1 block">
                         Something went wrong. Please try again.
                       </span>
                     )}
                   </form>
                 ) : (
-                  <div className="border border-background px-4 md:px-5 py-3 md:py-3">
+                  <div className="border border-foreground px-4 md:px-5 py-3 md:py-3">
                     <span className="text-accent font-medium text-[14px] md:text-[16px] lg:text-[20px]">
                       Thanks — you're subscribed.
                     </span>
