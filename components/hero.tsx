@@ -26,13 +26,13 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
   const directionEnd = directionStart + 0.85
 
   return (
-    <section className="relative isolate flex h-screen items-center justify-center overflow-hidden bg-background">
+    <section className="sticky top-0 z-0 flex h-screen items-end justify-center overflow-hidden bg-background">
       <div className="relative z-10 w-full">
-        <div className="flex w-full flex-col items-center justify-center gap-0">
+        <div className="flex w-full flex-col items-center justify-end gap-0">
 
           {/* Top Column - DIRECTION (SVG) */}
           <motion.div
-            className="text-center w-full"
+            className="relative w-full translate-y-[40%] text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={triggerAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{
