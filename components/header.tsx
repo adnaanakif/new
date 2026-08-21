@@ -116,6 +116,48 @@ function DesktopNavItem({
   )
 }
 
+// Right-side "Template" link — identical letter-by-letter slide-up hover
+// animation as DesktopNavItem.
+function TemplateNavItem({ label, href }: { label: string; href: string }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    
+      href={href}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 text-[16px] font-medium uppercase tracking-tight h-6 items-center overflow-hidden"
+    >
+      <div className="overflow-hidden h-6 relative">
+        <motion.div
+          animate={{ y: isHovered ? -24 : 0 }}
+          transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
+        >
+          {/* Primary text */}
+          <div className="h-6 flex items-center whitespace-nowrap">
+            {label}
+          </div>
+
+          {/* Secondary text — letters stagger in on hover */}
+          <div className="h-6 flex items-center whitespace-nowrap">
+            {label.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                className="inline-block"
+                initial={{ opacity: 0, y: 10 }}
+                animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                transition={{ delay: isHovered ? i * 0.025 : 0, duration: 0.4, ease: 'easeOut' }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </a>
+  )
+}
+
 function ArrowGlyph({ color }: { color: string }) {
   return (
     <svg className="w-3 h-3 md:w-3.5 md:h-3.5 flex-shrink-0" style={{ color }} viewBox="0 0 10 10" fill="none">
@@ -538,19 +580,14 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
               className="hidden lg:flex items-center gap-0"
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
-              <DesktopNavItem label="Work," onClick={() => router.push('/work')} />
-              <DesktopNavItem label="About," onClick={() => router.push('/about')} />
-<DesktopNavItem label="Contact," onClick={() => window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')} />
+              <DesktopNavItem label="Work" onClick={() => router.push('/work')} />
+              <DesktopNavItem label="About" onClick={() => router.push('/about')} />
+              <DesktopNavItem label="Contact" onClick={() => window.open(CONTACT_LINK, '_blank', 'noopener,noreferrer')} />
             </motion.div>
           </motion.div>
 
           {/* Right-side template link and mobile menu control */}
-          <a
-            href="#"
-            className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 text-[16px] font-medium uppercase tracking-tight"
-          >
-            Template
-          </a>
+          <TemplateNavItem label="Template" href="#" />
 
           {/* Center: Logo SVG (Desktop/LG Only) */}
           <div
@@ -566,7 +603,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
 
           {/* Mobile hamburger opens the full-screen menu */}
           <div className="flex items-center flex-shrink-0 ml-auto z-[80]">
-                        <button
+            <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-expanded={isMenuOpen}
