@@ -26,7 +26,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           ease: SMOOTH_EASE,
         }}
       >
-        <p className="text-[26px] font-regular uppercase tracking-tight text-foreground">
+        <p className="text-[26px] font-regular tracking-tight text-foreground">
           Direction before design
         </p>
         <p className="mt-1 text-[26px] leading-tight text-foreground">
