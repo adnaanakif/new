@@ -103,7 +103,7 @@ function CaseStudyButton({ slug }: { slug: string }) {
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}
-      className="flex min-h-14 w-full items-center justify-center bg-[#232121] px-4 py-3 text-center text-[18px] text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+      className="flex min-h-14 w-full items-center justify-center bg-[#232121] px-4 py-3 text-center text-[18px] text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
     >
       <AnimatedCaseStudyLabel isHovered={isHovered} />
     </Link>
