@@ -46,7 +46,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
   xmlns="http://www.w3.org/2000/svg"
   className="h-auto w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-6 text-foreground"
   style={{
-    maxWidth: 'clamp(280px, 90vw, 1600px)',
+    maxWidth: 'clamp(280px, 90vw, 1800px)',
   }}
 >
   <path fill="currentColor" d="M41.8,1.84v142.91h85.45v32.41H3.25V1.84h38.55Z"/>

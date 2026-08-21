@@ -31,13 +31,13 @@ function WorkHero() {
     >
       {heroImage && (
         <motion.div
-          className="w-full h-full"
+          className="absolute inset-0 h-full w-full min-w-full"
           style={{ y: heroImageY, scale: heroImageScale }}
         >
           <img
             src={heroImage}
             alt="Work"
-            className="w-full h-full object-cover"
+            className="block h-full w-full min-w-full max-w-none object-cover"
             loading="eager"
             decoding="async"
           />
