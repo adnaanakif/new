@@ -160,7 +160,7 @@ export default function FooterSection() {
                 </form>
               ) : (
                 <div className="border border-foreground px-4 md:px-5 py-3 md:py-3">
-                  <span className="text-accent font-medium text-[14px] md:text-[16px] lg:text-[20px]">
+                  <span className="text-foreground font-medium text-[14px] md:text-[16px] lg:text-[20px]">
                     Thanks — you're subscribed.
                   </span>
                 </div>
