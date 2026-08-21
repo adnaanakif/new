@@ -132,8 +132,8 @@ export default function WorkSection({ showHeader = true }: { showHeader?: boolea
     >
       {showHeader && (
         <div className="mb-12 flex flex-col gap-6">
-          <h2 id="our-work-heading" className="text-[64px] font-medium uppercase leading-[0.9] tracking-tighter md:text-[100px] lg:text-[120px]">
-            Our Work
+          <h2 id="our-work-heading" className="text-foreground font-medium uppercase tracking-tighter leading-[0.9] text-[28px] md:text-[36px] lg:text-[40px]">
+            Featured Work
           </h2>
           <div className="h-0.5 w-full bg-foreground" />
         </div>
