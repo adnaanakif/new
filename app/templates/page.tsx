@@ -51,7 +51,7 @@ const TEMPLATES = [
     bgMediaSrc:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Invoice-21rvKJnNGNulKqVbz45DcppEv9qDfm.gif',
     imageAlt: 'Invoice template preview',
-    href: '/invoice',
+    href: 'https://template.lozinr.com/l/invoicetemplate',
   },
   {
     title: 'AGREEMENT TEMPLATE',
@@ -60,7 +60,7 @@ const TEMPLATES = [
     bgMediaSrc:
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Agreement-6prrvknm6amzX6T9whkIRGlsUWTeph.gif',
     imageAlt: 'Agreement template preview',
-    href: '/contract',
+    href: 'https://template.lozinr.com/l/agreementtemplate',
   },
 ]
 
