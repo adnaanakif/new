@@ -26,10 +26,10 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
           ease: SMOOTH_EASE,
         }}
       >
-        <p className="text-[26px] font-regular tracking-tight text-foreground">
+        <p className="text-[18px] lg:text-[26px] font-regular tracking-tight text-foreground">
           Direction before design
         </p>
-        <p className="mt-1 text-[26px] leading-tight text-foreground">
+        <p className="mt-1 text-[18px] lg:text-[26px] leading-tight text-foreground">
           Lozinr is a brand identity studio helping funded startups and ambitious founders build distinctive brands through strategy, identity systems, and timeless design.
         </p>
       </motion.div>
