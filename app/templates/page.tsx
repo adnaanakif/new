@@ -46,17 +46,21 @@ const TEMPLATES = [
   },
   {
     title: 'INVOICE TEMPLATE',
-    price: '$79',
+    price: '$10',
     imageSrc: '#',
-    imageAlt: 'Studio Brand System template preview',
-    href: '#',
+    bgMediaSrc:
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Invoice-21rvKJnNGNulKqVbz45DcppEv9qDfm.gif',
+    imageAlt: 'Invoice template preview',
+    href: '/invoice',
   },
   {
-    title: 'CONTRACT TEMPLATE',
-    price: '$39',
+    title: 'AGREEMENT TEMPLATE',
+    price: '$20',
     imageSrc: '#',
-    imageAlt: 'Minimal Logo Suite template preview',
-    href: '#',
+    bgMediaSrc:
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Agreement-6prrvknm6amzX6T9whkIRGlsUWTeph.gif',
+    imageAlt: 'Agreement template preview',
+    href: '/contract',
   },
 ]
 
