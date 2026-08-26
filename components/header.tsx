@@ -13,7 +13,7 @@ import { useRouter, usePathname } from 'next/navigation'
 // Body: text-[15px] md:text-[17px] font-normal  leading-relaxed
 // Cap : text-[11px] md:text-[12px] font-normal  tracking-wide uppercase
 // Nav : text-[14px] md:text-[16px] font-medium  tracking-tight
-// Menu: text-[56px] font-semibold tracking-tighter (mobile full-screen menu)
+// Menu: text-[60px] font-semibold tracking-tighter (mobile full-screen menu)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CONTACT_LINK = 'https://cal.com/adnanakif/30-min-meeting'
@@ -316,13 +316,13 @@ function MobileNavItem({
   return (
     <button
       onClick={onClick}
-      className="lg:text-[79px] text-[56px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[112px] relative block text-foreground"
+      className="lg:text-[79px] text-[60px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[104px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
-      <div className="overflow-hidden h-[96px]">
-        <motion.div>
-          {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
-          <div className="flex h-[96px] items-center">
+<div className="overflow-hidden h-[88px]">
+          <motion.div>
+            {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
+            <div className="flex h-[88px] items-center">
             {label.split('').map((char, index) => (
               <motion.span
                 key={index}
