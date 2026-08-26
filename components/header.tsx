@@ -13,7 +13,7 @@ import { useRouter, usePathname } from 'next/navigation'
 // Body: text-[15px] md:text-[17px] font-normal  leading-relaxed
 // Cap : text-[11px] md:text-[12px] font-normal  tracking-wide uppercase
 // Nav : text-[14px] md:text-[16px] font-medium  tracking-tight
-// Menu: text-[44px] font-semibold tracking-tighter (mobile full-screen menu)
+// Menu: text-[56px] font-semibold tracking-tighter (mobile full-screen menu)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CONTACT_LINK = 'https://cal.com/adnanakif/30-min-meeting'
@@ -316,7 +316,7 @@ function MobileNavItem({
   return (
     <button
       onClick={onClick}
-      className="lg:text-[79px] text-[48px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[96px] relative block text-foreground"
+      className="lg:text-[79px] text-[56px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[112px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
       <div className="overflow-hidden h-[96px]">
