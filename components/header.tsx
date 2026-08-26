@@ -13,7 +13,7 @@ import { useRouter, usePathname } from 'next/navigation'
 // Body: text-[15px] md:text-[17px] font-normal  leading-relaxed
 // Cap : text-[11px] md:text-[12px] font-normal  tracking-wide uppercase
 // Nav : text-[14px] md:text-[16px] font-medium  tracking-tight
-// Menu: text-[44px] font-semibold tracking-tighter (mobile full-screen menu)
+// Menu: text-[60px] font-semibold tracking-tighter (mobile full-screen menu)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CONTACT_LINK = 'https://cal.com/adnanakif/30-min-meeting'
@@ -229,7 +229,7 @@ function SocialLinkWithAnimation({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClose}
-      className="flex items-center gap-1.5 flex-shrink-0"
+      className="flex items-center gap-1 flex-shrink-0"
       initial={{ opacity: 0, y: 16 }}
       animate={isMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       transition={
@@ -304,34 +304,25 @@ function MobileNavItem({
   isMenuOpen: boolean
   onClick: () => void
 }) {
-  const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
-  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
-  const secondaryVisible = canHover && isHovered
+  const primaryVisible = isMenuOpen
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => canHover && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="lg:text-[79px] text-[48px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[96px] relative block text-foreground"
+      className="lg:text-[79px] text-[60px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[104px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
-      <div className="overflow-hidden h-[96px]">
-        {/* Hover swap wrapper */}
-        <motion.div
-          animate={{ y: canHover && isHovered ? -96 : 0 }}
-          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-        >
-          {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
-          <div className="flex h-[96px] items-center">
+<div className="overflow-hidden h-[88px]">
+          <motion.div>
+            {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
+            <div className="flex h-[88px] items-center">
             {label.split('').map((char, index) => (
               <motion.span
                 key={index}
@@ -339,12 +330,12 @@ function MobileNavItem({
                 animate={
                   primaryVisible
                     ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: isHovered ? -20 : 40 }
+                    : { opacity: 0, y: 40 }
                 }
                 transition={
                   isMenuOpen
                     ? hasEntered
-                      ? { delay: isHovered ? index * 0.025 : 0, duration: 0.5, ease: 'easeOut' }
+                      ? { delay: 0, duration: 0.5, ease: 'easeOut' }
                       : { delay: enterDelay + index * 0.03, duration: 0.6, ease: [0.16, 1, 0.3, 1] }
                     : {
                         delay: exitDelay + (charCount - 1 - index) * 0.03,
@@ -362,28 +353,6 @@ function MobileNavItem({
             ))}
           </div>
 
-          {/* Secondary Text — hover only */}
-          <div className="flex h-[96px] items-center">
-            {label.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  secondaryVisible
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 20 }
-                }
-                transition={{
-                  delay: isHovered ? index * 0.025 : 0,
-                  duration: 0.5,
-                  ease: 'easeOut',
-                }}
-                className="inline-block"
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </div>
         </motion.div>
       </div>
     </button>
@@ -406,32 +375,23 @@ function RightNavItem({
   isMenuOpen: boolean
   onClick: () => void
 }) {
-  const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
-  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
-  const secondaryVisible = canHover && isHovered
+  const primaryVisible = isMenuOpen
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => canHover && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="lg:text-[32px] text-[22px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[52px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
       <div className="overflow-hidden h-[52px]">
-        {/* Hover swap wrapper */}
-        <motion.div
-          animate={{ y: canHover && isHovered ? -52 : 0 }}
-          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-        >
+        <motion.div>
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
           <div className="flex h-[52px] items-center">
             {label.split('').map((char, index) => (
@@ -441,12 +401,12 @@ function RightNavItem({
                 animate={
                   primaryVisible
                     ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: isHovered ? -20 : 40 }
+                    : { opacity: 0, y: 40 }
                 }
                 transition={
                   isMenuOpen
                     ? hasEntered
-                      ? { delay: isHovered ? index * 0.025 : 0, duration: 0.5, ease: 'easeOut' }
+                      ? { delay: 0, duration: 0.5, ease: 'easeOut' }
                       : { delay: enterDelay + index * 0.03, duration: 0.6, ease: [0.16, 1, 0.3, 1] }
                     : {
                         delay: exitDelay + (charCount - 1 - index) * 0.03,
@@ -464,28 +424,6 @@ function RightNavItem({
             ))}
           </div>
 
-          {/* Secondary Text — hover only */}
-          <div className="flex h-[52px] items-center">
-            {label.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  secondaryVisible
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 20 }
-                }
-                transition={{
-                  delay: isHovered ? index * 0.025 : 0,
-                  duration: 0.5,
-                  ease: 'easeOut',
-                }}
-                className="inline-block"
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </div>
         </motion.div>
       </div>
     </button>
@@ -569,7 +507,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
       {/* Translucent background layer — transparent over the hero, fades in
           once we've scrolled past it so the page stays subtly visible beneath. */}
       <motion.div
-        className="absolute inset-0 bg-background text-foreground border-b border-foreground/10 pointer-events-none"
+        className="absolute inset-0 bg-background text-foreground lg:border-b lg:border-foreground/10 pointer-events-none"
         initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -587,7 +525,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             {/* Mobile brand wordmark */}
             <motion.div
               variants={contentItemVariants}
-              className="lg:hidden flex-shrink-0 cursor-pointer h-4 w-20"
+              className="lg:hidden flex-shrink-0 cursor-pointer h-3.5 w-[4.5rem]"
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
@@ -628,13 +566,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   className="lg:hidden relative flex size-8 items-center justify-center p-1"
   >
   <motion.span
-  className="absolute block h-px w-7 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -2 }}
+  className="absolute block h-[2px] w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -3 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   <motion.span
-  className="absolute block h-px w-7 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 2 }}
+  className="absolute block h-[2px] w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 3 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   </button>
@@ -669,7 +607,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                 
 
                 {/* Middle — Nav + Social Links */}
-                <div className="flex-1 flex flex-col justify-center pt-12 pb-8 px-4">
+                <div className="flex-1 flex flex-col justify-between pt-12 pb-8 px-4">
                   {/* Navigation Items — Top, Left-Aligned. Tighter negative space on mobile. */}
                   <div className="flex flex-col items-start justify-start -space-y-13 relative">
                     {navLinks.map((link, index) => {
@@ -698,7 +636,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                   </div>
 
                   {/* Social Links — minimum gap from nav above on mobile */}
-                  <div className="flex flex-row items-center gap-3 flex-wrap mt-6">
+                  <div className="flex flex-row items-center gap-3 flex-nowrap mt-auto">
                     {socialLinks.map((social, index) => (
                       <SocialLinkWithAnimation
                         key={social.name}
