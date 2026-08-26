@@ -304,32 +304,23 @@ function MobileNavItem({
   isMenuOpen: boolean
   onClick: () => void
 }) {
-  const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
-  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
-  const secondaryVisible = canHover && isHovered
+  const primaryVisible = isMenuOpen
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => canHover && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="lg:text-[79px] text-[48px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[96px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
       <div className="overflow-hidden h-[96px]">
-        {/* Hover swap wrapper */}
-        <motion.div
-          animate={{ y: canHover && isHovered ? -96 : 0 }}
-          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-        >
+        <motion.div>
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
           <div className="flex h-[96px] items-center">
             {label.split('').map((char, index) => (
@@ -339,12 +330,12 @@ function MobileNavItem({
                 animate={
                   primaryVisible
                     ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: isHovered ? -20 : 40 }
+                    : { opacity: 0, y: 40 }
                 }
                 transition={
                   isMenuOpen
                     ? hasEntered
-                      ? { delay: isHovered ? index * 0.025 : 0, duration: 0.5, ease: 'easeOut' }
+                      ? { delay: 0, duration: 0.5, ease: 'easeOut' }
                       : { delay: enterDelay + index * 0.03, duration: 0.6, ease: [0.16, 1, 0.3, 1] }
                     : {
                         delay: exitDelay + (charCount - 1 - index) * 0.03,
@@ -362,28 +353,6 @@ function MobileNavItem({
             ))}
           </div>
 
-          {/* Secondary Text — hover only */}
-          <div className="flex h-[96px] items-center">
-            {label.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  secondaryVisible
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 20 }
-                }
-                transition={{
-                  delay: isHovered ? index * 0.025 : 0,
-                  duration: 0.5,
-                  ease: 'easeOut',
-                }}
-                className="inline-block"
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </div>
         </motion.div>
       </div>
     </button>
@@ -406,32 +375,23 @@ function RightNavItem({
   isMenuOpen: boolean
   onClick: () => void
 }) {
-  const [isHovered, setIsHovered] = useState(false)
   const [hasEntered, setHasEntered] = useState(false)
-  const canHover = useHoverCapability()
 
   useEffect(() => {
     if (!isMenuOpen) setHasEntered(false)
   }, [isMenuOpen])
 
-  const primaryVisible = isMenuOpen && (!canHover || !isHovered)
-  const secondaryVisible = canHover && isHovered
+  const primaryVisible = isMenuOpen
   const charCount = label.length
 
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => canHover && setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="lg:text-[32px] text-[22px] font-regular uppercase tracking-tighter leading-none overflow-hidden h-[52px] relative block text-foreground"
       style={{ fontFamily: 'var(--font-display)' }}
     >
       <div className="overflow-hidden h-[52px]">
-        {/* Hover swap wrapper */}
-        <motion.div
-          animate={{ y: canHover && isHovered ? -52 : 0 }}
-          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-        >
+        <motion.div>
           {/* Primary Text — letter by letter reveal on open, reverse letter-by-letter on close */}
           <div className="flex h-[52px] items-center">
             {label.split('').map((char, index) => (
@@ -441,12 +401,12 @@ function RightNavItem({
                 animate={
                   primaryVisible
                     ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: isHovered ? -20 : 40 }
+                    : { opacity: 0, y: 40 }
                 }
                 transition={
                   isMenuOpen
                     ? hasEntered
-                      ? { delay: isHovered ? index * 0.025 : 0, duration: 0.5, ease: 'easeOut' }
+                      ? { delay: 0, duration: 0.5, ease: 'easeOut' }
                       : { delay: enterDelay + index * 0.03, duration: 0.6, ease: [0.16, 1, 0.3, 1] }
                     : {
                         delay: exitDelay + (charCount - 1 - index) * 0.03,
@@ -464,28 +424,6 @@ function RightNavItem({
             ))}
           </div>
 
-          {/* Secondary Text — hover only */}
-          <div className="flex h-[52px] items-center">
-            {label.split('').map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  secondaryVisible
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 20 }
-                }
-                transition={{
-                  delay: isHovered ? index * 0.025 : 0,
-                  duration: 0.5,
-                  ease: 'easeOut',
-                }}
-                className="inline-block"
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </motion.span>
-            ))}
-          </div>
         </motion.div>
       </div>
     </button>
