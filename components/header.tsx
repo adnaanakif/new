@@ -229,7 +229,7 @@ function SocialLinkWithAnimation({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClose}
-      className="flex items-center gap-1.5 flex-shrink-0"
+      className="flex items-center gap-1 flex-shrink-0"
       initial={{ opacity: 0, y: 16 }}
       animate={isMenuOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       transition={
@@ -569,7 +569,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
       {/* Translucent background layer — transparent over the hero, fades in
           once we've scrolled past it so the page stays subtly visible beneath. */}
       <motion.div
-        className="absolute inset-0 bg-background text-foreground border-b border-foreground/10 pointer-events-none"
+        className="absolute inset-0 bg-background text-foreground lg:border-b lg:border-foreground/10 pointer-events-none"
         initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -587,7 +587,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
             {/* Mobile brand wordmark */}
             <motion.div
               variants={contentItemVariants}
-              className="lg:hidden flex-shrink-0 cursor-pointer h-4 w-20"
+              className="lg:hidden flex-shrink-0 cursor-pointer h-3.5 w-[4.5rem]"
               onClick={() => router.push('/')}
               style={{ pointerEvents: isMenuOpen ? 'none' : 'auto' }}
             >
@@ -628,13 +628,13 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   className="lg:hidden relative flex size-8 items-center justify-center p-1"
   >
   <motion.span
-  className="absolute block h-px w-7 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -2 }}
+  className="absolute block h-[2px] w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -3 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   <motion.span
-  className="absolute block h-px w-7 origin-center bg-foreground"
-  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 2 }}
+  className="absolute block h-[2px] w-7 origin-center bg-foreground"
+  animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 3 }}
   transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
   />
   </button>
@@ -669,7 +669,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                 
 
                 {/* Middle — Nav + Social Links */}
-                <div className="flex-1 flex flex-col justify-center pt-12 pb-8 px-4">
+                <div className="flex-1 flex flex-col justify-between pt-12 pb-8 px-4">
                   {/* Navigation Items — Top, Left-Aligned. Tighter negative space on mobile. */}
                   <div className="flex flex-col items-start justify-start -space-y-13 relative">
                     {navLinks.map((link, index) => {
@@ -698,7 +698,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                   </div>
 
                   {/* Social Links — minimum gap from nav above on mobile */}
-                  <div className="flex flex-row items-center gap-3 flex-wrap mt-6">
+                  <div className="flex flex-row items-center gap-3 flex-nowrap mt-auto">
                     {socialLinks.map((social, index) => (
                       <SocialLinkWithAnimation
                         key={social.name}
