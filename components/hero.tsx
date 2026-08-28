@@ -14,7 +14,7 @@ export default function HeroSection({ triggerAnimation = false }: HeroSectionPro
   const heroArtworkY = useTransform(scrollY, [0, 700], [0, -220])
 
   return (
-    <section className="sticky top-0 z-0 flex h-[82svh] items-end justify-center overflow-hidden bg-background lg:h-screen">
+    <section className="sticky top-0 z-0 flex h-[85svh] items-end justify-center overflow-hidden bg-background lg:h-screen">
             {/* Top Right - Eyebrow text + description */}
       <motion.div
         className="absolute top-24 right-4 left-4 z-20 max-w-none text-left lg:top-15 lg:right-9 lg:left-auto lg:max-w-[600px]"
