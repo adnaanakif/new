@@ -31,6 +31,7 @@ export const caseStudies: CaseStudy[] = [
       '/baked-06.jpg',
       '/baked-07.jpg',
       '/baked-08.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Social-Template-gygBMViQ1gdFYT6jlmy9faJ5fnjRJH.jpg',
     ],
     processCaptions: [
       { title: 'Problem', description: 'BAKED. on Earsham Street had built genuine community trust in four months, but its identity had not caught up. The website used an elegant serif wordmark while Instagram used a separate illustrated storefront, leaving the brand fragmented and difficult to own as the business grew.' },
