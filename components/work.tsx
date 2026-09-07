@@ -15,11 +15,11 @@ An identity made to match the warmth of the shop.`,
     imageFirst: true,
   },
   {
-    title: 'Bekary',
+    title: 'Live & Lil',
     slug: 'baked-2',
-    description: `Great brands aren't built by decoration.
-They're built through clear thinking, intentional systems, and decisions that serve the business.`,
-    imageAlt: 'Bekary brand project preview',
+    description: `Live & Lil is a charm jewelry brand built around the pieces customers collect one at a time. Every brand in the category reaches for the same symbols — hearts, stars, moons. We built an identity around the charm itself instead: a mark, a color story, and a full system that reads as craft rather than trend.`,
+    imageAlt: 'Live & Lil charm jewelry brand packaging',
+    imageSrc: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Packaging-6bwg1nf98zsvUGHU0oVvXOVUpntidG.png',
     imageFirst: false,
   },
   {
