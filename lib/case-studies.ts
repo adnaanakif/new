@@ -52,7 +52,7 @@ export const caseStudies: CaseStudy[] = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Problem-dVyW9eEs1ubZeoq2tjy21cPPoATby3.png',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Research-UtqiTDRF17l8a2Eb03GK89zDJyw5rv.png',
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Exploration-6KBIw3B1cka0tNxPdDJDNceRId0HNC.png',
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dicision.gif-AwUbM6xuF7Ocd0ttWtukF1GgbOWdvZ.jpeg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dicision.gif-jQNgGrTMmR95s4O0ygRqjzyZ8CJMCF.jpeg',
       '#',
       '#',
       '#',
