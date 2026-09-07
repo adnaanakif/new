@@ -41,7 +41,7 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: 'baked-2',
+    slug: 'live-lil',
     name: 'Live & Lil',
     subtitle:
       'Live & Lil is a charm jewelry brand built around the pieces customers collect one at a time. Every brand in the category reaches for the same symbols — hearts, stars, moons. We built an identity around the charm itself instead: a mark, a color story, and a full system that reads as craft rather than trend.',
