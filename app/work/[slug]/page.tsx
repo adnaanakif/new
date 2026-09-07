@@ -132,15 +132,25 @@ function CaseStudyGallery({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-video w-full overflow-hidden bg-foreground/10"
           >
-            <Image
-              src={src}
-              alt={`${name} — image ${index + 1}`}
-              fill
-              loading={index === 0 ? 'eager' : 'lazy'}
-              priority={index === 0}
-              sizes="(max-width: 1024px) calc(100vw - 2rem), calc(100vw - 4.5rem)"
-              className="object-contain"
-            />
+            {src === '#' ? (
+              <a
+                href="#"
+                aria-label={`${name} demo image ${index - 3}`}
+                className="flex h-full w-full items-center justify-center bg-foreground/[0.06] text-[18px] font-medium uppercase tracking-tight text-foreground transition-colors hover:bg-foreground/[0.12]"
+              >
+                Demo image — coming soon
+              </a>
+            ) : (
+              <Image
+                src={src}
+                alt={`${name} — image ${index + 1}`}
+                fill
+                loading={index === 0 ? 'eager' : 'lazy'}
+                priority={index === 0}
+                sizes="(max-width: 1024px) calc(100vw - 2rem), calc(100vw - 4.5rem)"
+                className="object-contain"
+              />
+            )}
           </motion.div>
           {index < 4 && processCaptions[index] ? (
             <motion.div

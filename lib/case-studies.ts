@@ -49,9 +49,35 @@ export const caseStudies: CaseStudy[] = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
     services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Social Templates'],
     images: [
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Problem-dVyW9eEs1ubZeoq2tjy21cPPoATby3.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Research-UtqiTDRF17l8a2Eb03GK89zDJyw5rv.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Exploration-6KBIw3B1cka0tNxPdDJDNceRId0HNC.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dicision.gif-AwUbM6xuF7Ocd0ttWtukF1GgbOWdvZ.jpeg',
+      '#',
+      '#',
+      '#',
+      '#',
+      '#',
+      '#',
     ],
-    processCaptions: [],
+    processCaptions: [
+      {
+        title: 'Problem',
+        description: 'Live & Lil had a warm, personal product and a growing community, but its visual presence did not yet communicate the charm, care, and individuality behind the brand. The identity needed to feel more intentional while staying close to the founders and their customers.',
+      },
+      {
+        title: 'Research',
+        description: 'We looked across the charm jewelry category, studied how customers discover and collect meaningful pieces, and mapped the visual language around gifting, self-expression, and everyday rituals. The strongest opportunity was to create a world that felt collectible rather than overly polished.',
+      },
+      {
+        title: 'Exploration',
+        description: 'We explored wordmarks, monograms, charm shapes, tactile materials, and color combinations that could carry the brand across packaging and social. The direction grew from small, personal details into a flexible system with a balance of softness, confidence, and play.',
+      },
+      {
+        title: 'Decision',
+        description: 'The final direction centers Live & Lil around a distinctive monogram and a rich plum-and-gold palette. It gives the brand a recognizable signature while leaving enough room for the jewelry, stories, and customers to remain the focus.',
+      },
+    ],
   },
   {
     slug: 'baked-3',
