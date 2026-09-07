@@ -41,19 +41,17 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: 'baked-2',
-    name: 'Bekary',
+    slug: 'live-lil',
+    name: 'Live & Lil',
     subtitle:
-      "Great brands aren't built by decoration. They're built through clear thinking, intentional systems, and decisions that serve the business.",
-    heroImage: '#',
-    services: ['Strategy & Positioning', 'Branding', 'Packaging', 'Tone of Voice'],
-    images: Array.from({ length: 10 }, () => '#'),
-    processCaptions: [
-      { title: 'Problem', description: 'Demo description: the existing brand needed a sharper point of view and a system built for growth.' },
-      { title: 'Research', description: 'Demo description: we gathered context from the audience, category, and everyday customer experience.' },
-      { title: 'Exploration', description: 'Demo description: we tested a range of visual routes before narrowing into the strongest direction.' },
-      { title: 'Decision', description: 'Demo description: we chose the clearest route and translated it into a practical identity system.' },
+      'Live & Lil is a charm jewelry brand built around the pieces customers collect one at a time. Every brand in the category reaches for the same symbols — hearts, stars, moons. We built an identity around the charm itself instead: a mark, a color story, and a full system that reads as craft rather than trend.',
+    heroImage:
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
+    services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Social Templates'],
+    images: [
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
     ],
+    processCaptions: [],
   },
   {
     slug: 'baked-3',
