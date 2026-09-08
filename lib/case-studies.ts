@@ -49,9 +49,37 @@ export const caseStudies: CaseStudy[] = [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
     services: ['Brand Strategy', 'Identity Design', 'Packaging', 'Social Templates'],
     images: [
-      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Live%20%26%20Lil%20Hero%20Image-5Crr7vbEISiYoZCBVmDlqbuuuzuTmj.jpg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Problem-dVyW9eEs1ubZeoq2tjy21cPPoATby3.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Research-UtqiTDRF17l8a2Eb03GK89zDJyw5rv.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Exploration-6KBIw3B1cka0tNxPdDJDNceRId0HNC.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dicision.gif-jQNgGrTMmR95s4O0ygRqjzyZ8CJMCF.jpeg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/01-9nfQFdrTPLXLIpoOIYtWSElmcH8dip.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/02.gif-ILWlieRqT3ifxtmdAp2d00ZMy7SX9T.jpeg',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/03-yq7Wq2zzz1WlV8gXAi4jwCMiASvdNR.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/04-K8y4rNZ6A9ug3FSD6iFDNJTXEz9nK9.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/05-7SUI1uUpFWuv2Be5DkRLON2s3sq2Yp.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/06-yBoGwm1I4zAnkIPINQRyfAoTQlbGPS.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/07-ah9uOaM84vUG5OtGhhqA1RAmsaCXzN.png',
+      'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/08-61mTYJYkM70zr7bG4e51RGASrgciHD.png',
     ],
-    processCaptions: [],
+    processCaptions: [
+      {
+        title: 'Problem',
+        description: 'Live & Lil is a jewelry brand built around charms — small, personal pieces customers layer over time. But every brand in this category defaults to the same handful of symbols: hearts, stars, moons. Familiar, safe, and completely interchangeable with the next brand on the page.',
+      },
+      {
+        title: 'Research',
+        description: 'Jewelry branding research pointed toward leaning into the familiar — customers already associate hearts and stars with charm jewelry, and familiarity converts. But that’s also how a brand ends up looking like everyone else selling the same category.',
+      },
+      {
+        title: 'Exploration',
+        description: 'The first round of sketches leaned into that familiar territory anyway — heart pendants, heart wordmarks, floral monograms. On paper, they looked fine. That was the problem. Any one of them could have been lifted onto a different jewelry brand’s page without anyone noticing.',
+      },
+      {
+        title: 'Decision',
+        description: 'The real material of the brand wasn’t a heart — it was the charm itself. Nine digital variations later, the strongest version turned out to be the simplest: a bold “L,” carrying a single round charm bead, with a soft curved tail extending from its base. Legible at the size of an actual charm — which, for a jewelry brand, is the whole point.',
+      },
+    ],
   },
   {
     slug: 'baked-3',
