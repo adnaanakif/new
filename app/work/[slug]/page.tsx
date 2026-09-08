@@ -145,10 +145,12 @@ function CaseStudyGallery({
                 src={src}
                 alt={`${name} — image ${index + 1}`}
                 fill
-                loading={index === 0 ? 'eager' : 'lazy'}
-                priority={index === 0}
+                loading={index < 2 ? 'eager' : 'lazy'}
+                priority={index < 2}
+                quality={90}
                 sizes="(max-width: 1024px) calc(100vw - 2rem), calc(100vw - 4.5rem)"
                 className="object-contain"
+                unoptimized
               />
             )}
           </motion.div>
