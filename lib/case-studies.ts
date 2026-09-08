@@ -65,19 +65,19 @@ export const caseStudies: CaseStudy[] = [
     processCaptions: [
       {
         title: 'Problem',
-        description: 'Live & Lil had a warm, personal product and a growing community, but its visual presence did not yet communicate the charm, care, and individuality behind the brand. The identity needed to feel more intentional while staying close to the founders and their customers.',
+        description: 'Live & Lil is a jewelry brand built around charms — small, personal pieces customers layer over time. But every brand in this category defaults to the same handful of symbols: hearts, stars, moons. Familiar, safe, and completely interchangeable with the next brand on the page.',
       },
       {
         title: 'Research',
-        description: 'We looked across the charm jewelry category, studied how customers discover and collect meaningful pieces, and mapped the visual language around gifting, self-expression, and everyday rituals. The strongest opportunity was to create a world that felt collectible rather than overly polished.',
+        description: 'Jewelry branding research pointed toward leaning into the familiar — customers already associate hearts and stars with charm jewelry, and familiarity converts. But that’s also how a brand ends up looking like everyone else selling the same category.',
       },
       {
         title: 'Exploration',
-        description: 'We explored wordmarks, monograms, charm shapes, tactile materials, and color combinations that could carry the brand across packaging and social. The direction grew from small, personal details into a flexible system with a balance of softness, confidence, and play.',
+        description: 'The first round of sketches leaned into that familiar territory anyway — heart pendants, heart wordmarks, floral monograms. On paper, they looked fine. That was the problem. Any one of them could have been lifted onto a different jewelry brand’s page without anyone noticing.',
       },
       {
         title: 'Decision',
-        description: 'The final direction centers Live & Lil around a distinctive monogram and a rich plum-and-gold palette. It gives the brand a recognizable signature while leaving enough room for the jewelry, stories, and customers to remain the focus.',
+        description: 'The real material of the brand wasn’t a heart — it was the charm itself. Nine digital variations later, the strongest version turned out to be the simplest: a bold “L,” carrying a single round charm bead, with a soft curved tail extending from its base. Legible at the size of an actual charm — which, for a jewelry brand, is the whole point.',
       },
     ],
   },
