@@ -176,7 +176,10 @@ function ValueRow({ text, index }: { text: string; index: number }) {
         style={{ opacity: isHovered ? 1 : 0 }}
         aria-hidden="true"
       />
-      <span className="text-[20px] font-medium tracking-tight text-muted-foreground/50 md:text-[28px]">
+      <span
+        className="relative z-10 shrink-0 text-[20px] font-medium tracking-tight text-foreground opacity-100 md:text-[28px]"
+        aria-label={`Value ${index + 1}`}
+      >
         {String(index + 1).padStart(2, '0')}
       </span>
       <p className="text-[24px] font-medium leading-tight tracking-tighter text-foreground md:text-[48px] lg:text-[56px]">
