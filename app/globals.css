@@ -3,48 +3,47 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Monochrome brand system: primary black, secondary white. */
+/* Lozinr brand system: night, paper, ember, and restrained neutrals. */
 :root {
-  --color-bg: #000000;
-  --color-text: #dfdfdf;
-  --color-card: #dfdfdf;
-  --color-accent: #000000;
-  --color-border: #dfdfdf;
-
-  --background: #000000;
-  --foreground: #dfdfdf;
-  --card: #dfdfdf;
-  --card-foreground: #000000;
-  --process: #000000;
-  --popover: #dfdfdf;
-  --popover-foreground: #000000;
-  --primary: #000000;
-  --primary-foreground: #dfdfdf;
-  --secondary: #dfdfdf;
-  --secondary-foreground: #000000;
-  --muted: #dfdfdf;
-  --muted-foreground: #000000;
-  --accent: #000000;
-  --accent-foreground: #dfdfdf;
-  --destructive: #000000;
-  --destructive-foreground: #dfdfdf;
-  --border: #000000;
-  --input: #dfdfdf;
-  --ring: #000000;
-  --chart-1: #000000;
-  --chart-2: #dfdfdf;
-  --chart-3: #000000;
-  --chart-4: #dfdfdf;
-  --chart-5: #000000;
-  --radius: 0.625rem;
-  --sidebar: #dfdfdf;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #000000;
-  --sidebar-primary-foreground: #dfdfdf;
-  --sidebar-accent: #000000;
-  --sidebar-accent-foreground: #dfdfdf;
-  --sidebar-border: #000000;
-  --sidebar-ring: #000000;
+  --color-bg: #11100f;
+  --color-text: #f2f0ea;
+  --color-card: #242220;
+  --color-accent: #dd491b;
+  --color-border: #6b6762;
+  --background: #11100f;
+  --foreground: #f2f0ea;
+  --card: #242220;
+  --card-foreground: #f2f0ea;
+  --process: #dd491b;
+  --popover: #242220;
+  --popover-foreground: #f2f0ea;
+  --primary: #f2f0ea;
+  --primary-foreground: #11100f;
+  --secondary: #242220;
+  --secondary-foreground: #f2f0ea;
+  --muted: #242220;
+  --muted-foreground: #b8b3ab;
+  --accent: #dd491b;
+  --accent-foreground: #11100f;
+  --destructive: #dd491b;
+  --destructive-foreground: #11100f;
+  --border: #6b6762;
+  --input: #6b6762;
+  --ring: #dd491b;
+  --chart-1: #dd491b;
+  --chart-2: #f2f0ea;
+  --chart-3: #6b6762;
+  --chart-4: #242220;
+  --chart-5: #11100f;
+  --radius: 0.125rem;
+  --sidebar: #242220;
+  --sidebar-foreground: #f2f0ea;
+  --sidebar-primary: #dd491b;
+  --sidebar-primary-foreground: #11100f;
+  --sidebar-accent: #6b6762;
+  --sidebar-accent-foreground: #f2f0ea;
+  --sidebar-border: #6b6762;
+  --sidebar-ring: #dd491b;
 }
 
 .dark {
@@ -88,6 +87,12 @@
   --font-mono: 'Helvetica Neue', 'Helvetica', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-night: #11100f;
+  --color-paper: #f2f0ea;
+  --color-ember: #dd491b;
+  --color-neutral-900: #242220;
+  --color-neutral-600: #6b6762;
+  --color-neutral-300: #b8b3ab;
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-process: var(--process);
