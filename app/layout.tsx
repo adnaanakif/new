@@ -9,8 +9,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#dfdfdf' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    { media: '(prefers-color-scheme: light)', color: '#11100f' },
+    { media: '(prefers-color-scheme: dark)', color: '#11100f' },
   ],
   interactiveWidget: 'resizes-content',
 }
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: 'Lozinr — Brand Identity Studio for Ambitious Founders',
     template: '%s | Lozinr',
   },
-  description: 'Lozinr is a brand identity studio helping funded startups and ambitious founders build distinctive brands through strategy, identity systems, and timeless design.',
+  description: 'Lozinr brand guidelines: a practical identity system for ambitious founders, built around clear thinking, useful restraint, and recognisable work.',
   keywords: [
     'brand identity studio',
     'brand identity designer',
