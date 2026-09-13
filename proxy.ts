@@ -18,7 +18,7 @@ const PROTECTED_PATHS = [
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
 
-  const isProtected = PROTECTED_PATHS.some(
+  const isProtected = pathname.startsWith('/client-portal/') || PROTECTED_PATHS.some(
     (path) => pathname === path || pathname.startsWith(`${path}/`)
   )
 
