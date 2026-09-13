@@ -43,7 +43,6 @@ export const config = {
     '/invoice/:path*',
     '/contract/:path*',
     '/brand-strategy/:path*',
-    '/brand-questionnaire/:path*',
     '/brand-guidelines/:path*',
     '/proposal/:path*',
     '/client-portal/:path*',
