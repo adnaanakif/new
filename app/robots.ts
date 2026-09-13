@@ -6,17 +6,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/', '/work'],
-      // Private + tool pages that should not be crawled or indexed.
-      disallow: [
-        '/services',
-        '/about',
-        '/contact',
-        '/projects/',
-        '/store',
-        '/design-news',
-        '/client-portal',
-      ],
+      allow: ['/', '/work', '/about', '/templates'],
+      disallow: [],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
