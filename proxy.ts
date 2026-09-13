@@ -12,7 +12,6 @@ const PROTECTED_PATHS = [
   '/invoice',
   '/contract',
   '/brand-strategy',
-  '/brand-questionnaire',
   '/brand-guidelines',
   '/proposal',
 ]
