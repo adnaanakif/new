@@ -1,21 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
-import { createClientSession, CLIENT_SESSION_COOKIE, sessionCookieOptions } from '@/lib/session'
+import { supabaseAdmin } from '@/lib/supabase'
+import { createClientSession, verifyAccessCode, CLIENT_SESSION_COOKIE, sessionCookieOptions } from '@/lib/session'
 
 const MAX_ATTEMPTS = 5
-const attempts = new Map<string, { count: number; resetAt: number }>()
+const WINDOW_MS = 15 * 60 * 1000
 
-function getSupabaseAdmin() {
-  const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY
-  if (!url || !serviceRoleKey) throw new Error('Supabase server credentials are not configured')
-  return createClient(url, serviceRoleKey, { auth: { autoRefreshToken: false, persistSession: false } })
+function getClientIp(request: NextRequest) {
+  return request.headers.get('x-real-ip')?.trim() || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+}
+
+async function isRateLimited(key: string) {
+  const now = new Date()
+  const windowStart = new Date(now.getTime() - WINDOW_MS).toISOString()
+  const { data } = await supabaseAdmin.from('client_auth_attempts').select('attempts, window_started_at, blocked_until').eq('key', key).maybeSingle()
+  if (!data) return false
+  if (data.blocked_until && new Date(data.blocked_until).getTime() > now.getTime()) return true
+  if (new Date(data.window_started_at).getTime() < new Date(windowStart).getTime()) return false
+  return data.attempts >= MAX_ATTEMPTS
+}
+
+async function recordFailedAttempt(key: string) {
+  const now = new Date()
+  const { data } = await supabaseAdmin.from('client_auth_attempts').select('attempts, window_started_at').eq('key', key).maybeSingle()
+  const inWindow = data && new Date(data.window_started_at).getTime() >= now.getTime() - WINDOW_MS
+  const attempts = inWindow ? data.attempts + 1 : 1
+  await supabaseAdmin.from('client_auth_attempts').upsert({ key, attempts, window_started_at: inWindow ? data.window_started_at : now.toISOString(), blocked_until: attempts >= MAX_ATTEMPTS ? new Date(now.getTime() + WINDOW_MS).toISOString() : null, updated_at: now.toISOString() })
 }
 
 export async function POST(request: NextRequest) {
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
-  const current = attempts.get(ip)
-  if (current && Date.now() < current.resetAt && current.count >= MAX_ATTEMPTS) {
+  const ip = getClientIp(request)
+  if (await isRateLimited(`ip:${ip}`)) {
     return NextResponse.json({ success: false, message: 'Too many attempts. Try again later.' }, { status: 429 })
   }
 
@@ -23,18 +37,18 @@ export async function POST(request: NextRequest) {
   const accessCode = body.access_code?.trim()
   if (!accessCode || accessCode.length > 120) return NextResponse.json({ success: false, message: 'Enter a valid access code.' }, { status: 400 })
 
-  const { data: client, error } = await getSupabaseAdmin().from('clients').select('id').eq('access_code', accessCode).maybeSingle()
+  const { data: clients, error } = await supabaseAdmin.from('clients').select('id, access_code_hash').not('access_code_hash', 'is', null)
+  const client = clients?.find((candidate) => verifyAccessCode(accessCode, candidate.access_code_hash))
   if (error) {
     console.error('[v0] Client authentication lookup failed:', error.message)
     return NextResponse.json({ success: false, message: 'Unable to sign in right now.' }, { status: 500 })
   }
   if (!client) {
-    const next = current && Date.now() < current.resetAt ? { count: current.count + 1, resetAt: current.resetAt } : { count: 1, resetAt: Date.now() + 15 * 60 * 1000 }
-    attempts.set(ip, next)
+    await recordFailedAttempt(`ip:${ip}`)
     return NextResponse.json({ success: false, message: 'Invalid access code.' }, { status: 401 })
   }
 
-  attempts.delete(ip)
+  await supabaseAdmin.from('client_auth_attempts').delete().eq('key', `ip:${ip}`)
   const session = createClientSession(client.id)
   const response = NextResponse.json({ success: true })
   response.cookies.set(CLIENT_SESSION_COOKIE, session.value, sessionCookieOptions(session.maxAge))

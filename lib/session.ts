@@ -1,14 +1,29 @@
-import { createHmac, timingSafeEqual } from 'node:crypto'
+import { createHmac, randomBytes, scryptSync, timingSafeEqual } from 'node:crypto'
 
 export const CLIENT_SESSION_COOKIE = 'client_session'
-const SESSION_TTL_SECONDS = 60 * 60 * 24
+const SESSION_TTL_SECONDS = 60 * 60 * 8
+const SCRYPT_KEY_LENGTH = 64
 
 type ClientSession = { clientId: string; issuedAt: number }
 
 function getSecret() {
-  const secret = process.env.SESSION_SECRET ?? process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY
-  if (!secret) throw new Error('No session signing secret is configured')
+  const secret = process.env.SESSION_SECRET ?? process.env.SUPABASE_JWT_SECRET
+  if (!secret || secret.length < 32) throw new Error('SESSION_SECRET or SUPABASE_JWT_SECRET must be configured with at least 32 characters')
   return secret
+}
+
+export function hashAccessCode(accessCode: string) {
+  const salt = randomBytes(16).toString('hex')
+  const hash = scryptSync(accessCode, salt, SCRYPT_KEY_LENGTH).toString('hex')
+  return `scrypt:${salt}:${hash}`
+}
+
+export function verifyAccessCode(accessCode: string, storedHash: string) {
+  const [, salt, hash] = storedHash.split(':')
+  if (!salt || !hash) return false
+  const expected = Buffer.from(hash, 'hex')
+  const actual = scryptSync(accessCode, salt, expected.length)
+  return expected.length === actual.length && timingSafeEqual(expected, actual)
 }
 
 export function createClientSession(clientId: string) {
