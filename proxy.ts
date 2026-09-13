@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { CLIENT_SESSION_COOKIE, readClientSession } from '@/lib/session'
 
 // ─── Route protection ─────────────────────────────────────────────────────
 // Runs on every request to these paths, BEFORE the page renders. So typing
 // lozinr.com/invoice directly into the address bar no longer works without
 // the session cookie set by /api/client-auth after a correct password.
 // ────────────────────────────────────────────────────────────────────────
-
-const COOKIE_NAME = 'client_area_session'
 
 const PROTECTED_PATHS = [
   '/invoice',
@@ -27,8 +26,8 @@ export function proxy(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const session = req.cookies.get(COOKIE_NAME)?.value
-  if (session === 'granted') {
+  const session = req.cookies.get(CLIENT_SESSION_COOKIE)?.value
+  if (session && readClientSession(session)) {
     return NextResponse.next()
   }
 
