@@ -509,7 +509,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
     className="absolute inset-0 pointer-events-none"
     style={{
       background:
-        'radial-gradient(ellipse 90% 125% at 50% 0%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.38) 42%, rgba(0, 0, 0, 0.12) 72%, transparent 100%)',
+        'radial-gradient(ellipse 90% 125% at 50% 0%, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.52) 42%, rgba(0, 0, 0, 0.2) 72%, transparent 100%)',
     }}
     initial={false}
     animate={{ opacity: 1 }}
