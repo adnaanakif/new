@@ -504,14 +504,17 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
-  {/* Soft black glass surface: the header background is made from a diffuse
-  shadow-like tint, not a solid color or a separate bottom border. */}
+  {/* The header reads as a soft black shadow rather than a translucent panel. */}
   <motion.div
-    className="absolute inset-0 bg-black/[0.18] text-foreground backdrop-blur-[14px] pointer-events-none"
-        initial={false}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      />
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        'radial-gradient(ellipse 90% 125% at 50% 0%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.38) 42%, rgba(0, 0, 0, 0.12) 72%, transparent 100%)',
+    }}
+    initial={false}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+  />
 
         <div className="relative z-10 flex items-center justify-between gap-4 h-10 px-3 lg:px-6 w-full">
 
