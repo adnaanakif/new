@@ -24,14 +24,20 @@ export default function ClientPortalPage() {
     event.preventDefault()
     setSubmitting(true)
     setError('')
-    const response = await fetch('/api/client-auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_code: accessCode }) })
-    const result = await response.json()
-    if (!response.ok) setError(result.message ?? 'Unable to sign in.')
-    else {
-      const profile = await fetch('/api/client-portal/me')
-      if (profile.ok) setClient((await profile.json()).client)
+    try {
+      const response = await fetch('/api/client-auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_code: accessCode }) })
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok) setError(result.message ?? 'Unable to sign in.')
+      else {
+        const profile = await fetch('/api/client-portal/me')
+        if (profile.ok) setClient((await profile.json()).client)
+        else setError('Your session could not be loaded. Please try again.')
+      }
+    } catch {
+      setError('Unable to sign in right now. Please try again.')
+    } finally {
+      setSubmitting(false)
     }
-    setSubmitting(false)
   }
 
   async function signOut() {
