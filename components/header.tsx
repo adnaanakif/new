@@ -615,9 +615,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                         (link === 'Home'     && pathname === '/')         ||
                         (link === 'Work'     && pathname === '/work')     ||
                         (link === 'Template' && pathname === '/templates') ||
-                        (link === 'About'    && pathname === '/about')     ||
-                        (link === 'Design News' && pathname === '/design-news') ||
-                        (link === 'Premium Store' && pathname === '/store')
+                        (link === 'About'    && pathname === '/about')
                       return (
                         <MobileNavItem
                           key={link}
@@ -662,10 +660,6 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
                         (link === 'Home' && pathname === '/') ||
                         (link === 'Work' && pathname === '/work') ||
                         (link === 'Template' && pathname === '/templates') ||
-                        (link === 'Design News' && pathname === '/design-news') ||
-                        (link === 'Features' && pathname === '/features') ||
-                        (link === 'Job' && pathname === '/job') ||
-                        (link === 'Premium Store' && pathname === '/store') ||
                         (link === 'About' && pathname === '/about')
                       return (
                         <MobileNavItem
