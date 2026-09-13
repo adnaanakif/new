@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { createClientSession, verifyAccessCode, CLIENT_SESSION_COOKIE, sessionCookieOptions } from '@/lib/session'
 
-const MAX_ATTEMPTS = 5
-const WINDOW_MS = 15 * 60 * 1000
+const MAX_ATTEMPTS = 10
+const WINDOW_MS = 5 * 60 * 1000
 
 function getClientIp(request: NextRequest) {
   return request.headers.get('x-real-ip')?.trim() || request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
