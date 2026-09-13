@@ -15,7 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         '/projects/',
         '/store',
         '/design-news',
-        '/client-portal',
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
