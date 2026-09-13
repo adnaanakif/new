@@ -12,10 +12,8 @@ const PROTECTED_PATHS = [
   '/invoice',
   '/contract',
   '/brand-strategy',
-  '/brand-questionnaire',
   '/brand-guidelines',
   '/proposal',
-  '/client-portal',
 ]
 
 export function proxy(req: NextRequest) {
