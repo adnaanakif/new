@@ -499,19 +499,22 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           content (logo/nav/store icon) fades out smoothly; the hamburger
           stays put and simply morphs into an X. */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-[100] w-full text-foreground"
+        className="fixed top-0 left-0 right-0 z-[100] w-full text-foreground drop-shadow-[0_8px_14px_rgba(0,0,0,0.42)]"
         initial={{ y: -80, opacity: 0, filter: 'blur(6px)' }}
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
-      {/* Translucent background layer — transparent over the hero, fades in
-          once we've scrolled past it so the page stays subtly visible beneath. */}
-      <motion.div
-        className="absolute inset-0 bg-background text-foreground lg:border-b lg:border-foreground/10 pointer-events-none"
-        initial={false}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-      />
+  {/* The header reads as a soft black shadow rather than a translucent panel. */}
+  <motion.div
+    className="absolute inset-0 pointer-events-none"
+    style={{
+      background:
+        'radial-gradient(ellipse 90% 125% at 50% 0%, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.52) 42%, rgba(0, 0, 0, 0.2) 72%, transparent 100%)',
+    }}
+    initial={false}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+  />
 
         <div className="relative z-10 flex items-center justify-between gap-4 h-10 px-3 lg:px-6 w-full">
 
