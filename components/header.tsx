@@ -499,7 +499,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
           content (logo/nav/store icon) fades out smoothly; the hamburger
           stays put and simply morphs into an X. */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-[100] w-full text-foreground"
+        className="fixed top-0 left-0 right-0 z-[100] w-full text-foreground drop-shadow-[0_8px_14px_rgba(0,0,0,0.42)]"
         initial={{ y: -80, opacity: 0, filter: 'blur(6px)' }}
         animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
