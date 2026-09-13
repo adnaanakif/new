@@ -32,7 +32,7 @@ export function proxy(req: NextRequest) {
   }
 
   const url = req.nextUrl.clone()
-  url.pathname = '/'
+  url.pathname = '/client-portal'
   url.searchParams.set('locked', pathname)
   return NextResponse.redirect(url)
 }
