@@ -6,8 +6,8 @@ const SESSION_TTL_SECONDS = 60 * 60 * 24
 type ClientSession = { clientId: string; issuedAt: number }
 
 function getSecret() {
-  const secret = process.env.SESSION_SECRET
-  if (!secret) throw new Error('SESSION_SECRET is not configured')
+  const secret = process.env.SESSION_SECRET ?? process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY
+  if (!secret) throw new Error('No session signing secret is configured')
   return secret
 }
 
