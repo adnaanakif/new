@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import { useRef } from 'react'
 
 const sections = [
   ['01', 'The brand'],
@@ -15,20 +15,29 @@ const sections = [
   ['07', 'In practice'],
 ]
 
+function PortalTopBar() {
+  return (
+    <div className="sticky top-0 z-30 flex items-center justify-between border-b border-neutral-600/50 bg-night/90 px-5 py-3 backdrop-blur md:px-10">
+      <Link href="/client-portal" className="text-xs uppercase tracking-[0.18em] text-paper/70 hover:text-paper">← Client workspace</Link>
+      <span className="text-xs uppercase tracking-[0.18em] text-paper/50">Lozinr / Brand guidelines</span>
+    </div>
+  )
+}
+
 function BrandGuidelinesHero() {
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start end', 'end start'] })
   const imageY = useTransform(scrollYProgress, [0, 1], ['-18%', '18%'])
 
   return (
-    <section ref={heroRef} className="relative -mx-[calc(50vw-50%)] h-[min(100vh,56.25vw)] min-h-[620px] overflow-hidden bg-night">
+    <section ref={heroRef} className="relative -mx-[calc(50vw-50%)] h-[min(100vh,56.25vw)] min-h-[520px] overflow-hidden bg-night">
       <motion.div className="absolute inset-[-12%]" style={{ y: imageY }}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_42%,rgba(221,73,27,.32),transparent_25%),linear-gradient(125deg,#11100f_10%,#211914_48%,#050505_100%)]" />
         <div className="absolute left-[12%] top-[20%] h-[52vw] w-[52vw] rounded-full border border-paper/10" />
         <div className="absolute right-[10%] top-[12%] h-[35vw] w-[35vw] rounded-full border border-ember/40" />
       </motion.div>
       <div className="absolute inset-0 bg-night/45" />
-      <div className="relative flex h-full flex-col justify-between px-5 pb-8 pt-32 text-paper md:px-10 md:pb-12">
+      <div className="relative flex h-full flex-col justify-between px-5 pb-8 pt-16 text-paper md:px-10 md:pb-12">
         <div className="flex items-center justify-between text-[11px] uppercase tracking-[.18em] text-paper/65">
           <span>Lozinr / Brand guidelines</span><span>2024—25</span>
         </div>
@@ -53,7 +62,7 @@ export default function BrandGuidelinesPage() {
   const [active, setActive] = useState(false)
   useEffect(() => { const onScroll = () => setActive(window.scrollY > 480); window.addEventListener('scroll', onScroll); return () => window.removeEventListener('scroll', onScroll) }, [])
   return <>
-    <Header preloaderDone={true} />
+    <PortalTopBar />
     <main className="overflow-hidden bg-night text-paper">
       <BrandGuidelinesHero />
       <aside className={`fixed right-4 top-1/2 z-20 hidden -translate-y-1/2 transition-opacity lg:block ${active ? 'opacity-100' : 'opacity-0'}`} aria-label="Page index"><div className="flex flex-col gap-2 border-l border-neutral-600/70 pl-4">{sections.map(([number, label]) => <a key={number} href={`#section-${number}`} className="text-[10px] uppercase tracking-[.13em] text-neutral-300 transition-colors hover:text-ember"><span className="mr-2 text-ember">{number}</span>{label}</a>)}</div></aside>
@@ -67,6 +76,5 @@ export default function BrandGuidelinesPage() {
         <section id="section-07"><SectionIntro number="07" eyebrow="Closing note" title="Build what only you can build.">A brand is not a costume. It is the clearest version of the work, repeated with care. When the system is right, every touchpoint makes the next brave decision a little easier.</SectionIntro><div className="mb-24 flex min-h-[420px] flex-col justify-between bg-ember p-6 text-night md:p-10"><div className="flex justify-between text-xs uppercase tracking-[.18em]"><span>Lozinr</span><span>End / Begin</span></div><p className="max-w-3xl text-5xl font-medium uppercase leading-[.84] tracking-[-.07em] md:text-8xl">Go make it<br />recognisable<span className="text-paper">.</span></p></div></section>
       </div>
     </main>
-    <Footer />
   </>
 }

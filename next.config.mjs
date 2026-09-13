@@ -64,7 +64,14 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    return []
+    return [
+      { source: '/proposal', destination: '/client-portal/proposal', permanent: false },
+      { source: '/invoice', destination: '/client-portal/invoice', permanent: false },
+      { source: '/contract', destination: '/client-portal/contract', permanent: false },
+      { source: '/brand-strategy', destination: '/client-portal/brand-strategy', permanent: false },
+      { source: '/brand-questionnaire', destination: '/client-portal/brand-questionnaire', permanent: false },
+      { source: '/brand-guidelines', destination: '/client-portal/brand-guidelines', permanent: false },
+    ]
   },
   async rewrites() {
     return []

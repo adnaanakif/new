@@ -2,19 +2,9 @@
 
 import Link from 'next/link'
 import { FormEvent, useEffect, useState } from 'react'
+import { PORTAL_NAV_ITEMS as portalLinks } from '@/lib/portal-nav'
 
 type Client = { project_name: string; contact_name: string }
-
-type PortalLink = { label: string; href: string; description: string; status: string }
-
-const portalLinks: PortalLink[] = [
-  { label: 'Brand Questionnaire', href: '/brand-questionnaire', description: 'Tell us about your brand and goals.', status: 'Start' },
-  { label: 'Brand Strategy', href: '/brand-strategy', description: 'Review your strategic direction and positioning.', status: 'View' },
-  { label: 'Proposal', href: '/proposal', description: 'See the agreed scope, deliverables, and timeline.', status: 'View' },
-  { label: 'Invoice', href: '/invoice', description: 'Review your balance and payment details.', status: 'View' },
-  { label: 'Contract', href: '/contract', description: 'Access your project agreement and terms.', status: 'View' },
-  { label: 'Brand Guidelines', href: '/brand-guidelines', description: 'Keep your approved identity system close.', status: 'View' },
-]
 
 export default function ClientPortalPage() {
   const [accessCode, setAccessCode] = useState('')
