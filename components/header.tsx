@@ -507,7 +507,7 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
       {/* Translucent background layer — transparent over the hero, fades in
           once we've scrolled past it so the page stays subtly visible beneath. */}
       <motion.div
-        className="absolute inset-0 bg-background text-foreground lg:border-b lg:border-foreground/10 pointer-events-none"
+        className="absolute inset-0 bg-transparent text-foreground shadow-[0_8px_30px_rgba(0,0,0,0.18)] pointer-events-none"
         initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
