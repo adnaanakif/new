@@ -480,9 +480,8 @@ export default function Header({ preloaderDone }: { preloaderDone?: boolean } = 
   const navLinks = ['Work','About',  'Contact', 'Template', ]
 
   const socialLinks = [
-    { name: 'Instagram', link: 'https://www.instagram.com/adnaanakif' },
-    { name: 'Twitter', link: 'https://x.com/adnaanakif' },
-    { name: 'YouTube', link: 'https://www.youtube.com/@adnaanakif' },
+    { name: 'Instagram', link: 'https://www.instagram.com/lozinrstudio' },
+    { name: 'Facebook', link: 'https://www.facebook.com/lozinrstudio' },
   ]
 
   const handleNavClick = (link: string) => {

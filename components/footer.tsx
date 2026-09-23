@@ -119,8 +119,8 @@ export default function FooterSection() {
             </div>
 
             <div className="flex-1 flex flex-col justify-center gap-1 border-b-2 border-solid border-foreground px-1 py-2">
-              <FooterNavItem label="Twitter" href="https://x.com/adnaanakif" external />
-              <FooterNavItem label="Instagram" href="https://www.instagram.com/lozinrstudio/" external />
+              <FooterNavItem label="Instagram" href="https://www.instagram.com/lozinrstudio" external />
+              <FooterNavItem label="Facebook" href="https://www.facebook.com/lozinrstudio" external />
             </div>
 
             <div className="flex-1 flex flex-col justify-center border-b-2 border-solid border-foreground px-1 py-2">

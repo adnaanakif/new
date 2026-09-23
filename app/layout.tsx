@@ -9,8 +9,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#11100f' },
-    { media: '(prefers-color-scheme: dark)', color: '#11100f' },
+    { media: '(prefers-color-scheme: light)', color: '#111111' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
   ],
   interactiveWidget: 'resizes-content',
 }
@@ -18,10 +18,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://lozinr.com'),
   title: {
-    default: 'Lozinr — Brand Identity Studio for Ambitious Founders',
+    default: 'Lozinr — Brand Identity Studio for Ambitious Businesses',
     template: '%s | Lozinr',
   },
-  description: 'Lozinr brand guidelines: a practical identity system for ambitious founders, built around clear thinking, useful restraint, and recognisable work.',
+  description: 'Lozinr is a Brand Identity Studio for ambitious businesses that need more than visual decoration. We develop strategic brand foundations and distinctive identity systems that help businesses become clearer, more credible, and more memorable.',
   keywords: [
     'brand identity studio',
     'brand identity designer',
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://lozinr.com',
     siteName: 'Lozinr',
-    title: 'Lozinr — Brand Identity Studio for Funded Startups & D2C Brands',
-    description: 'Brand identity systems built for startups, SaaS companies, and ambitious founders who want to build brands worth remembering.',
+    title: 'Lozinr — Brand Identity Studio for Ambitious Businesses',
+    description: 'Brand identity systems built for ambitious businesses that want to build brands worth remembering.',
     images: [
       {
         url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Artboard%201%20copy%2001-WcAWbaFGMsa8gBIagDbeIVAx3k4w5n.jpg',
@@ -75,9 +75,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@adnaanakif',
-    title: 'Lozinr — Brand Identity Studio for Funded Startups & D2C Brands',
-    description: 'Brand identity systems built for startups, SaaS companies, and ambitious founders who want to build brands worth remembering.',
+    title: 'Lozinr — Brand Identity Studio for Ambitious Businesses',
+    description: 'Brand identity systems built for ambitious businesses that want to build brands worth remembering.',
     images: [
       'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Artboard%201%20copy%2001-WcAWbaFGMsa8gBIagDbeIVAx3k4w5n.jpg',
     ],
@@ -98,7 +97,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': ['ProfessionalService', 'Organization'],
     name: 'Lozinr',
-    description: 'Brand identity studio helping startups and ambitious founders build memorable brands through strategy, identity systems, and visual design.',
+    description: 'Lozinr is a Brand Identity Studio for ambitious businesses that need more than visual decoration. We develop strategic brand foundations and distinctive identity systems that help businesses become clearer, more credible, and more memorable.',
     url: 'https://lozinr.com',
     logo: 'https://lozinr.com/favicon.png',
     contactPoint: {
@@ -125,9 +124,8 @@ export default function RootLayout({
       url: 'https://lozinr.com',
     },
     sameAs: [
-      'https://www.instagram.com/adnaanakif/',
-      'https://www.facebook.com/adnaanakif',
-      'https://www.youtube.com/adnaanakif',
+      'https://www.instagram.com/lozinrstudio/',
+      'https://www.facebook.com/lozinrstudio/',
     ],
   }
 

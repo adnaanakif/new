@@ -7,8 +7,8 @@ import Work from '@/components/work'
 import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
-  title: 'Lozinr — Brand Identity Studio for Funded Startups & Ambitious Founders',
-  description: 'Lozinr is a brand identity studio helping funded startups and ambitious founders build distinctive brands through strategy, visual identity systems, and timeless design. Get in touch to start your project.',
+  title: 'Lozinr — Brand Identity Studio for Ambitious Businesses',
+  description: 'Lozinr is a brand identity studio helping ambitious businesses build distinctive brands through strategy, visual identity systems, and timeless design. Get in touch to start your project.',
   keywords: [
     'brand identity studio',
     'brand identity for startups',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://lozinr.com',
-    title: 'Lozinr — Brand Identity Studio for Funded Startups & Ambitious Founders',
-    description: 'Brand identity systems built for startups, SaaS companies, and ambitious founders who want to build brands worth remembering.',
+    title: 'Lozinr — Brand Identity Studio for Ambitious Businesses',
+    description: 'Brand identity systems built for ambitious businesses that want to build brands worth remembering.',
   },
 }
 
