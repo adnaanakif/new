@@ -81,21 +81,6 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
-  {
-    slug: 'baked-3',
-    name: 'Bekary',
-    subtitle:
-      "Great brands aren't built by decoration. They're built through clear thinking, intentional systems, and decisions that serve the business.",
-    heroImage: '#',
-    services: ['Strategy & Positioning', 'Branding', 'Packaging', 'Tone of Voice'],
-    images: Array.from({ length: 10 }, () => '#'),
-    processCaptions: [
-      { title: 'Problem', description: 'Demo description: the brand needed a more memorable foundation for its next chapter.' },
-      { title: 'Research', description: 'Demo description: we looked at the business, its market, and the people it needed to reach.' },
-      { title: 'Exploration', description: 'Demo description: several strategic and visual directions were developed and tested.' },
-      { title: 'Decision', description: 'Demo description: one focused direction became the basis for the final brand system.' },
-    ],
-  },
 ]
 
 export function getCaseStudy(slug: string) {
