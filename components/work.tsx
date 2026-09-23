@@ -22,6 +22,14 @@ An identity made to match the warmth of the shop.`,
     imageSrc: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Packaging-6bwg1nf98zsvUGHU0oVvXOVUpntidG.png',
     imageFirst: false,
   },
+  {
+    title: 'Bekary',
+    slug: 'baked-3',
+    description: `Great brands aren't built by decoration.
+They're built through clear thinking, intentional systems, and decisions that serve the business.`,
+    imageAlt: 'Bekary brand project preview',
+    imageFirst: true,
+  },
 ]
 
 const reveal = {
