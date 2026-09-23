@@ -4,10 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const WHO_WE_ARE_TEXT = 'Who We Are'
-const WHO_WE_ARE_DESCRIPTION = `Branding isn't decoration.
-It's business strategy made visible. 
-Lozinr is a Branding Studio helping ambitious businesses build brands with clarity, direction, and long-term 
-consistency.`
+const WHO_WE_ARE_DESCRIPTION = "Lozinr is a Brand Identity Studio for ambitious businesses that need more than visual decoration. We develop strategic brand foundations and distinctive identity systems that help businesses become clearer, more credible, and more memorable."
 
 export default function WhoWeAreSection() {
   return (

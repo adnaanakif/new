@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Services — Brand Strategy & Identity Systems | Lozinr Brand Identity Studio',
   description:
-    'Brand Foundation, Identity System, and Launch System — brand strategy and identity design built for startups and ambitious founders, using the LOZINR Method.',
+    'Brand Foundation, Identity System, and Launch System — brand strategy and identity design built for ambitious businesses, using the LOZINR Method.',
   keywords: [
     'brand strategy services',
     'brand identity design services',
