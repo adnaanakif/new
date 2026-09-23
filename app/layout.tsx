@@ -9,8 +9,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#11100f' },
-    { media: '(prefers-color-scheme: dark)', color: '#11100f' },
+    { media: '(prefers-color-scheme: light)', color: '#111111' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
   ],
   interactiveWidget: 'resizes-content',
 }
